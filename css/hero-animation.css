@@ -1,0 +1,244 @@
+/* ===== Hero Smart Parking Animation (Light · Centered Overlay) ===== */
+
+.hero.hero--centered {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 108px 0 88px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.hero-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-parking-scene {
+  position: absolute;
+  inset: -8% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 116%;
+}
+
+.hero-parking-scene svg {
+  width: 128vw;
+  min-width: 1280px;
+  max-width: 1800px;
+  height: auto;
+  max-height: 92vh;
+  display: block;
+}
+
+.hero-bg-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 36% 44% at 50% 40%, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(255, 255, 255, 0.25) 65%, transparent 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero--centered .hero-tag {
+  color: #111111;
+  border-bottom-color: rgba(0, 0, 0, 0.18);
+}
+
+.hero.hero--centered h1,
+.hero.hero--centered .hero-content h1 {
+  color: #0a0a0a;
+}
+
+.hero.hero--centered h1 .sub,
+.hero.hero--centered .hero-content h1 .sub {
+  color: #1a1a1a;
+}
+
+.hero.hero--centered p,
+.hero.hero--centered .hero-content p {
+  color: #222222;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero--centered .hero-buttons {
+  justify-content: center;
+}
+
+.hero--centered .btn-outline {
+  color: #111111;
+  border-color: rgba(0, 0, 0, 0.28);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.hero--centered .btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.hero--centered .scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gray-600);
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator__arrow {
+    animation: none !important;
+    opacity: 0.75;
+  }
+}
+
+/* Equipment color accents */
+.hero-signal-yellow { fill: #ffe08a; }
+.hero-signal-red { fill: #ffb8a8; }
+
+.hero-line-yellow { stroke: #f5c842; }
+.hero-line-coral { stroke: #ff9a88; }
+
+.hero-ring-yellow { stroke: #ffe08a; }
+.hero-ring-coral { stroke: #ffb8a8; }
+
+.hero-guide-arrow { stroke: #f5c842; }
+
+/* SVG motion */
+.hero-barrier-arm {
+  transform-origin: 118px 198px;
+  animation: heroBarrierCycle 6s ease-in-out infinite;
+}
+
+.hero-car-body {
+  animation: heroCarEnter 6s ease-in-out infinite;
+}
+
+.hero-lpr-scan {
+  animation: heroLprBlink 2.4s ease-in-out infinite;
+}
+
+.hero-slot-a {
+  fill: rgba(255, 240, 179, 0.45);
+  animation: heroSlotYellow 6s ease-in-out infinite;
+}
+
+.hero-slot-b {
+  fill: rgba(255, 216, 200, 0.4);
+  animation: heroSlotCoral 6s ease-in-out infinite 1.5s;
+}
+
+.hero-slot-c {
+  fill: rgba(255, 240, 179, 0.45);
+  animation: heroSlotYellow 6s ease-in-out infinite 3s;
+}
+
+.hero-data-line {
+  stroke-dasharray: 10 8;
+  animation: heroDataFlow 2.4s linear infinite;
+}
+
+.hero-display-text {
+  animation: heroDisplayUpdate 6s steps(1) infinite;
+}
+
+.hero-radar-ring {
+  transform-origin: 380px 145px;
+  animation: heroRadarPing 3s ease-out infinite;
+}
+
+@keyframes heroBarrierCycle {
+  0%, 22% { transform: rotate(0deg); }
+  32%, 68% { transform: rotate(-82deg); }
+  78%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes heroCarEnter {
+  0%, 10% { transform: translate(-140px, 0); opacity: 0; }
+  18%, 72% { transform: translate(0, 0); opacity: 1; }
+  82%, 100% { transform: translate(100px, 12px); opacity: 0; }
+}
+
+@keyframes heroLprBlink {
+  0%, 100% { opacity: 0.55; fill: #ffe08a; }
+  50% { opacity: 1; fill: #ffb8a8; }
+}
+
+@keyframes heroSlotYellow {
+  0%, 18%, 100% { fill: rgba(255, 240, 179, 0.35); }
+  28%, 72% { fill: rgba(255, 224, 138, 0.75); }
+}
+
+@keyframes heroSlotCoral {
+  0%, 18%, 100% { fill: rgba(255, 216, 200, 0.35); }
+  28%, 72% { fill: rgba(255, 184, 168, 0.78); }
+}
+
+@keyframes heroDataFlow {
+  to { stroke-dashoffset: -36; }
+}
+
+@keyframes heroDisplayUpdate {
+  0%, 35% { opacity: 1; }
+  36%, 100% { opacity: 0.75; }
+}
+
+@keyframes heroRadarPing {
+  0% { transform: scale(0.55); opacity: 0.85; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero.hero--centered {
+    padding: 92px 0 72px;
+  }
+
+  .hero-parking-scene svg {
+    width: 160vw;
+    min-width: 980px;
+    max-height: 78vh;
+  }
+
+  .hero-bg-fade {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 40%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 45%, rgba(255, 255, 255, 0.2) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-barrier-arm,
+  .hero-car-body,
+  .hero-lpr-scan,
+  .hero-slot-a,
+  .hero-slot-b,
+  .hero-slot-c,
+  .hero-data-line,
+  .hero-radar-ring {
+    animation: none !important;
+  }
+}

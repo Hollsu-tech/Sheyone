@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ko" class="page-home">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SHEYONE - AI 기반 스마트 주차 시스템 구축 및 운영. 베트남 Total Parking Management System">
+  <title>SHEYONE | Brand new paradigm of parking system</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lang.css">
+  <link rel="stylesheet" href="css/hero-animation.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/tech-animation.css">
+</head>
+<body data-i18n-title="home.title" data-i18n-desc="home.desc">
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-links">
+        <a href="mailto:sheyonevn@gmail.com">sheyonevn@gmail.com</a>
+        <a href="tel:+84977597121">097-759-7121</a>
+      </div>
+      <div class="top-links lang-switch">
+        <a href="#" class="lang-btn" data-lang="ko">KR</a>
+        <a href="#" class="lang-btn" data-lang="en">EN</a>
+        <a href="#" class="lang-btn" data-lang="vi">VN</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
+      <ul class="nav">
+        <li>
+          <a href="about.html" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a>
+            <a href="about.html#org" data-i18n="nav.org">조직 구성</a>
+            <a href="about.html#location" data-i18n="nav.location">오시는 길</a>
+          </div>
+        </li>
+        <li>
+          <a href="solutions.html" data-i18n="nav.solutions">사업분야</a>
+          <div class="dropdown">
+            <a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a>
+            <a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a>
+            <a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a>
+            <a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a>
+          </div>
+        </li>
+        <li><a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a></li>
+        <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+        <li>
+          <a href="contact.html" data-i18n="nav.contact">고객센터</a>
+          <div class="dropdown">
+            <a href="contact.html" data-i18n="nav.quote">견적 문의</a>
+            <a href="contact.html" data-i18n="nav.as">A/S 접수</a>
+          </div>
+        </li>
+      </ul>
+      <div class="header-cta">
+        <span class="phone">097-759-7121</span>
+        <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
+        <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero--centered">
+    <div class="hero-animation" aria-hidden="true">
+      <div class="hero-parking-scene">
+        <svg viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smart parking control system">
+          <defs>
+            <linearGradient id="heroRoad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#eef2f7"/>
+              <stop offset="100%" stop-color="#e4ebf3"/>
+            </linearGradient>
+            <linearGradient id="heroYellow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff3c4"/>
+              <stop offset="100%" stop-color="#ffe08a"/>
+            </linearGradient>
+            <linearGradient id="heroCoral" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffd4c8"/>
+              <stop offset="100%" stop-color="#ffb8a8"/>
+            </linearGradient>
+            <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d8eff8"/>
+              <stop offset="100%" stop-color="#b3ddf0"/>
+            </linearGradient>
+            <linearGradient id="heroSkyDeep" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c5e6f4"/>
+              <stop offset="100%" stop-color="#9ecfe6"/>
+            </linearGradient>
+            <filter id="heroGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Control center panel -->
+          <rect x="420" y="48" width="160" height="110" rx="8" fill="url(#heroSkyDeep)" stroke="#ffe08a" stroke-width="1.5" opacity="0.95"/>
+          <rect x="436" y="64" width="128" height="8" rx="2" fill="#fff3c4" opacity="0.85"/>
+          <rect x="436" y="80" width="92" height="6" rx="2" fill="#ffd4c8" opacity="0.7"/>
+          <rect x="436" y="94" width="108" height="6" rx="2" fill="#fff3c4" opacity="0.55"/>
+          <circle class="hero-lpr-scan hero-signal-yellow" cx="448" cy="118" r="5" filter="url(#heroGlowFilter)"/>
+          <circle class="hero-lpr-scan hero-signal-red" cx="462" cy="118" r="4" filter="url(#heroGlowFilter)"/>
+          <text x="478" y="122" fill="#4a8fad" font-size="11" font-family="sans-serif" letter-spacing="0.08em" font-weight="600">MONITORING</text>
+
+          <!-- Data connection lines -->
+          <path class="hero-data-line hero-line-yellow" d="M400 102 L320 145" stroke-width="2" opacity="0.75"/>
+          <path class="hero-data-line hero-line-coral" d="M420 158 L280 210" stroke-width="2" opacity="0.65" style="animation-delay:-1.2s"/>
+          <path class="hero-data-line hero-line-yellow" d="M500 158 L420 240" stroke-width="2" opacity="0.7" style="animation-delay:-0.6s"/>
+
+          <!-- LPR camera pole -->
+          <rect x="248" y="118" width="10" height="92" rx="2" fill="url(#heroSkyDeep)"/>
+          <rect x="232" y="108" width="42" height="28" rx="4" fill="url(#heroSky)" stroke="#ffe08a" stroke-width="1.5"/>
+          <circle class="hero-lpr-scan hero-signal-yellow" cx="253" cy="122" r="7"/>
+          <circle class="hero-radar-ring hero-ring-yellow" cx="380" cy="145" r="24" fill="none" stroke-width="2" opacity="0.65"/>
+          <circle class="hero-radar-ring hero-ring-coral" cx="380" cy="145" r="16" fill="none" stroke-width="1.5" opacity="0.5" style="animation-delay:-1.5s"/>
+
+          <!-- Entry lane -->
+          <path d="M40 280 L580 280 L580 340 L40 340 Z" fill="url(#heroRoad)" stroke="#c5d4e8" stroke-width="1"/>
+          <path d="M120 310 L500 310" stroke="#b8c9de" stroke-width="2" stroke-dasharray="18 14"/>
+
+          <!-- Barrier -->
+          <rect x="108" y="198" width="20" height="82" rx="3" fill="url(#heroSkyDeep)" stroke="#ffd4c8" stroke-width="1.2"/>
+          <g class="hero-barrier-arm">
+            <rect x="118" y="198" width="86" height="10" rx="2" fill="url(#heroYellow)" stroke="#f5c842" stroke-width="0.8"/>
+            <rect x="196" y="194" width="8" height="18" rx="1" fill="#ffb8a8"/>
+          </g>
+
+          <!-- Payment / display unit -->
+          <rect x="168" y="228" width="54" height="72" rx="6" fill="url(#heroSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
+          <rect x="178" y="240" width="34" height="22" rx="3" fill="#eef8fc" stroke="#ffd4c8" stroke-width="1"/>
+          <text class="hero-display-text" x="195" y="255" text-anchor="middle" fill="#4a8fad" font-size="9" font-family="monospace" font-weight="700">AI-LPR</text>
+          <rect x="178" y="268" width="34" height="5" rx="1" fill="#ffe08a" opacity="0.8"/>
+          <rect x="178" y="278" width="24" height="5" rx="1" fill="#ffb8a8" opacity="0.75"/>
+
+          <!-- Car -->
+          <g class="hero-car-body">
+            <rect x="248" y="292" width="96" height="38" rx="10" fill="url(#heroCoral)" stroke="#ff9a88" stroke-width="1.5"/>
+            <rect x="268" y="278" width="56" height="22" rx="8" fill="#ffd4c8" stroke="#ffb8a8" stroke-width="1"/>
+            <circle cx="268" cy="332" r="10" fill="#9ecfe6" stroke="#ffe08a" stroke-width="1.5"/>
+            <circle cx="324" cy="332" r="10" fill="#9ecfe6" stroke="#ffe08a" stroke-width="1.5"/>
+            <rect x="282" y="286" width="18" height="10" rx="2" fill="#fff3c4" opacity="0.9"/>
+            <rect x="308" y="286" width="18" height="10" rx="2" fill="#fff3c4" opacity="0.9"/>
+          </g>
+
+          <!-- Parking slots -->
+          <g opacity="0.98">
+            <rect class="hero-slot-a" x="380" y="352" width="72" height="38" rx="4" stroke="#f5c842" stroke-width="1.2"/>
+            <rect class="hero-slot-b" x="462" y="352" width="72" height="38" rx="4" stroke="#ff9a88" stroke-width="1.2"/>
+            <rect class="hero-slot-c" x="544" y="352" width="72" height="38" rx="4" stroke="#f5c842" stroke-width="1.2"/>
+            <g fill="#4a8fad" font-size="10" font-family="sans-serif" font-weight="600" text-anchor="middle">
+              <text x="416" y="376">P1</text>
+              <text x="498" y="376">P2</text>
+              <text x="580" y="376">P3</text>
+            </g>
+          </g>
+
+          <!-- Guidance arrows -->
+          <path class="hero-guide-arrow" d="M360 318 L392 318 L384 312 M392 318 L384 324" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <animate attributeName="opacity" values="0.35;1;0.35" dur="2s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-bg-fade"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+      <div class="hero-tag">SMART PARKING · Việt Nam</div>
+      <h1>SHEYONE<span class="sub" data-i18n="home.hero.sub">Brand new paradigm of parking system</span></h1>
+      <p data-i18n="home.hero.p">인공지능 기반 스마트 주차 시스템 구축 및 운영을 통해 도시의 주차 문제를 효율적으로 해결하고, 데이터 기반의 미래형 주차 인프라를 제공하는 스마트 모빌리티 기업입니다.</p>
+      <div class="hero-buttons">
+        <a href="solutions.html" class="btn btn-primary" data-i18n="btn.ourSolution">Our Solution</a>
+        <a href="contact.html" class="btn btn-outline" data-i18n="btn.contactUs">Contact Us</a>
+      </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <svg class="scroll-indicator__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 9 L12 15 L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stat-item">
+        <div class="number">24/7</div>
+        <div class="label" data-i18n-html="home.stat1.label">콜센터 · 원격관리<br>클라우드 서버 운영</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">AI</div>
+        <div class="label" data-i18n-html="home.stat2.label">AI 차량번호인식<br>스마트 주차</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">Total</div>
+        <div class="label" data-i18n-html="home.stat3.label">구축 · 운영 · 플랫폼<br>통합 솔루션</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">365</div>
+        <div class="label" data-i18n-html="home.stat4.label">365일 운영 지원<br>사후관리 · A/S</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="business">
+    <div class="container">
+      <div class="section-label">Business Model</div>
+      <h2 class="section-title" data-i18n-html="home.biz.title">구축 · 운영 · 플랫폼<br>통합 비즈니스 모델</h2>
+      <p class="section-desc" data-i18n="home.biz.desc">단계별 주차장 구축과 스마트 운영 전략으로 업무 중단 없이 24시간 안정적인 시스템 운영을 실현합니다.</p>
+      <div class="cards-grid-dark">
+        <div class="dark-card">
+          <h3 data-i18n="home.biz.card1.title">AI Smart Parking System</h3>
+          <p data-i18n="home.biz.card1.p">기존·신축 건물 주차장 및 신도시 건설현장에 주차관제 시스템 판매. 첨단 한국 기술 장비 도입과 현지 전문 기술 업체 운영.</p>
+        </div>
+        <div class="dark-card">
+          <h3 data-i18n="home.biz.card2.title">주차장 운영 사업</h3>
+          <p data-i18n="home.biz.card2.p">도심 미개발 토지 주차장 개발, 아파트·쇼핑몰·오피스·공공 주차장 무인 운영. 수익 공유 모델 및 데이터 기반 주차 관리.</p>
+        </div>
+        <div class="dark-card">
+          <h3 data-i18n="home.biz.card3.title">스마트 주차 플랫폼</h3>
+          <p data-i18n="home.biz.card3.p">실시간 데이터 관리, 24시간 콜센터 운영 및 원격관리. 모바일 App 서비스, 스마트시티 연계 확장.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="technology" style="padding-top:0;">
+    <div class="container">
+      <div class="section-label">Core Technology</div>
+      <h2 class="section-title" data-i18n="home.tech.title">당사만의 핵심 차별화 기술</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-lpr" data-i18n="home.tech.tab1">AI 차량번호인식</button>
+        <button class="tab-btn" data-tab="tab-pay" data-i18n="home.tech.tab2">무인 결제</button>
+        <button class="tab-btn" data-tab="tab-control" data-i18n="home.tech.tab3">주차관제</button>
+        <button class="tab-btn" data-tab="tab-data" data-i18n="home.tech.tab4">데이터 플랫폼</button>
+      </div>
+      <div class="tab-content active" id="tab-lpr">
+        <div class="solution-panel">
+          <div>
+            <h3 data-i18n="home.tech.lpr.title">AI 차량번호인식 (LPR)</h3>
+            <p data-i18n="home.tech.lpr.p">기존 차량번호인식 시스템은 입·출차 이미지 비교만 활용합니다. SHEYONE은 AI 기술이 탑재된 차량번호인식 기술을 도입하여 인식률과 운영 효율을 획기적으로 향상시킵니다.</p>
+            <ul class="feature-list">
+              <li data-i18n="home.tech.lpr.f1">AI 기반 실시간 번호판 인식</li>
+              <li data-i18n="home.tech.lpr.f2">입·출차 자동 기록 및 관리</li>
+              <li data-i18n="home.tech.lpr.f3">도난 방지를 위한 차량 이미지 저장</li>
+            </ul>
+          </div>
+          <div class="panel-visual" aria-hidden="true">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI LPR recognition">
+              <defs>
+                <linearGradient id="techLprRoad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#eef2f7"/><stop offset="100%" stop-color="#e4ebf3"/></linearGradient>
+                <linearGradient id="techLprSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8eff8"/><stop offset="100%" stop-color="#b3ddf0"/></linearGradient>
+                <linearGradient id="techLprSkyDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c5e6f4"/><stop offset="100%" stop-color="#9ecfe6"/></linearGradient>
+                <linearGradient id="techLprCoral" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffd4c8"/><stop offset="100%" stop-color="#ffb8a8"/></linearGradient>
+              </defs>
+              <rect class="tech-scene-bg" width="400" height="300" rx="6"/>
+              <rect x="24" y="228" width="352" height="48" rx="4" fill="url(#techLprRoad)" stroke="#c5d4e8" stroke-width="1" opacity="0.85"/>
+              <path d="M60 252 L340 252" stroke="#b8c9de" stroke-width="1.5" stroke-dasharray="14 10"/>
+              <rect x="58" y="108" width="8" height="72" rx="2" fill="url(#techLprSkyDeep)"/>
+              <rect x="46" y="98" width="32" height="22" rx="3" fill="url(#techLprSky)" stroke="#ffe08a" stroke-width="1.2"/>
+              <circle class="hero-lpr-scan hero-signal-yellow" cx="62" cy="109" r="5"/>
+              <path class="tech-scan-beam" d="M70 112 L168 196" stroke="#f5c842" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              <circle class="hero-radar-ring hero-ring-yellow" cx="196" cy="206" r="28" fill="none" stroke-width="2" opacity="0.6"/>
+              <circle class="hero-radar-ring hero-ring-coral" cx="196" cy="206" r="18" fill="none" stroke-width="1.5" opacity="0.45" style="animation-delay:-1.2s"/>
+              <rect x="132" y="188" width="128" height="44" rx="10" fill="url(#techLprCoral)" stroke="#ff9a88" stroke-width="1.2"/>
+              <rect x="152" y="176" width="72" height="18" rx="6" fill="#ffd4c8" stroke="#ffb8a8" stroke-width="0.8"/>
+              <rect class="tech-plate-detected" x="168" y="214" width="56" height="14" rx="2" fill="#fff8e6" stroke="#f5c842" stroke-width="1"/>
+              <text x="196" y="225" text-anchor="middle" fill="#4a8fad" font-size="8" font-family="monospace" font-weight="700">51A-12345</text>
+              <g class="tech-result-panel">
+                <rect x="262" y="36" width="118" height="72" rx="6" fill="url(#techLprSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
+                <text class="tech-label" x="274" y="58" font-size="8">AI-LPR MATCH</text>
+                <rect x="274" y="66" width="94" height="8" rx="2" fill="#fff3c4" opacity="0.85"/>
+                <rect x="274" y="80" width="72" height="6" rx="2" fill="#ffd4c8" opacity="0.75"/>
+                <circle class="hero-lpr-scan hero-signal-yellow" cx="284" cy="96" r="4"/>
+                <text x="296" y="99" fill="#4a8fad" font-size="7" font-family="monospace" font-weight="700">51A-12345</text>
+              </g>
+              <path class="hero-data-line hero-line-yellow" d="M224 206 L262 72" stroke-width="1.5" opacity="0.7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-pay">
+        <div class="solution-panel">
+          <div>
+            <h3 data-i18n="home.tech.pay.title">무인 결제 시스템</h3>
+            <p data-i18n="home.tech.pay.p">근무자가 직접 주차요금을 정산하여 계산 과정의 오류 발생 및 시간 소요 문제를 해결합니다. 차량번호인식 데이터로 주차요금 자동정산 및 무인 결제를 실현합니다.</p>
+            <ul class="feature-list">
+              <li data-i18n="home.tech.pay.f1">자동 요금 정산 및 무인 출차</li>
+              <li data-i18n="home.tech.pay.f2">QR코드 모바일 결제 연동</li>
+              <li data-i18n="home.tech.pay.f3">정기권 · 할인권 자동 적용</li>
+            </ul>
+          </div>
+          <div class="panel-visual" aria-hidden="true">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Unmanned payment">
+              <defs>
+                <linearGradient id="techPaySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8eff8"/><stop offset="100%" stop-color="#b3ddf0"/></linearGradient>
+                <linearGradient id="techPaySkyDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c5e6f4"/><stop offset="100%" stop-color="#9ecfe6"/></linearGradient>
+                <linearGradient id="techPayYellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff3c4"/><stop offset="100%" stop-color="#ffe08a"/></linearGradient>
+                <linearGradient id="techPayCoral" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffd4c8"/><stop offset="100%" stop-color="#ffb8a8"/></linearGradient>
+              </defs>
+              <rect class="tech-scene-bg" width="400" height="300" rx="6"/>
+              <rect x="228" y="72" width="68" height="168" rx="8" fill="url(#techPaySkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
+              <rect x="242" y="88" width="40" height="48" rx="4" fill="#eef8fc" stroke="#ffd4c8" stroke-width="1"/>
+              <text class="tech-pay-amount tech-label" x="262" y="108" text-anchor="middle" font-size="9">15,000₫</text>
+              <rect x="242" y="142" width="40" height="6" rx="1" fill="#ffe08a" opacity="0.85"/>
+              <rect x="242" y="154" width="28" height="6" rx="1" fill="#ffb8a8" opacity="0.75"/>
+              <rect x="248" y="178" width="28" height="18" rx="3" fill="url(#techPayYellow)" stroke="#f5c842" stroke-width="0.8"/>
+              <text x="262" y="191" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="700">PAY</text>
+              <rect x="48" y="96" width="52" height="96" rx="8" fill="url(#techPaySkyDeep)" stroke="#ff9a88" stroke-width="1"/>
+              <rect class="tech-qr-pulse" x="58" y="112" width="32" height="32" rx="2" fill="#fff" stroke="#4a8fad" stroke-width="1"/>
+              <rect x="62" y="116" width="8" height="8" fill="#4a8fad"/><rect x="78" y="116" width="8" height="8" fill="#4a8fad"/>
+              <rect x="62" y="132" width="8" height="8" fill="#4a8fad"/><rect x="78" y="132" width="8" height="8" fill="#ffe08a"/>
+              <text class="tech-label" x="74" y="162" text-anchor="middle" font-size="7">QR PAY</text>
+              <rect x="118" y="196" width="88" height="36" rx="8" fill="url(#techPayCoral)" stroke="#ff9a88" stroke-width="1"/>
+              <rect x="134" y="218" width="56" height="10" rx="2" fill="#fff8e6" stroke="#f5c842" stroke-width="0.8"/>
+              <text x="162" y="226" text-anchor="middle" fill="#4a8fad" font-size="7" font-family="monospace" font-weight="700">51A-12345</text>
+              <path class="hero-data-line hero-line-coral" d="M206 214 L228 130" stroke-width="1.5" opacity="0.65"/>
+              <path class="hero-data-line hero-line-yellow" d="M100 148 L228 118" stroke-width="1.5" opacity="0.6" style="animation-delay:-0.8s"/>
+              <g class="tech-pay-check">
+                <circle cx="318" cy="168" r="14" fill="#ffe08a"/>
+                <path d="M312 168 L316 172 L326 162" stroke="#4a8fad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-control">
+        <div class="solution-panel">
+          <div>
+            <h3 data-i18n="home.tech.ctrl.title">주차관제 시스템</h3>
+            <p data-i18n="home.tech.ctrl.p">장비업체 부재로 인한 고장 시 신속한 유지보수 불가 문제를 해결합니다. 첨단 한국 기술의 장비 도입과 현지 전문 기술 업체 운영으로 24시간 안정적 시스템을 보장합니다.</p>
+            <ul class="feature-list">
+              <li data-i18n="home.tech.ctrl.f1">LPR, 자동차단기, 무인요금정산기</li>
+              <li data-i18n="home.tech.ctrl.f2">24시간 콜센터 · 원격제어</li>
+              <li data-i18n="home.tech.ctrl.f3">클라우드 서버 기반 통합 관제</li>
+            </ul>
+          </div>
+          <div class="panel-visual" aria-hidden="true">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parking control system">
+              <defs>
+                <linearGradient id="techCtrlSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8eff8"/><stop offset="100%" stop-color="#b3ddf0"/></linearGradient>
+                <linearGradient id="techCtrlSkyDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c5e6f4"/><stop offset="100%" stop-color="#9ecfe6"/></linearGradient>
+                <linearGradient id="techCtrlYellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff3c4"/><stop offset="100%" stop-color="#ffe08a"/></linearGradient>
+              </defs>
+              <rect class="tech-scene-bg" width="400" height="300" rx="6"/>
+              <rect x="118" y="32" width="164" height="108" rx="8" fill="url(#techCtrlSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
+              <text class="tech-label" x="132" y="54" font-size="8">CONTROL CENTER</text>
+              <rect x="132" y="64" width="136" height="8" rx="2" fill="#fff3c4" opacity="0.85"/>
+              <rect x="132" y="78" width="96" height="6" rx="2" fill="#ffd4c8" opacity="0.7"/>
+              <rect x="132" y="90" width="112" height="6" rx="2" fill="#fff3c4" opacity="0.55"/>
+              <circle class="tech-ctrl-node" cx="146" cy="114" r="5"/>
+              <circle class="tech-ctrl-node tech-ctrl-node--b" cx="162" cy="114" r="4"/>
+              <circle class="tech-ctrl-node tech-ctrl-node--c" cx="176" cy="114" r="4"/>
+              <text x="188" y="117" fill="#4a8fad" font-size="7" font-weight="600">ONLINE</text>
+              <rect x="48" y="178" width="10" height="58" rx="2" fill="url(#techCtrlSkyDeep)"/>
+              <rect x="38" y="168" width="28" height="16" rx="3" fill="url(#techCtrlSky)" stroke="#ffe08a" stroke-width="1"/>
+              <circle class="hero-lpr-scan hero-signal-yellow" cx="52" cy="176" r="4"/>
+              <text class="tech-label" x="53" y="248" text-anchor="middle" font-size="7">LPR</text>
+              <rect x="168" y="178" width="10" height="58" rx="2" fill="url(#techCtrlSkyDeep)" stroke="#ffd4c8" stroke-width="0.8"/>
+              <g class="tech-ctrl-barrier">
+                <rect x="178" y="178" width="48" height="8" rx="2" fill="url(#techCtrlYellow)" stroke="#f5c842" stroke-width="0.8"/>
+                <rect x="220" y="174" width="6" height="14" rx="1" fill="#ffb8a8"/>
+              </g>
+              <text class="tech-label" x="188" y="248" text-anchor="middle" font-size="7">BARRIER</text>
+              <rect x="292" y="188" width="48" height="64" rx="6" fill="url(#techCtrlSkyDeep)" stroke="#ffe08a" stroke-width="1"/>
+              <rect x="302" y="200" width="28" height="20" rx="2" fill="#eef8fc" stroke="#ffd4c8" stroke-width="0.8"/>
+              <text class="tech-label" x="316" y="248" text-anchor="middle" font-size="7">PAY</text>
+              <path class="hero-data-line hero-line-yellow" d="M58 226 L160 140" stroke-width="1.5" opacity="0.7"/>
+              <path class="hero-data-line hero-line-coral" d="M200 140 L316 210" stroke-width="1.5" opacity="0.65" style="animation-delay:-1s"/>
+              <path class="hero-data-line hero-line-yellow" d="M200 140 L188 210" stroke-width="1.5" opacity="0.6" style="animation-delay:-0.5s"/>
+              <rect x="168" y="262" width="64" height="24" rx="4" fill="rgba(75,172,198,0.15)" stroke="#4BACC6" stroke-width="0.8"/>
+              <text x="200" y="278" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="600">24/7 REMOTE</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-data">
+        <div class="solution-panel">
+          <div>
+            <h3 data-i18n="home.tech.data.title">데이터 분석 플랫폼</h3>
+            <p data-i18n="home.tech.data.p">단순한 입·출차 요금정산으로 주차장 현황 관리 부재 문제를 해결합니다. 주차장 이용현황 및 요금정산 데이터를 App에서 실시간 관리합니다.</p>
+            <ul class="feature-list">
+              <li data-i18n="home.tech.data.f1">실시간 주차 현황 모니터링</li>
+              <li data-i18n="home.tech.data.f2">혼잡도 · 요금 정책 최적화</li>
+              <li data-i18n="home.tech.data.f3">모바일 App 자동결제 · 예약</li>
+            </ul>
+          </div>
+          <div class="panel-visual" aria-hidden="true">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data analytics platform">
+              <defs>
+                <linearGradient id="techDataSkyDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c5e6f4"/><stop offset="100%" stop-color="#9ecfe6"/></linearGradient>
+                <linearGradient id="techDataSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8eff8"/><stop offset="100%" stop-color="#b3ddf0"/></linearGradient>
+              </defs>
+              <rect class="tech-scene-bg" width="400" height="300" rx="6"/>
+              <rect x="36" y="40" width="220" height="148" rx="8" fill="url(#techDataSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
+              <text class="tech-label" x="52" y="62" font-size="8">PARKING ANALYTICS</text>
+              <circle class="tech-live-dot" cx="238" cy="56" r="4"/>
+              <text x="246" y="59" fill="#4a8fad" font-size="7" font-weight="600">LIVE</text>
+              <rect x="52" y="72" width="188" height="96" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+              <rect class="tech-bar-a" x="148" y="120" width="20" height="40" rx="2" fill="#ffe08a"/>
+              <rect class="tech-bar-b" x="188" y="108" width="20" height="52" rx="2" fill="#ffb8a8"/>
+              <rect class="tech-bar-c" x="228" y="100" width="20" height="60" rx="2" fill="#ffe08a"/>
+              <path class="tech-data-stream hero-line-yellow" d="M72 148 L120 148" stroke-width="1.5" opacity="0.6"/>
+              <path class="tech-data-stream hero-line-coral" d="M72 160 L136 160" stroke-width="1.5" opacity="0.55" style="animation-delay:-0.6s"/>
+              <path class="tech-data-stream hero-line-yellow" d="M72 172 L104 172" stroke-width="1.5" opacity="0.5" style="animation-delay:-1.2s"/>
+              <text class="tech-app-stat" x="52" y="148" fill="#b3ddf0" font-size="7">Occupancy 78%</text>
+              <text class="tech-app-stat" x="52" y="162" fill="#b3ddf0" font-size="7">Revenue +12%</text>
+              <rect x="278" y="88" width="72" height="128" rx="10" fill="url(#techDataSkyDeep)" stroke="#ff9a88" stroke-width="1"/>
+              <rect x="288" y="98" width="52" height="72" rx="4" fill="#eef8fc" stroke="#ffd4c8" stroke-width="0.8"/>
+              <rect x="296" y="108" width="36" height="8" rx="2" fill="#ffe08a" opacity="0.85"/>
+              <rect x="296" y="122" width="24" height="6" rx="1" fill="#ffb8a8" opacity="0.75"/>
+              <rect x="296" y="136" width="30" height="6" rx="1" fill="#fff3c4" opacity="0.7"/>
+              <rect x="296" y="150" width="20" height="12" rx="2" fill="url(#techDataSky)" stroke="#4BACC6" stroke-width="0.8"/>
+              <text class="tech-label" x="314" y="230" text-anchor="middle" font-size="7">MOBILE APP</text>
+              <path class="hero-data-line hero-line-yellow" d="M256 120 L278 130" stroke-width="1.5" opacity="0.65"/>
+              <path class="hero-data-line hero-line-coral" d="M256 148 L278 148" stroke-width="1.5" opacity="0.55" style="animation-delay:-0.8s"/>
+              <rect x="52" y="208" width="88" height="28" rx="4" fill="rgba(255,240,179,0.2)" stroke="#f5c842" stroke-width="0.8"/>
+              <text x="96" y="226" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="600">P1 · P2 · P3</text>
+              <rect x="156" y="208" width="88" height="28" rx="4" fill="rgba(255,216,200,0.2)" stroke="#ff9a88" stroke-width="0.8"/>
+              <text x="200" y="226" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="600">REAL-TIME</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="areas">
+    <div class="container">
+      <div class="section-label">Business Areas</div>
+      <h2 class="section-title" data-i18n="home.area.title">주차장 Total Solution</h2>
+      <p class="section-desc" data-i18n="home.area.desc">첨단 AI Parking 시스템 구축부터 운영까지 전 과정의 체계적인 관리 및 모바일 고객 서비스 제공. 투명한 관리운영과 차별화된 사후관리 서비스.</p>
+      <div class="cards-grid">
+        <div class="card"><div class="card-num">01</div><h3 data-i18n="home.area.c1t">주차관제 장비</h3><p data-i18n="home.area.c1p">차량번호인식기(LPR), 자동차단기, 무인요금정산기 등 핵심 장비 공급 및 설치.</p></div>
+        <div class="card"><div class="card-num">02</div><h3 data-i18n="home.area.c2t">영상유도 장비</h3><p data-i18n="home.area.c2p">초음파 유도시스템, 영상관리 유도 시스템으로 주차 편의성 극대화.</p></div>
+        <div class="card"><div class="card-num">03</div><h3 data-i18n="home.area.c3t">주차장 개발</h3><p data-i18n="home.area.c3p">부설주차장, 노외·노상주차장 등 유휴 부지 활용 주차장 개발 및 운영.</p></div>
+        <div class="card"><div class="card-num">04</div><h3 data-i18n="home.area.c4t">전기차 충전</h3><p data-i18n="home.area.c4p">전기차·전기오토바이 완속/중속/급속 충전기 설치 및 통합 관리.</p></div>
+        <div class="card"><div class="card-num">05</div><h3 data-i18n="home.area.c5t">주차장 운영</h3><p data-i18n="home.area.c5p">아파트, 쇼핑몰, 오피스, 공공 주차장 무인 운영 및 수익 공유 모델.</p></div>
+        <div class="card"><div class="card-num">06</div><h3 data-i18n="home.area.c6t">사후관리 · A/S</h3><p data-i18n="home.area.c6p">시스템 유지보수, 사고처리, 장비교체 등 차별화된 사후관리 서비스.</p><a href="contact.html" class="link" data-i18n="home.area.link">문의하기 →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="advantage">
+    <div class="container">
+      <div class="section-label">Competitive Advantage</div>
+      <h2 class="section-title" data-i18n="home.adv.title">AI · 운영 · 데이터 · 현지 역량</h2>
+      <div class="revenue-grid">
+        <div class="revenue-item"><div class="icon">🤖</div><h4 data-i18n="home.adv.c1t">AI 스마트 주차 기술</h4><p data-i18n="home.adv.c1p">LPR, 무인 정산, 실시간 관제로 수작업 대비 효율성·정확도 획기적 향상</p></div>
+        <div class="revenue-item"><div class="icon">🔗</div><h4 data-i18n="home.adv.c2t">구축+운영 통합</h4><p data-i18n="home.adv.c2p">구축부터 운영·유지보수까지 통합 제공, 초기 투자 부담 절감</p></div>
+        <div class="revenue-item"><div class="icon">📊</div><h4 data-i18n="home.adv.c3t">데이터 기반 최적화</h4><p data-i18n="home.adv.c3p">혼잡도 관리, 요금 정책 최적화, 운영 효율 개선</p></div>
+        <div class="revenue-item"><div class="icon">🌏</div><h4 data-i18n="home.adv.c4t">현지 맞춤형 역량</h4><p data-i18n="home.adv.c4p">베트남 시장 환경에 맞춘 유연한 사업 구조와 파트너십 기반 확장</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container philosophy-block">
+      <div class="section-label">Our Philosophy</div>
+      <blockquote data-i18n="home.phil.quote">"우리는 주차 공간을 넘어, 도시의 흐름을 설계합니다."</blockquote>
+      <p class="quote-sub" data-i18n-html="home.phil.sub">스마트한 도시의 미래, 지금 함께 시작하십시오.<br>주차 인프라 구축에서 시작하여 운영, 데이터, 그리고 플랫폼으로 확장하며 도시의 이동과 공간을 더욱 효율적으로 연결하는 기업으로 성장하고 있습니다.</p>
+      <div class="values-row">
+        <div class="value-box"><h4 data-i18n="home.phil.v1t">모바일 App</h4><p data-i18n="home.phil.v1p">예약 · 정기권 · 자동결제</p></div>
+        <div class="value-box"><h4 data-i18n="home.phil.v2t">원격제어</h4><p data-i18n="home.phil.v2p">실시간 모니터링 · 신속 대응</p></div>
+        <div class="value-box"><h4 data-i18n="home.phil.v3t">데이터 관리</h4><p data-i18n="home.phil.v3p">엄격한 데이터 관리 체계</p></div>
+        <div class="value-box"><h4 data-i18n="home.phil.v4t">24H 콜센터</h4><p data-i18n="home.phil.v4p">365일 24시간 운영</p></div>
+        <div class="value-box"><h4 data-i18n="home.phil.v5t">클라우드</h4><p data-i18n="home.phil.v5p">통합 주차관리 시스템</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="contact">
+    <div class="container">
+      <div class="section-label">Contact Us</div>
+      <h2 class="section-title" data-i18n-html="home.contact.title">We thank you for your caring support<br>SHEYONE always</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="info-item"><div><div class="label" data-i18n="label.telephone">Telephone</div><div class="value">097-759-7121</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.email">Email</div><div class="value">sheyonevn@gmail.com</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.address">Address</div><div class="value">BT1-A61, Khu đô thị Bắc An Khánh, Hoài Đức, Hà Nội 10000 Viet Nam</div></div></div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" required></div>
+            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" required></div>
+          </div>
+          <div class="form-group">
+            <label><span data-i18n="form.inquiryType">문의항목</span> <span class="req">*</span></label>
+            <select required>
+              <option value="" data-i18n="form.select">선택</option>
+              <option data-i18n="home.form.opt1">주차관제 시스템 구축</option>
+              <option data-i18n="home.form.opt2">주차장 운영</option>
+              <option data-i18n="home.form.opt3">365렌탈 / 유지보수</option>
+              <option data-i18n="home.form.opt4">A/S 접수</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
+          <label class="form-check"><input type="checkbox" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="SHEYONE">
+          <p data-i18n-html="footer.tagline">Brand new paradigm of parking system.<br>Total Parking Management System — Việt Nam</p>
+        </div>
+        <div><h4 data-i18n="footer.about">회사소개</h4><ul class="footer-links"><li><a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a></li><li><a href="about.html#org" data-i18n="footer.org">조직 구성</a></li></ul></div>
+        <div><h4 data-i18n="footer.solutions">사업분야</h4><ul class="footer-links"><li><a href="solutions.html" data-i18n="footer.model">사업 모델</a></li><li><a href="solutions.html#tech" data-i18n="footer.tech">핵심 기술</a></li><li><a href="solutions.html#revenue" data-i18n="footer.revenue">수익 구조</a></li></ul></div>
+        <div><h4 data-i18n="footer.support">고객지원</h4><ul class="footer-links"><li><a href="contact.html" data-i18n="footer.quote">견적 문의</a></li><li><a href="projects.html" data-i18n="footer.projects">주요 프로젝트</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 사업자번호 0111383238 · 대표 한동우</p>
+        <p data-i18n="footer.copy">© Copyright SHEYONE Corp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-cta">
+    <a href="contact.html" class="float-btn" title="문의">✉</a>
+    <button class="float-btn" title="TOP" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

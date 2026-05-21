@@ -1,0 +1,17 @@
+/* Language switcher styles */
+.lang-switch { display: flex; gap: 4px; }
+.lang-switch .lang-btn {
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  transition: all var(--transition);
+}
+.lang-switch .lang-btn:hover { color: var(--accent); }
+.lang-switch .lang-btn.active {
+  color: var(--accent);
+  border-color: rgba(75, 172, 198, 0.45);
+  background: rgba(75, 172, 198, 0.12);
+}

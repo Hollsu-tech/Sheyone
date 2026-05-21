@@ -1,0 +1,196 @@
+/* Homepage typography scale (test.html only) */
+html.page-home {
+  font-size: calc(16px * 1.15);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+html.page-home[lang="en"],
+html.page-home[lang="vi"] {
+  word-break: normal;
+}
+
+/* Grid/flex: allow text to wrap instead of clipping */
+html.page-home .stats-bar .container {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+html.page-home .cards-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+html.page-home .cards-grid-dark {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+html.page-home .revenue-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+html.page-home .values-row {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+html.page-home .solution-panel {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+html.page-home .contact-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+}
+
+html.page-home .footer-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+html.page-home :where(
+  .stat-item,
+  .card,
+  .dark-card,
+  .revenue-item,
+  .value-box,
+  .tab-btn,
+  .solution-panel > div,
+  .feature-list li,
+  .philosophy-block,
+  .philosophy-block blockquote,
+  .philosophy-block .quote-sub,
+  .footer-brand,
+  .footer-links,
+  .footer-bottom,
+  .info-item,
+  .form-check,
+  .form-group label,
+  .hero-content,
+  .hero-content h1,
+  .hero-content p,
+  .section-label,
+  .section-title,
+  .section-desc
+) {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+html.page-home[lang="ko"] :where(
+  .stat-item,
+  .card,
+  .dark-card,
+  .revenue-item,
+  .value-box,
+  .tab-btn,
+  .solution-panel > div,
+  .feature-list li,
+  .philosophy-block blockquote,
+  .philosophy-block .quote-sub,
+  .info-item .value,
+  .form-check,
+  .hero-content h1 .sub,
+  .section-title,
+  .section-desc,
+  .dark-card h3,
+  .dark-card p,
+  .card h3,
+  .card p
+) {
+  word-break: keep-all;
+}
+
+/* Tabs & buttons: wrap whole words, never clip single line */
+html.page-home .tab-btn {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.45;
+  hyphens: none;
+}
+
+html.page-home .btn:not(.header-cta .btn):not(.lang-btn) {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+}
+
+html.page-home .hero-tag {
+  white-space: normal;
+}
+
+html.page-home .section-label {
+  letter-spacing: 0.1em;
+  white-space: normal;
+}
+
+html.page-home[lang="ko"] .hero h1 .sub,
+html.page-home[lang="ko"] .hero.hero--centered .hero-content h1 .sub {
+  letter-spacing: 0.04em;
+}
+
+html.page-home .stat-item .label {
+  line-height: 1.55;
+}
+
+html.page-home .value-box {
+  padding: 24px 12px;
+}
+
+html.page-home .value-box h4 {
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  html.page-home .values-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  html.page-home .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  html.page-home .values-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Keep top bar & header at original size */
+html.page-home .top-bar {
+  font-size: calc(0.94rem / 1.15);
+}
+
+html.page-home .lang-switch .lang-btn {
+  font-size: calc(0.9rem / 1.15);
+}
+
+html.page-home .nav > li > a {
+  font-size: clamp(calc(1.1rem / 1.15), calc(1.26vw / 1.15), calc(1.27rem / 1.15));
+}
+
+html.page-home .dropdown a {
+  font-size: calc(1.02rem / 1.15);
+}
+
+html.page-home .header-cta .phone {
+  font-size: clamp(calc(1.06rem / 1.15), calc(1.2vw / 1.15), calc(1.18rem / 1.15));
+}
+
+html.page-home .header-cta .btn {
+  font-size: clamp(calc(0.94rem / 1.15), calc(1.1vw / 1.15), calc(1.06rem / 1.15));
+}
+
+html.page-home[lang="ko"] .nav > li > a {
+  font-size: clamp(calc(1.15rem / 1.15), calc(1.34vw / 1.15), calc(1.3rem / 1.15));
+}
+
+html.page-home[lang="en"] .nav > li > a {
+  font-size: clamp(calc(1.03rem / 1.15), calc(1.18vw / 1.15), calc(1.18rem / 1.15));
+}
+
+html.page-home[lang="vi"] .nav > li > a {
+  font-size: clamp(calc(1.1rem / 1.15), calc(1.3vw / 1.15), calc(1.25rem / 1.15));
+}
+
+html.page-home .footer-brand img {
+  height: var(--logo-height);
+  width: auto;
+  margin-bottom: 24px;
+}

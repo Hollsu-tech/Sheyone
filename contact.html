@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고객센터 | SHEYONE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lang.css">
+</head>
+<body data-i18n-title="contact.title">
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-links"><a href="mailto:sheyonevn@gmail.com">sheyonevn@gmail.com</a></div>
+      <div class="top-links lang-switch">
+        <a href="#" class="lang-btn" data-lang="ko">KR</a>
+        <a href="#" class="lang-btn" data-lang="en">EN</a>
+        <a href="#" class="lang-btn" data-lang="vi">VN</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
+      <ul class="nav">
+        <li><a href="about.html" data-i18n="nav.about">회사소개</a></li>
+        <li><a href="solutions.html" data-i18n="nav.solutions">사업분야</a></li>
+        <li><a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a></li>
+        <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+        <li><a href="contact.html" class="active" data-i18n="nav.contact">고객센터</a></li>
+      </ul>
+      <div class="header-cta">
+        <span class="phone">097-759-7121</span>
+        <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1 data-i18n="contact.breadcrumb">고객센터</h1>
+      <div class="breadcrumb"><a href="test.html" data-i18n="breadcrumb.home">HOME</a> &gt; <span data-i18n="contact.breadcrumb">고객센터</span></div>
+    </div>
+  </div>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-label">Contact Us</div>
+      <h2 class="section-title" data-i18n-html="contact.heading">We thank you for your caring support<br>SHEYONE always</h2>
+      <p class="section-desc" data-i18n="contact.desc">주차관제 시스템 구축, 주차장 운영, 유지보수, A/S 등 모든 문의를 환영합니다.</p>
+
+      <div class="contact-grid">
+        <div>
+          <div class="info-item"><div><div class="label" data-i18n="label.telephone">Telephone</div><div class="value">097-759-7121</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.email">Email</div><div class="value">sheyonevn@gmail.com</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.company">Company</div><div class="value" data-i18n-html="contact.companyVal">SHEYONE COMPANY LIMITED<br>사업자번호 0111383238</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.address">Address</div><div class="value">BT1-A61, Khu đô thị Bắc An Khánh, Hoài Đức, Hà Nội 10000 Viet Nam</div></div></div>
+          <div style="margin-top:32px;padding:28px;background:var(--white);border:1px solid var(--gray-200);">
+            <h4 style="margin-bottom:14px;color:var(--primary);font-size:0.95rem;" data-i18n="form.serviceGuide">서비스 안내</h4>
+            <p style="font-size:0.88rem;color:var(--gray-600);line-height:1.8;" data-i18n-html="form.serviceList">✓ 24시간 콜센터 · 원격관리<br>✓ 클라우드 서버 기반 통합 주차관리<br>✓ 첨단 한국 기술 장비 + 현지 A/S<br>✓ 구축 · 운영 · 플랫폼 통합 솔루션</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3 style="margin-bottom:24px;font-family:var(--serif);font-size:1.3rem;letter-spacing:0.04em;" data-i18n="form.online">온라인 문의</h3>
+          <div class="form-group">
+            <label><span data-i18n="form.inquiryType">문의항목</span> <span class="req">*</span></label>
+            <select required>
+              <option value="" data-i18n="form.select">선택해주세요</option>
+              <optgroup data-i18n-label="form.group.build">
+                <option data-i18n="form.opt.build1">주차관제 시스템 구축 / 견적</option>
+                <option data-i18n="form.opt.build2">영상유도 · EV충전 설치</option>
+                <option data-i18n="form.opt.build3">건설현장 · 신축건물</option>
+              </optgroup>
+              <optgroup data-i18n-label="form.group.ops">
+                <option data-i18n="form.opt.ops1">주차장 운영 / 위탁</option>
+                <option data-i18n="form.opt.ops2">공공 · 노상 주차장</option>
+                <option data-i18n="form.opt.ops3">유휴부지 개발</option>
+              </optgroup>
+              <optgroup data-i18n-label="form.group.other">
+                <option data-i18n="form.opt.other1">A/S · 유지보수</option>
+                <option data-i18n="form.opt.other2">파트너십 / 제휴</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" required data-i18n-placeholder="form.namePh" placeholder="홍길동 / Company Name"></div>
+            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" required placeholder="097-000-0000"></div>
+          </div>
+          <div class="form-group"><label data-i18n="form.region">지역 / 주소</label><input type="text" data-i18n-placeholder="form.regionPh" placeholder="시/도, 구역 또는 주소"></div>
+          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
+          <div class="form-group"><label data-i18n="form.emailOpt">이메일 (선택)</label><input type="email" placeholder="example@email.com"></div>
+          <label class="form-check"><input type="checkbox" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;">
+        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 대표 한동우 · © Copyright SHEYONE Corp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-cta"><button class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button></div>
+  <script src="js/i18n.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

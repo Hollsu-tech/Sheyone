@@ -1,0 +1,153 @@
+/* ===== Tech Tab Panel Animations ===== */
+
+.panel-visual {
+  aspect-ratio: 4/3;
+  background: rgba(15, 35, 64, 0.55);
+  border: 1px solid rgba(79, 129, 189, 0.28);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.panel-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tech-scene-bg {
+  fill: rgba(26, 51, 88, 0.35);
+}
+
+.tech-label {
+  fill: #4a8fad;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* LPR */
+.tech-scan-beam {
+  transform-origin: 88px 118px;
+  animation: techScanBeam 3s ease-in-out infinite;
+}
+
+.tech-plate-detected {
+  animation: techPlateFlash 3s ease-in-out infinite;
+}
+
+.tech-result-panel {
+  animation: techResultPulse 3s ease-in-out infinite;
+}
+
+/* Payment */
+.tech-pay-amount {
+  animation: techPayAmount 4s steps(1) infinite;
+}
+
+.tech-qr-pulse {
+  animation: techQrPulse 2s ease-in-out infinite;
+}
+
+.tech-pay-check {
+  transform-origin: 318px 168px;
+  animation: techPayCheck 4s ease-in-out infinite;
+}
+
+/* Control */
+.tech-ctrl-barrier {
+  transform-origin: 178px 178px;
+  animation: techCtrlBarrier 5s ease-in-out infinite;
+}
+
+.tech-ctrl-node {
+  animation: techCtrlNode 2.4s ease-in-out infinite;
+}
+
+.tech-ctrl-node--b { animation-delay: -0.8s; }
+.tech-ctrl-node--c { animation-delay: -1.6s; }
+
+/* Data platform */
+.tech-bar-a { transform-origin: 158px 160px; animation: techBarGrow 3s ease-in-out infinite; }
+.tech-bar-b { transform-origin: 198px 160px; animation: techBarGrow 3s ease-in-out infinite 0.4s; }
+.tech-bar-c { transform-origin: 238px 160px; animation: techBarGrow 3s ease-in-out infinite 0.8s; }
+
+.tech-data-stream {
+  stroke-dasharray: 6 5;
+  animation: heroDataFlow 2s linear infinite;
+}
+
+.tech-live-dot {
+  animation: techLiveDot 1.6s ease-in-out infinite;
+}
+
+.tech-app-stat {
+  animation: techAppStat 3s steps(1) infinite;
+}
+
+@keyframes techScanBeam {
+  0%, 100% { opacity: 0.15; transform: rotate(-8deg); }
+  40%, 60% { opacity: 0.85; transform: rotate(6deg); }
+}
+
+@keyframes techPlateFlash {
+  0%, 28%, 100% { stroke: #f5c842; fill: #fff8e6; }
+  35%, 55% { stroke: #ffb8a8; fill: #ffe8e0; }
+}
+
+@keyframes techResultPulse {
+  0%, 25%, 100% { opacity: 0.72; }
+  35%, 55% { opacity: 1; }
+}
+
+@keyframes techPayAmount {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0.55; }
+}
+
+@keyframes techQrPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes techPayCheck {
+  0%, 50%, 100% { opacity: 0; transform: scale(0.6); }
+  58%, 78% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes techCtrlBarrier {
+  0%, 20% { transform: rotate(0deg); }
+  30%, 65% { transform: rotate(-78deg); }
+  75%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes techCtrlNode {
+  0%, 100% { opacity: 0.45; fill: #ffe08a; }
+  50% { opacity: 1; fill: #ffb8a8; }
+}
+
+@keyframes techBarGrow {
+  0%, 100% { transform: scaleY(0.55); opacity: 0.55; }
+  40%, 70% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes techLiveDot {
+  0%, 100% { opacity: 0.4; fill: #ffe08a; }
+  50% { opacity: 1; fill: #ffb8a8; }
+}
+
+@keyframes techAppStat {
+  0%, 40% { opacity: 1; }
+  41%, 100% { opacity: 0.65; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel-visual [class*="tech-"],
+  .panel-visual .hero-lpr-scan,
+  .panel-visual .hero-radar-ring,
+  .panel-visual .hero-data-line {
+    animation: none !important;
+  }
+}
