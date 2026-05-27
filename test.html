@@ -16,20 +16,6 @@
 </head>
 <body data-i18n-title="home.title" data-i18n-desc="home.desc">
 
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-links">
-        <a href="mailto:sheyonevn@gmail.com">sheyonevn@gmail.com</a>
-        <a href="tel:+84977597121">097-759-7121</a>
-      </div>
-      <div class="top-links lang-switch">
-        <a href="#" class="lang-btn" data-lang="ko">KR</a>
-        <a href="#" class="lang-btn" data-lang="en">EN</a>
-        <a href="#" class="lang-btn" data-lang="vi">VN</a>
-      </div>
-    </div>
-  </div>
-
   <header class="header">
     <div class="container">
       <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
@@ -37,8 +23,10 @@
         <li>
           <a href="about.html" data-i18n="nav.about">회사소개</a>
           <div class="dropdown">
+            <a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a>
             <a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a>
             <a href="about.html#org" data-i18n="nav.org">조직 구성</a>
+            <a href="about.html#future" data-i18n="nav.expansion">사업 확장</a>
             <a href="about.html#location" data-i18n="nav.location">오시는 길</a>
           </div>
         </li>
@@ -51,18 +39,21 @@
             <a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a>
           </div>
         </li>
-        <li><a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a></li>
-        <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
         <li>
-          <a href="contact.html" data-i18n="nav.contact">고객센터</a>
+          <a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a>
           <div class="dropdown">
-            <a href="contact.html" data-i18n="nav.quote">견적 문의</a>
-            <a href="contact.html" data-i18n="nav.as">A/S 접수</a>
+            <a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a>
+            <a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a>
           </div>
         </li>
+        <li><a href="contact.html" data-i18n="nav.contact">고객센터</a></li>
       </ul>
       <div class="header-cta">
-        <span class="phone">097-759-7121</span>
+        <div class="lang-switch" aria-label="Language">
+          <a href="#" class="lang-btn" data-lang="ko">KR</a>
+          <a href="#" class="lang-btn" data-lang="en">EN</a>
+          <a href="#" class="lang-btn" data-lang="vi">VN</a>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
         <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
       </div>
@@ -74,95 +65,157 @@
       <div class="hero-parking-scene">
         <svg viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smart parking control system">
           <defs>
-            <linearGradient id="heroRoad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#eef2f7"/>
-              <stop offset="100%" stop-color="#e4ebf3"/>
+            <linearGradient id="heroRoad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e2e8f0"/>
+              <stop offset="100%" stop-color="#cbd5e1"/>
             </linearGradient>
-            <linearGradient id="heroYellow" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#fff3c4"/>
-              <stop offset="100%" stop-color="#ffe08a"/>
+            <linearGradient id="heroCarBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#52637a"/>
+              <stop offset="45%" stop-color="#3d4f66"/>
+              <stop offset="100%" stop-color="#2a3749"/>
             </linearGradient>
-            <linearGradient id="heroCoral" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ffd4c8"/>
-              <stop offset="100%" stop-color="#ffb8a8"/>
+            <linearGradient id="heroCarGlass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#64748b"/>
+              <stop offset="100%" stop-color="#334155"/>
             </linearGradient>
-            <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#d8eff8"/>
-              <stop offset="100%" stop-color="#b3ddf0"/>
+            <linearGradient id="heroMetal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#94a3b8"/>
+              <stop offset="100%" stop-color="#64748b"/>
             </linearGradient>
-            <linearGradient id="heroSkyDeep" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#c5e6f4"/>
-              <stop offset="100%" stop-color="#9ecfe6"/>
+            <linearGradient id="heroMetalDark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#475569"/>
+              <stop offset="100%" stop-color="#334155"/>
+            </linearGradient>
+            <linearGradient id="heroScreen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1e293b"/>
+              <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+            <linearGradient id="heroBarrierArm" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="12%" stop-color="#fbbf24"/>
+              <stop offset="12%" stop-color="#dc2626"/>
+              <stop offset="24%" stop-color="#dc2626"/>
+              <stop offset="24%" stop-color="#fbbf24"/>
+              <stop offset="36%" stop-color="#fbbf24"/>
+              <stop offset="36%" stop-color="#dc2626"/>
+              <stop offset="48%" stop-color="#dc2626"/>
+              <stop offset="48%" stop-color="#fbbf24"/>
+              <stop offset="60%" stop-color="#fbbf24"/>
+              <stop offset="60%" stop-color="#dc2626"/>
+              <stop offset="72%" stop-color="#dc2626"/>
+              <stop offset="72%" stop-color="#fbbf24"/>
+              <stop offset="84%" stop-color="#fbbf24"/>
+              <stop offset="84%" stop-color="#dc2626"/>
+              <stop offset="100%" stop-color="#dc2626"/>
             </linearGradient>
             <filter id="heroGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feGaussianBlur stdDeviation="2" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="heroSoftShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f2340" flood-opacity="0.18"/>
             </filter>
           </defs>
 
-          <!-- Control center panel -->
-          <rect x="420" y="48" width="160" height="110" rx="8" fill="url(#heroSkyDeep)" stroke="#ffe08a" stroke-width="1.5" opacity="0.95"/>
-          <rect x="436" y="64" width="128" height="8" rx="2" fill="#fff3c4" opacity="0.85"/>
-          <rect x="436" y="80" width="92" height="6" rx="2" fill="#ffd4c8" opacity="0.7"/>
-          <rect x="436" y="94" width="108" height="6" rx="2" fill="#fff3c4" opacity="0.55"/>
-          <circle class="hero-lpr-scan hero-signal-yellow" cx="448" cy="118" r="5" filter="url(#heroGlowFilter)"/>
-          <circle class="hero-lpr-scan hero-signal-red" cx="462" cy="118" r="4" filter="url(#heroGlowFilter)"/>
-          <text x="478" y="122" fill="#4a8fad" font-size="11" font-family="sans-serif" letter-spacing="0.08em" font-weight="600">MONITORING</text>
+          <!-- Control center monitor -->
+          <g filter="url(#heroSoftShadow)">
+            <rect x="420" y="48" width="160" height="110" rx="5" fill="#374151" stroke="#64748b" stroke-width="1"/>
+            <rect x="428" y="56" width="144" height="86" rx="3" fill="url(#heroScreen)"/>
+            <rect x="438" y="66" width="124" height="7" rx="1.5" fill="#4BACC6" opacity="0.55"/>
+            <rect x="438" y="78" width="88" height="5" rx="1" fill="#64748b" opacity="0.7"/>
+            <rect x="438" y="88" width="104" height="5" rx="1" fill="#64748b" opacity="0.45"/>
+            <rect x="438" y="98" width="72" height="5" rx="1" fill="#64748b" opacity="0.35"/>
+            <rect x="438" y="112" width="56" height="18" rx="2" fill="rgba(75,172,198,0.12)" stroke="#4BACC6" stroke-width="0.6"/>
+            <circle class="hero-lpr-scan hero-signal-green" cx="448" cy="118" r="4" filter="url(#heroGlowFilter)"/>
+            <circle class="hero-lpr-scan hero-signal-amber" cx="460" cy="118" r="3.5" filter="url(#heroGlowFilter)" style="animation-delay:-1.2s"/>
+            <text x="478" y="122" fill="#94a3b8" font-size="10" font-family="sans-serif" letter-spacing="0.12em" font-weight="600">MONITORING</text>
+          </g>
 
           <!-- Data connection lines -->
-          <path class="hero-data-line hero-line-yellow" d="M400 102 L320 145" stroke-width="2" opacity="0.75"/>
-          <path class="hero-data-line hero-line-coral" d="M420 158 L280 210" stroke-width="2" opacity="0.65" style="animation-delay:-1.2s"/>
-          <path class="hero-data-line hero-line-yellow" d="M500 158 L420 240" stroke-width="2" opacity="0.7" style="animation-delay:-0.6s"/>
+          <path class="hero-data-line hero-line-accent" d="M400 102 L320 145" stroke-width="1.5" opacity="0.7"/>
+          <path class="hero-data-line hero-line-accent-dim" d="M420 158 L280 210" stroke-width="1.5" opacity="0.55" style="animation-delay:-1.2s"/>
+          <path class="hero-data-line hero-line-accent" d="M500 158 L420 240" stroke-width="1.5" opacity="0.65" style="animation-delay:-0.6s"/>
 
           <!-- LPR camera pole -->
-          <rect x="248" y="118" width="10" height="92" rx="2" fill="url(#heroSkyDeep)"/>
-          <rect x="232" y="108" width="42" height="28" rx="4" fill="url(#heroSky)" stroke="#ffe08a" stroke-width="1.5"/>
-          <circle class="hero-lpr-scan hero-signal-yellow" cx="253" cy="122" r="7"/>
-          <circle class="hero-radar-ring hero-ring-yellow" cx="380" cy="145" r="24" fill="none" stroke-width="2" opacity="0.65"/>
-          <circle class="hero-radar-ring hero-ring-coral" cx="380" cy="145" r="16" fill="none" stroke-width="1.5" opacity="0.5" style="animation-delay:-1.5s"/>
+          <g filter="url(#heroSoftShadow)">
+            <rect x="251" y="122" width="5" height="88" fill="url(#heroMetalDark)"/>
+            <rect x="245" y="116" width="17" height="8" rx="1.5" fill="#475569"/>
+            <path d="M228 112 H272 V134 H228 Z" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+            <path d="M232 116 H252 V130 H232 Z" fill="#1e293b"/>
+            <circle cx="238" cy="123" r="5" fill="#0f172a" stroke="#64748b" stroke-width="0.8"/>
+            <circle class="hero-lpr-scan hero-signal-green" cx="238" cy="123" r="2.5"/>
+            <rect x="256" y="118" width="14" height="10" rx="1" fill="#475569"/>
+            <circle class="hero-radar-ring hero-ring-accent" cx="380" cy="145" r="24" fill="none" stroke-width="1.5" opacity="0.55"/>
+            <circle class="hero-radar-ring hero-ring-accent-dim" cx="380" cy="145" r="16" fill="none" stroke-width="1" opacity="0.4" style="animation-delay:-1.5s"/>
+          </g>
 
           <!-- Entry lane -->
-          <path d="M40 280 L580 280 L580 340 L40 340 Z" fill="url(#heroRoad)" stroke="#c5d4e8" stroke-width="1"/>
-          <path d="M120 310 L500 310" stroke="#b8c9de" stroke-width="2" stroke-dasharray="18 14"/>
+          <path d="M40 280 L580 280 L580 340 L40 340 Z" fill="url(#heroRoad)" stroke="#94a3b8" stroke-width="0.8"/>
+          <path d="M120 310 L500 310" stroke="#64748b" stroke-width="1.5" stroke-dasharray="16 12" opacity="0.65"/>
 
-          <!-- Barrier -->
-          <rect x="108" y="198" width="20" height="82" rx="3" fill="url(#heroSkyDeep)" stroke="#ffd4c8" stroke-width="1.2"/>
-          <g class="hero-barrier-arm">
-            <rect x="118" y="198" width="86" height="10" rx="2" fill="url(#heroYellow)" stroke="#f5c842" stroke-width="0.8"/>
-            <rect x="196" y="194" width="8" height="18" rx="1" fill="#ffb8a8"/>
-          </g>
-
-          <!-- Payment / display unit -->
-          <rect x="168" y="228" width="54" height="72" rx="6" fill="url(#heroSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
-          <rect x="178" y="240" width="34" height="22" rx="3" fill="#eef8fc" stroke="#ffd4c8" stroke-width="1"/>
-          <text class="hero-display-text" x="195" y="255" text-anchor="middle" fill="#4a8fad" font-size="9" font-family="monospace" font-weight="700">AI-LPR</text>
-          <rect x="178" y="268" width="34" height="5" rx="1" fill="#ffe08a" opacity="0.8"/>
-          <rect x="178" y="278" width="24" height="5" rx="1" fill="#ffb8a8" opacity="0.75"/>
-
-          <!-- Car -->
-          <g class="hero-car-body">
-            <rect x="248" y="292" width="96" height="38" rx="10" fill="url(#heroCoral)" stroke="#ff9a88" stroke-width="1.5"/>
-            <rect x="268" y="278" width="56" height="22" rx="8" fill="#ffd4c8" stroke="#ffb8a8" stroke-width="1"/>
-            <circle cx="268" cy="332" r="10" fill="#888888" stroke="#aaaaaa" stroke-width="1.5"/>
-            <circle cx="324" cy="332" r="10" fill="#888888" stroke="#aaaaaa" stroke-width="1.5"/>
-            <rect x="282" y="286" width="18" height="10" rx="2" fill="#fff3c4" opacity="0.9"/>
-            <rect x="308" y="286" width="18" height="10" rx="2" fill="#fff3c4" opacity="0.9"/>
-          </g>
-
-          <!-- Parking slots -->
-          <g opacity="0.98">
-            <rect class="hero-slot-a" x="380" y="352" width="72" height="38" rx="4" stroke="#f5c842" stroke-width="1.2"/>
-            <rect class="hero-slot-b" x="462" y="352" width="72" height="38" rx="4" stroke="#ff9a88" stroke-width="1.2"/>
-            <rect class="hero-slot-c" x="544" y="352" width="72" height="38" rx="4" stroke="#f5c842" stroke-width="1.2"/>
-            <g fill="#4a8fad" font-size="10" font-family="sans-serif" font-weight="600" text-anchor="middle">
-              <text x="416" y="376">P1</text>
-              <text x="498" y="376">P2</text>
-              <text x="580" y="376">P3</text>
+          <!-- Barrier gate -->
+          <g filter="url(#heroSoftShadow)">
+            <rect x="108" y="198" width="18" height="82" rx="2" fill="url(#heroMetalDark)" stroke="#475569" stroke-width="0.8"/>
+            <rect x="110" y="210" width="14" height="22" rx="2" fill="#334155"/>
+            <circle cx="117" cy="248" r="3" fill="#4BACC6" opacity="0.8"/>
+            <g class="hero-barrier-arm">
+              <rect x="118" y="204" width="12" height="16" rx="1.5" fill="#475569"/>
+              <rect x="118" y="208" width="86" height="7" rx="1" fill="url(#heroBarrierArm)" stroke="#92400e" stroke-width="0.5"/>
+              <rect x="196" y="205" width="7" height="13" rx="1" fill="#64748b"/>
             </g>
           </g>
 
-          <!-- Guidance arrows -->
-          <path class="hero-guide-arrow" d="M360 318 L392 318 L384 312 M392 318 L384 324" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Payment kiosk -->
+          <g filter="url(#heroSoftShadow)">
+            <rect x="166" y="224" width="58" height="76" rx="4" fill="url(#heroMetalDark)" stroke="#64748b" stroke-width="0.9"/>
+            <rect x="174" y="232" width="42" height="30" rx="2" fill="url(#heroScreen)" stroke="#334155" stroke-width="0.8"/>
+            <text class="hero-display-text" x="195" y="251" text-anchor="middle" fill="#4BACC6" font-size="8" font-family="monospace" font-weight="700">AI-LPR</text>
+            <rect x="180" y="268" width="30" height="3" rx="0.5" fill="#1e293b"/>
+            <rect x="180" y="276" width="30" height="14" rx="2" fill="#334155" stroke="#475569" stroke-width="0.5"/>
+            <circle cx="186" cy="283" r="1.5" fill="#64748b"/><circle cx="192" cy="283" r="1.5" fill="#64748b"/><circle cx="198" cy="283" r="1.5" fill="#64748b"/>
+            <circle cx="186" cy="289" r="1.5" fill="#64748b"/><circle cx="192" cy="289" r="1.5" fill="#64748b"/><circle cx="198" cy="289" r="1.5" fill="#64748b"/>
+          </g>
+
+          <!-- Vehicle (side view — front/right, longer bonnet) -->
+          <g class="hero-car-body" filter="url(#heroSoftShadow)">
+            <ellipse cx="302" cy="336" rx="58" ry="3.5" fill="rgba(15,35,64,0.14)"/>
+            <path d="M248 322 C250 312 260 304 276 300 H312 C328 298 342 302 352 308 L374 316 C382 320 384 326 378 332 L362 336 H278 C262 336 248 330 248 322 Z" fill="url(#heroCarBody)" stroke="#1e293b" stroke-width="0.9"/>
+            <path d="M276 300 L290 282 H322 L332 296 H312 L276 304 Z" fill="url(#heroCarGlass)" stroke="#475569" stroke-width="0.7"/>
+            <path d="M290 284 H318" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+            <path d="M352 308 L374 316" stroke="rgba(30,41,59,0.25)" stroke-width="0.7"/>
+            <path d="M358 314 H368 V318 H358 Z" fill="#334155" stroke="#475569" stroke-width="0.4"/>
+            <path d="M372 315 H382 V321 H372 Z" fill="#f8fafc" opacity="0.95"/>
+            <path d="M376 317 H380 V319 H376 Z" fill="#e2e8f0" opacity="0.9"/>
+            <path d="M248 318 H254 V324 H248 Z" fill="#ef4444" opacity="0.85"/>
+            <line x1="278" y1="336" x2="348" y2="336" stroke="#1e293b" stroke-width="0.6" opacity="0.35"/>
+            <g>
+              <circle cx="270" cy="334" r="11" fill="#1e293b"/>
+              <circle cx="270" cy="334" r="7.5" fill="#64748b"/>
+              <circle cx="270" cy="334" r="4.5" fill="#94a3b8"/>
+              <circle cx="270" cy="334" r="1.8" fill="#cbd5e1"/>
+            </g>
+            <g>
+              <circle cx="332" cy="334" r="11" fill="#1e293b"/>
+              <circle cx="332" cy="334" r="7.5" fill="#64748b"/>
+              <circle cx="332" cy="334" r="4.5" fill="#94a3b8"/>
+              <circle cx="332" cy="334" r="1.8" fill="#cbd5e1"/>
+            </g>
+          </g>
+
+          <!-- Parking bays -->
+          <g opacity="0.98">
+            <rect class="hero-slot-a" x="380" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
+            <rect class="hero-slot-b" x="462" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
+            <rect class="hero-slot-c" x="544" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
+            <g fill="#64748b" font-size="9" font-family="sans-serif" font-weight="600" text-anchor="middle">
+              <text x="416" y="366">P1</text>
+              <text x="498" y="366">P2</text>
+              <text x="580" y="366">P3</text>
+            </g>
+          </g>
+
+          <!-- Guidance arrow -->
+          <path class="hero-guide-arrow" d="M360 318 L392 318 L384 312 M392 318 L384 324" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <animate attributeName="opacity" values="0.35;1;0.35" dur="2s" repeatCount="indefinite"/>
           </path>
         </svg>
@@ -172,7 +225,7 @@
     <div class="container hero-inner">
       <div class="hero-content">
       <div class="hero-tag">SMART PARKING · Việt Nam</div>
-      <h1>SHEYONE<span class="sub" data-i18n="home.hero.sub">Brand new paradigm of parking system</span></h1>
+      <h1>SHEYONE<span class="sub" lang="en">Brand new paradigm of parking system</span></h1>
       <p data-i18n="home.hero.p">인공지능 기반 스마트 주차 시스템 구축 및 운영을 통해 도시의 주차 문제를 효율적으로 해결하고, 데이터 기반의 미래형 주차 인프라를 제공하는 스마트 모빌리티 기업입니다.</p>
       <div class="hero-buttons">
         <a href="solutions.html" class="btn btn-primary" data-i18n="btn.ourSolution">Our Solution</a>
@@ -230,7 +283,7 @@
     </div>
   </section>
 
-  <section class="section section-dark" id="technology" style="padding-top:0;">
+  <section class="section section-dark" id="technology">
     <div class="container">
       <div class="section-label">Core Technology</div>
       <h2 class="section-title" data-i18n="home.tech.title">당사만의 핵심 차별화 기술</h2>
@@ -397,33 +450,39 @@
               <defs>
                 <linearGradient id="techDataSkyDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c5e6f4"/><stop offset="100%" stop-color="#9ecfe6"/></linearGradient>
                 <linearGradient id="techDataSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8eff8"/><stop offset="100%" stop-color="#b3ddf0"/></linearGradient>
+                <clipPath id="techDataChartClip"><rect x="52" y="72" width="188" height="96" rx="4"/></clipPath>
               </defs>
               <rect x="36" y="40" width="220" height="148" rx="8" fill="url(#techDataSkyDeep)" stroke="#ffe08a" stroke-width="1.2"/>
-              <text class="tech-label" x="52" y="62" font-size="8">PARKING ANALYTICS</text>
-              <circle class="tech-live-dot" cx="238" cy="56" r="4"/>
-              <text x="246" y="59" fill="#4a8fad" font-size="7" font-weight="600">LIVE</text>
-              <rect x="52" y="72" width="188" height="96" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-              <rect class="tech-bar-a" x="148" y="120" width="20" height="40" rx="2" fill="#ffe08a"/>
-              <rect class="tech-bar-b" x="188" y="108" width="20" height="52" rx="2" fill="#ffb8a8"/>
-              <rect class="tech-bar-c" x="228" y="100" width="20" height="60" rx="2" fill="#ffe08a"/>
-              <path class="tech-data-stream hero-line-yellow" d="M72 148 L120 148" stroke-width="1.5" opacity="0.6"/>
-              <path class="tech-data-stream hero-line-coral" d="M72 160 L136 160" stroke-width="1.5" opacity="0.55" style="animation-delay:-0.6s"/>
-              <path class="tech-data-stream hero-line-yellow" d="M72 172 L104 172" stroke-width="1.5" opacity="0.5" style="animation-delay:-1.2s"/>
-              <text class="tech-app-stat" x="52" y="148" fill="#b3ddf0" font-size="7">Occupancy 78%</text>
-              <text class="tech-app-stat" x="52" y="162" fill="#b3ddf0" font-size="7">Revenue +12%</text>
+              <text class="tech-data-title" x="52" y="62" font-size="8" font-weight="600">PARKING ANALYTICS</text>
+              <g class="tech-live-badge">
+                <rect x="208" y="52" width="32" height="13" rx="6.5" fill="rgba(26,51,88,0.14)" stroke="#1F497D" stroke-width="0.7"/>
+                <circle class="tech-live-dot" cx="214" cy="58.5" r="2.5"/>
+                <text class="tech-data-title" x="219" y="58.5" dominant-baseline="middle" font-size="6.5" font-weight="700">LIVE</text>
+              </g>
+              <rect x="52" y="72" width="188" height="96" rx="4" fill="rgba(255,255,255,0.22)" stroke="rgba(31,73,125,0.18)" stroke-width="0.8"/>
+              <g clip-path="url(#techDataChartClip)">
+                <rect class="tech-bar-a" x="148" y="130" width="16" height="34" rx="2" fill="#ffe08a"/>
+                <rect class="tech-bar-b" x="176" y="120" width="16" height="44" rx="2" fill="#ffb8a8"/>
+                <rect class="tech-bar-c" x="204" y="112" width="16" height="52" rx="2" fill="#ffe08a"/>
+              </g>
+              <path class="tech-data-stream hero-line-yellow" d="M72 142 L118 142" stroke-width="1.5" opacity="0.6"/>
+              <path class="tech-data-stream hero-line-coral" d="M72 152 L132 152" stroke-width="1.5" opacity="0.55" style="animation-delay:-0.6s"/>
+              <path class="tech-data-stream hero-line-yellow" d="M72 162 L108 162" stroke-width="1.5" opacity="0.5" style="animation-delay:-1.2s"/>
+              <text class="tech-app-stat tech-data-stat" x="58" y="142" font-size="7" font-weight="600">Occupancy 78%</text>
+              <text class="tech-app-stat tech-data-stat" x="58" y="154" font-size="7" font-weight="600">Revenue +12%</text>
               <rect x="278" y="88" width="72" height="128" rx="10" fill="url(#techDataSkyDeep)" stroke="#ff9a88" stroke-width="1"/>
               <rect x="288" y="98" width="52" height="72" rx="4" fill="#eef8fc" stroke="#ffd4c8" stroke-width="0.8"/>
               <rect x="296" y="108" width="36" height="8" rx="2" fill="#ffe08a" opacity="0.85"/>
               <rect x="296" y="122" width="24" height="6" rx="1" fill="#ffb8a8" opacity="0.75"/>
               <rect x="296" y="136" width="30" height="6" rx="1" fill="#fff3c4" opacity="0.7"/>
               <rect x="296" y="150" width="20" height="12" rx="2" fill="url(#techDataSky)" stroke="#4BACC6" stroke-width="0.8"/>
-              <text class="tech-label" x="314" y="230" text-anchor="middle" font-size="7">MOBILE APP</text>
+              <text class="tech-data-caption" x="314" y="208" text-anchor="middle" font-size="7" font-weight="600">MOBILE APP</text>
               <path class="hero-data-line hero-line-yellow" d="M256 120 L278 130" stroke-width="1.5" opacity="0.65"/>
               <path class="hero-data-line hero-line-coral" d="M256 148 L278 148" stroke-width="1.5" opacity="0.55" style="animation-delay:-0.8s"/>
-              <rect x="52" y="208" width="88" height="28" rx="4" fill="rgba(255,240,179,0.2)" stroke="#f5c842" stroke-width="0.8"/>
-              <text x="96" y="226" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="600">P1 · P2 · P3</text>
-              <rect x="156" y="208" width="88" height="28" rx="4" fill="rgba(255,216,200,0.2)" stroke="#ff9a88" stroke-width="0.8"/>
-              <text x="200" y="226" text-anchor="middle" fill="#4a8fad" font-size="7" font-weight="600">REAL-TIME</text>
+              <rect x="52" y="208" width="88" height="28" rx="4" fill="rgba(255,224,138,0.82)" stroke="#9a7209" stroke-width="1.1"/>
+              <text class="tech-data-tag" x="96" y="222" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="700">P1 · P2 · P3</text>
+              <rect x="156" y="208" width="88" height="28" rx="4" fill="rgba(255,184,168,0.82)" stroke="#b85c48" stroke-width="1.1"/>
+              <text class="tech-data-tag" x="200" y="222" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="700">REAL-TIME</text>
             </svg>
           </div>
         </div>
@@ -463,7 +522,7 @@
   <section class="section section-dark">
     <div class="container philosophy-block">
       <div class="section-label">Our Philosophy</div>
-      <blockquote data-i18n="home.phil.quote">"우리는 주차 공간을 넘어, 도시의 흐름을 설계합니다."</blockquote>
+      <blockquote data-i18n-html="home.phil.quote">"우리는 주차 공간을 넘어, 도시의 흐름을 설계합니다."</blockquote>
       <p class="quote-sub" data-i18n-html="home.phil.sub">스마트한 도시의 미래, 지금 함께 시작하십시오.<br>주차 인프라 구축에서 시작하여 운영, 데이터, 그리고 플랫폼으로 확장하며 도시의 이동과 공간을 더욱 효율적으로 연결하는 기업으로 성장하고 있습니다.</p>
       <div class="values-row">
         <div class="value-box"><h4 data-i18n="home.phil.v1t">모바일 App</h4><p data-i18n="home.phil.v1p">예약 · 정기권 · 자동결제</p></div>
@@ -515,12 +574,41 @@
           <img src="assets/logo.png" alt="SHEYONE">
           <p data-i18n-html="footer.tagline">Brand new paradigm of parking system.<br>Total Parking Management System — Việt Nam</p>
         </div>
-        <div><h4 data-i18n="footer.about">회사소개</h4><ul class="footer-links"><li><a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a></li><li><a href="about.html#org" data-i18n="footer.org">조직 구성</a></li></ul></div>
-        <div><h4 data-i18n="footer.solutions">사업분야</h4><ul class="footer-links"><li><a href="solutions.html" data-i18n="footer.model">사업 모델</a></li><li><a href="solutions.html#tech" data-i18n="footer.tech">핵심 기술</a></li><li><a href="solutions.html#revenue" data-i18n="footer.revenue">수익 구조</a></li></ul></div>
-        <div><h4 data-i18n="footer.support">고객지원</h4><ul class="footer-links"><li><a href="contact.html" data-i18n="footer.quote">견적 문의</a></li><li><a href="projects.html" data-i18n="footer.projects">주요 프로젝트</a></li></ul></div>
+        <div>
+          <h4 data-i18n="nav.about">회사소개</h4>
+          <ul class="footer-links">
+            <li><a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a></li>
+            <li><a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a></li>
+            <li><a href="about.html#org" data-i18n="nav.org">조직 구성</a></li>
+            <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+            <li><a href="about.html#location" data-i18n="nav.location">오시는 길</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.solutions">사업분야</h4>
+          <ul class="footer-links">
+            <li><a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a></li>
+            <li><a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a></li>
+            <li><a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a></li>
+            <li><a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.projects">주요 프로젝트</h4>
+          <ul class="footer-links">
+            <li><a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a></li>
+            <li><a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.contact">고객센터</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html" data-i18n="nav.contact">고객센터</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
-        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 사업자번호 0111383238 · 대표 한동우</p>
+        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 대표 한동우</p>
         <p data-i18n="footer.copy">© Copyright SHEYONE Corp. All rights reserved.</p>
       </div>
     </div>

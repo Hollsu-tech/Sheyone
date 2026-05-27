@@ -22,60 +22,48 @@
 
 
 
-  <div class="top-bar">
-
-    <div class="container">
-
-      <div class="top-links"><a href="mailto:sheyonevn@gmail.com">sheyonevn@gmail.com</a></div>
-
-      <div class="top-links lang-switch">
-
-        <a href="#" class="lang-btn" data-lang="ko">KR</a>
-
-        <a href="#" class="lang-btn" data-lang="en">EN</a>
-
-        <a href="#" class="lang-btn" data-lang="vi">VN</a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
   <header class="header">
-
     <div class="container">
-
       <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
-
       <ul class="nav">
-
-        <li><a href="about.html" data-i18n="nav.about">회사소개</a></li>
-
-        <li><a href="solutions.html" data-i18n="nav.solutions">사업분야</a></li>
-
-        <li><a href="projects.html" class="active" data-i18n="nav.projects">주요 프로젝트</a></li>
-
-        <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
-
+        <li>
+          <a href="about.html" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a>
+            <a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a>
+            <a href="about.html#org" data-i18n="nav.org">조직 구성</a>
+            <a href="about.html#future" data-i18n="nav.expansion">사업 확장</a>
+            <a href="about.html#location" data-i18n="nav.location">오시는 길</a>
+          </div>
+        </li>
+        <li>
+          <a href="solutions.html" data-i18n="nav.solutions">사업분야</a>
+          <div class="dropdown">
+            <a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a>
+            <a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a>
+            <a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a>
+            <a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a>
+          </div>
+        </li>
+        <li>
+          <a href="projects.html" class="active" data-i18n="nav.projects">주요 프로젝트</a>
+          <div class="dropdown">
+            <a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a>
+            <a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a>
+          </div>
+        </li>
         <li><a href="contact.html" data-i18n="nav.contact">고객센터</a></li>
-
       </ul>
-
       <div class="header-cta">
-
-        <span class="phone">097-759-7121</span>
-
+        <div class="lang-switch" aria-label="Language">
+          <a href="#" class="lang-btn" data-lang="ko">KR</a>
+          <a href="#" class="lang-btn" data-lang="en">EN</a>
+          <a href="#" class="lang-btn" data-lang="vi">VN</a>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
-
         <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
-
       </div>
-
     </div>
-
   </header>
 
 
@@ -94,7 +82,7 @@
 
 
 
-  <section class="section section-dark" id="projects">
+  <section class="section section-stripe-light" id="major">
 
     <div class="container">
 
@@ -150,17 +138,55 @@
 
 
 
-  <section class="section section-dark">
+  <section class="section section-stripe-dark" id="completed">
 
-    <div class="container" style="text-align:center;">
+    <div class="container">
 
-      <div class="section-label">Business Scope</div>
+      <div class="section-label">Completed Projects</div>
 
-      <h2 class="section-title" data-i18n="proj.scope.title">건설현장 · 운영 · 공공주차장</h2>
+      <h2 class="section-title" data-i18n="proj.completed.title">완성 프로젝트</h2>
 
-      <p class="section-desc" style="margin:0 auto 28px;" data-i18n="proj.scope.desc">건설현장 · 신축건물 · 공공주차장 · 운영 위탁 등 다양한 사업을 지원합니다.</p>
+      <p class="section-desc" data-i18n="proj.completed.desc">베트남 현지에 구축·운영 중인 주요 프로젝트 실적입니다.</p>
 
-      <a href="contact.html" class="btn btn-primary" data-i18n="btn.partner">사업 제휴 문의</a>
+      <div class="project-grid">
+
+        <div class="project-card">
+
+          <div class="tag" data-i18n="proj.c1.tag">Commercial · Hanoi</div>
+
+          <h3 data-i18n="proj.c1.title">대형 쇼핑몰 스마트 주차</h3>
+
+          <p data-i18n="proj.c1.p">AI LPR · 무인정산 · QR결제 통합 구축</p>
+
+          <ul><li data-i18n="proj.c1.l1">500+ 주차면</li><li data-i18n="proj.c1.l2">24시간 무인 운영</li><li data-i18n="proj.c1.l3">클라우드 원격관제</li></ul>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="tag" data-i18n="proj.c2.tag">Residential · HCMC</div>
+
+          <h3 data-i18n="proj.c2.title">아파트 단지 주차관제</h3>
+
+          <p data-i18n="proj.c2.p">입주민 차량 LPR 연동 및 무인 출입 관리</p>
+
+          <ul><li data-i18n="proj.c2.l1">다동 아파트 통합 관제</li><li data-i18n="proj.c2.l2">정기권 · 방문차량 자동 정산</li><li data-i18n="proj.c2.l3">모바일 App 연동</li></ul>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="tag" data-i18n="proj.c3.tag">Office · Hanoi</div>
+
+          <h3 data-i18n="proj.c3.title">오피스 빌딩 통합 주차</h3>
+
+          <p data-i18n="proj.c3.p">영상유도 · EV충전 · 무인정산 통합 솔루션</p>
+
+          <ul><li data-i18n="proj.c3.l1">지하·지상 다층 주차 연동</li><li data-i18n="proj.c3.l2">실시간 주차면 안내</li><li data-i18n="proj.c3.l3">에너지 효율형 운영</li></ul>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -168,7 +194,62 @@
 
 
 
-  <footer class="footer"><div class="container"><div class="footer-bottom" style="border:none;"><p data-i18n="proj.copy">© Copyright(c)2025 SHEYONE Corp. All rights reserved.</p></div></div></footer>
+  <section class="section section-light">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title" data-i18n="sol.cta.title">프로젝트 상담이 필요하신가요?</h2>
+      <p class="section-desc" style="margin:0 auto 28px;" data-i18n="sol.cta.desc">건설현장 · 신축건물 · 공공주차장 · 운영 위탁 등 다양한 사업을 지원합니다.</p>
+      <a href="contact.html" class="btn btn-dark" data-i18n="btn.contactUs">Contact Us</a>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="SHEYONE">
+          <p data-i18n-html="footer.tagline">Brand new paradigm of parking system.<br>Total Parking Management System — Việt Nam</p>
+        </div>
+        <div>
+          <h4 data-i18n="nav.about">회사소개</h4>
+          <ul class="footer-links">
+            <li><a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a></li>
+            <li><a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a></li>
+            <li><a href="about.html#org" data-i18n="nav.org">조직 구성</a></li>
+            <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+            <li><a href="about.html#location" data-i18n="nav.location">오시는 길</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.solutions">사업분야</h4>
+          <ul class="footer-links">
+            <li><a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a></li>
+            <li><a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a></li>
+            <li><a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a></li>
+            <li><a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.projects">주요 프로젝트</h4>
+          <ul class="footer-links">
+            <li><a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a></li>
+            <li><a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.contact">고객센터</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html" data-i18n="nav.contact">고객센터</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 대표 한동우</p>
+        <p data-i18n="footer.copy">© Copyright SHEYONE Corp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/i18n.js"></script>
 

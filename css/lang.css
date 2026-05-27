@@ -1,17 +1,74 @@
-/* Language switcher styles */
-.lang-switch { display: flex; gap: 4px; }
+/* Language switcher (header) */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid rgba(79, 129, 189, 0.22);
+  border-radius: 4px;
+  background: rgba(15, 35, 64, 0.35);
+}
+
 .lang-switch .lang-btn {
-  padding: 5px 12px;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   border: 1px solid transparent;
-  transition: all var(--transition);
+  border-radius: 3px;
+  line-height: 1;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
+
 .lang-switch .lang-btn:hover { color: var(--accent); }
+
 .lang-switch .lang-btn.active {
   color: var(--accent);
   border-color: rgba(75, 172, 198, 0.45);
   background: rgba(75, 172, 198, 0.12);
+}
+
+@media (max-width: 768px) {
+  .header-cta .lang-switch {
+    gap: 1px;
+    padding: 1px;
+  }
+
+  .header-cta .lang-switch .lang-btn {
+    height: 26px;
+    min-height: 26px;
+    max-height: 26px;
+    padding: 0 6px;
+    font-size: 11px;
+  }
+}
+
+/* Vietnamese — avoid breaking fixed word units mid-phrase */
+html[lang="vi"] {
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+html[lang="vi"] .nav > li > a,
+html[lang="vi"] .tab-btn,
+html[lang="vi"] .footer-col a,
+html[lang="vi"] .breadcrumb,
+html[lang="vi"] .section-title,
+html[lang="vi"] .feature-list li,
+html[lang="vi"] .stat-item .label,
+html[lang="vi"] .solution-panel h3,
+html[lang="vi"] .card h3,
+html[lang="vi"] .card h4,
+html[lang="vi"] .revenue-item h4,
+html[lang="vi"] .btn {
+  overflow-wrap: normal;
+  word-break: normal;
 }

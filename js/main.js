@@ -1,9 +1,21 @@
-// Header scroll effect
+// Disable smooth scroll on hash landing to prevent header jump
+if (window.location.hash) {
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.addEventListener('load', () => {
+    const target = document.querySelector(window.location.hash);
+    if (target) target.scrollIntoView({ block: 'start' });
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = '';
+    });
+  }, { once: true });
+}
+
+// Header scroll effect — class reserved for future styling; no layout change
 const header = document.querySelector('.header');
 if (header) {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  }, { passive: true });
 }
 
 // Mobile menu toggle

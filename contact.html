@@ -10,29 +10,45 @@
 </head>
 <body data-i18n-title="contact.title">
 
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-links"><a href="mailto:sheyonevn@gmail.com">sheyonevn@gmail.com</a></div>
-      <div class="top-links lang-switch">
-        <a href="#" class="lang-btn" data-lang="ko">KR</a>
-        <a href="#" class="lang-btn" data-lang="en">EN</a>
-        <a href="#" class="lang-btn" data-lang="vi">VN</a>
-      </div>
-    </div>
-  </div>
-
   <header class="header">
     <div class="container">
       <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
       <ul class="nav">
-        <li><a href="about.html" data-i18n="nav.about">회사소개</a></li>
-        <li><a href="solutions.html" data-i18n="nav.solutions">사업분야</a></li>
-        <li><a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a></li>
-        <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+        <li>
+          <a href="about.html" data-i18n="nav.about">회사소개</a>
+          <div class="dropdown">
+            <a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a>
+            <a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a>
+            <a href="about.html#org" data-i18n="nav.org">조직 구성</a>
+            <a href="about.html#future" data-i18n="nav.expansion">사업 확장</a>
+            <a href="about.html#location" data-i18n="nav.location">오시는 길</a>
+          </div>
+        </li>
+        <li>
+          <a href="solutions.html" data-i18n="nav.solutions">사업분야</a>
+          <div class="dropdown">
+            <a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a>
+            <a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a>
+            <a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a>
+            <a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a>
+          </div>
+        </li>
+        <li>
+          <a href="projects.html" data-i18n="nav.projects">주요 프로젝트</a>
+          <div class="dropdown">
+            <a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a>
+            <a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a>
+          </div>
+        </li>
         <li><a href="contact.html" class="active" data-i18n="nav.contact">고객센터</a></li>
       </ul>
       <div class="header-cta">
-        <span class="phone">097-759-7121</span>
+        <div class="lang-switch" aria-label="Language">
+          <a href="#" class="lang-btn" data-lang="ko">KR</a>
+          <a href="#" class="lang-btn" data-lang="en">EN</a>
+          <a href="#" class="lang-btn" data-lang="vi">VN</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
         <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -55,7 +71,7 @@
         <div>
           <div class="info-item"><div><div class="label" data-i18n="label.telephone">Telephone</div><div class="value">097-759-7121</div></div></div>
           <div class="info-item"><div><div class="label" data-i18n="label.email">Email</div><div class="value">sheyonevn@gmail.com</div></div></div>
-          <div class="info-item"><div><div class="label" data-i18n="label.company">Company</div><div class="value" data-i18n-html="contact.companyVal">SHEYONE COMPANY LIMITED<br>사업자번호 0111383238</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.company">Company</div><div class="value" data-i18n="contact.companyVal">SHEYONE COMPANY LIMITED</div></div></div>
           <div class="info-item"><div><div class="label" data-i18n="label.address">Address</div><div class="value">BT1-A61, Khu đô thị Bắc An Khánh, Hoài Đức, Hà Nội 10000 Viet Nam</div></div></div>
           <div style="margin-top:32px;padding:28px;background:var(--white);border:1px solid var(--gray-200);">
             <h4 style="margin-bottom:14px;color:var(--primary);font-size:0.95rem;" data-i18n="form.serviceGuide">서비스 안내</h4>
@@ -101,8 +117,47 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-bottom" style="border:none;">
-        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 대표 한동우 · © Copyright SHEYONE Corp. All rights reserved.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="SHEYONE">
+          <p data-i18n-html="footer.tagline">Brand new paradigm of parking system.<br>Total Parking Management System — Việt Nam</p>
+        </div>
+        <div>
+          <h4 data-i18n="nav.about">회사소개</h4>
+          <ul class="footer-links">
+            <li><a href="about.html#ceo" data-i18n="nav.ceoMessage">인사말</a></li>
+            <li><a href="about.html#vision" data-i18n="nav.vision">비전 &amp; 미션</a></li>
+            <li><a href="about.html#org" data-i18n="nav.org">조직 구성</a></li>
+            <li><a href="about.html#future" data-i18n="nav.expansion">사업 확장</a></li>
+            <li><a href="about.html#location" data-i18n="nav.location">오시는 길</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.solutions">사업분야</h4>
+          <ul class="footer-links">
+            <li><a href="solutions.html#business" data-i18n="nav.businessModel">사업 모델</a></li>
+            <li><a href="solutions.html#tech" data-i18n="nav.tech">핵심 기술</a></li>
+            <li><a href="solutions.html#areas" data-i18n="nav.areas">업무 분야</a></li>
+            <li><a href="solutions.html#revenue" data-i18n="nav.revenue">수익 구조</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.projects">주요 프로젝트</h4>
+          <ul class="footer-links">
+            <li><a href="projects.html#major" data-i18n="nav.projMajor">핵심 사업 분야</a></li>
+            <li><a href="projects.html#completed" data-i18n="nav.projCompleted">완성 프로젝트</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.contact">고객센터</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html" data-i18n="nav.contact">고객센터</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyFull">SHEYONE COMPANY LIMITED · 대표 한동우</p>
+        <p data-i18n="footer.copy">© Copyright SHEYONE Corp. All rights reserved.</p>
       </div>
     </div>
   </footer>

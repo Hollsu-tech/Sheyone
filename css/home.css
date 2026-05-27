@@ -1,16 +1,62 @@
 /* Homepage typography scale (test.html only) */
 html.page-home {
   font-size: calc(16px * 1.15);
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
 
-html.page-home[lang="en"],
-html.page-home[lang="vi"] {
-  word-break: normal;
+html.page-home .header {
+  font-size: 16px;
 }
 
 /* Grid/flex: allow text to wrap instead of clipping */
+html.page-home .stats-bar {
+  padding-bottom: 32px;
+}
+
+html.page-home #business.section {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+html.page-home #technology.section {
+  padding-top: 80px;
+}
+
+/* Soft section break: Business Areas → Competitive Advantage */
+html.page-home #areas.section-light {
+  position: relative;
+  padding-bottom: 70px;
+  box-shadow: 0 18px 36px -28px rgba(15, 35, 64, 0.14);
+}
+
+html.page-home #areas .section-desc {
+  margin-bottom: 0;
+}
+
+html.page-home #areas .cards-grid {
+  margin-top: 28px;
+}
+
+html.page-home #areas.section-light::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 35, 64, 0) 0%,
+    rgba(15, 35, 64, 0.04) 55%,
+    rgba(15, 35, 64, 0.08) 100%
+  );
+}
+
+html.page-home #advantage {
+  padding-top: 52px;
+  box-shadow: inset 0 28px 48px -36px rgba(15, 35, 64, 0.1);
+}
+
 html.page-home .stats-bar .container {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -40,7 +86,7 @@ html.page-home .contact-grid {
 }
 
 html.page-home .footer-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
 }
 
 html.page-home :where(
@@ -69,31 +115,7 @@ html.page-home :where(
   .section-desc
 ) {
   min-width: 0;
-  overflow-wrap: break-word;
-}
-
-html.page-home[lang="ko"] :where(
-  .stat-item,
-  .card,
-  .dark-card,
-  .revenue-item,
-  .value-box,
-  .tab-btn,
-  .solution-panel > div,
-  .feature-list li,
-  .philosophy-block blockquote,
-  .philosophy-block .quote-sub,
-  .info-item .value,
-  .form-check,
-  .hero-content h1 .sub,
-  .section-title,
-  .section-desc,
-  .dark-card h3,
-  .dark-card p,
-  .card h3,
-  .card p
-) {
-  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 /* Tabs & buttons: wrap whole words, never clip single line */
@@ -119,9 +141,19 @@ html.page-home .section-label {
   white-space: normal;
 }
 
-html.page-home[lang="ko"] .hero h1 .sub,
-html.page-home[lang="ko"] .hero.hero--centered .hero-content h1 .sub {
+html.page-home .hero-content p {
+  min-height: 7.8em;
+}
+html.page-home .hero h1 .sub,
+html.page-home .hero.hero--centered .hero-content h1 .sub {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
   letter-spacing: 0.04em;
+  line-height: 1.45;
+  overflow-wrap: normal;
+  font-variant-east-asian: normal;
+  white-space: nowrap;
+  min-height: 1.45em;
 }
 
 html.page-home .stat-item .label {
@@ -150,45 +182,14 @@ html.page-home .value-box h4 {
   html.page-home .values-row {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  html.page-home .hero h1 .sub,
+  html.page-home .hero.hero--centered .hero-content h1 .sub {
+    white-space: normal;
+  }
 }
 
-/* Keep top bar & header at original size */
-html.page-home .top-bar {
-  font-size: calc(0.94rem / 1.15);
-}
-
-html.page-home .lang-switch .lang-btn {
-  font-size: calc(0.9rem / 1.15);
-}
-
-html.page-home .nav > li > a {
-  font-size: clamp(calc(1.1rem / 1.15), calc(1.26vw / 1.15), calc(1.27rem / 1.15));
-}
-
-html.page-home .dropdown a {
-  font-size: calc(1.02rem / 1.15);
-}
-
-html.page-home .header-cta .phone {
-  font-size: clamp(calc(1.06rem / 1.15), calc(1.2vw / 1.15), calc(1.18rem / 1.15));
-}
-
-html.page-home .header-cta .btn {
-  font-size: clamp(calc(0.94rem / 1.15), calc(1.1vw / 1.15), calc(1.06rem / 1.15));
-}
-
-html.page-home[lang="ko"] .nav > li > a {
-  font-size: clamp(calc(1.15rem / 1.15), calc(1.34vw / 1.15), calc(1.3rem / 1.15));
-}
-
-html.page-home[lang="en"] .nav > li > a {
-  font-size: clamp(calc(1.03rem / 1.15), calc(1.18vw / 1.15), calc(1.18rem / 1.15));
-}
-
-html.page-home[lang="vi"] .nav > li > a {
-  font-size: clamp(calc(1.1rem / 1.15), calc(1.3vw / 1.15), calc(1.25rem / 1.15));
-}
-
+/* Footer logo on homepage */
 html.page-home .footer-brand img {
   height: var(--logo-height);
   width: auto;
