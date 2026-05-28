@@ -79,37 +79,39 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" novalidate>
+          <input type="checkbox" name="botcheck" class="contact-form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
           <h3 style="margin-bottom:24px;font-family:var(--serif);font-size:1.3rem;letter-spacing:0.04em;" data-i18n="form.online">온라인 문의</h3>
           <div class="form-group">
             <label><span data-i18n="form.inquiryType">문의항목</span> <span class="req">*</span></label>
-            <select required>
+            <select name="inquiry_type" required>
               <option value="" data-i18n="form.select">선택해주세요</option>
               <optgroup data-i18n-label="form.group.build">
-                <option data-i18n="form.opt.build1">주차관제 시스템 구축 / 견적</option>
-                <option data-i18n="form.opt.build2">영상유도 · EV충전 설치</option>
-                <option data-i18n="form.opt.build3">건설현장 · 신축건물</option>
+                <option value="build-quote" data-i18n="form.opt.build1">주차관제 시스템 구축 / 견적</option>
+                <option value="build-ev" data-i18n="form.opt.build2">영상유도 · EV충전 설치</option>
+                <option value="build-site" data-i18n="form.opt.build3">건설현장 · 신축건물</option>
               </optgroup>
               <optgroup data-i18n-label="form.group.ops">
-                <option data-i18n="form.opt.ops1">주차장 운영 / 위탁</option>
-                <option data-i18n="form.opt.ops2">공공 · 노상 주차장</option>
-                <option data-i18n="form.opt.ops3">유휴부지 개발</option>
+                <option value="ops-outsource" data-i18n="form.opt.ops1">주차장 운영 / 위탁</option>
+                <option value="ops-public" data-i18n="form.opt.ops2">공공 · 노상 주차장</option>
+                <option value="ops-land" data-i18n="form.opt.ops3">유휴부지 개발</option>
               </optgroup>
               <optgroup data-i18n-label="form.group.other">
-                <option data-i18n="form.opt.other1">A/S · 유지보수</option>
-                <option data-i18n="form.opt.other2">파트너십 / 제휴</option>
+                <option value="other-as" data-i18n="form.opt.other1">A/S · 유지보수</option>
+                <option value="other-partner" data-i18n="form.opt.other2">파트너십 / 제휴</option>
               </optgroup>
             </select>
           </div>
           <div class="form-row">
-            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" required data-i18n-placeholder="form.namePh" placeholder="홍길동 / Company Name"></div>
-            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" required placeholder="097-000-0000"></div>
+            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" name="name" required data-i18n-placeholder="form.namePh" placeholder="홍길동 / Company Name"></div>
+            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" name="phone" required data-i18n-placeholder="form.phonePh" placeholder="097-000-0000"></div>
           </div>
-          <div class="form-group"><label data-i18n="form.region">지역 / 주소</label><input type="text" data-i18n-placeholder="form.regionPh" placeholder="시/도, 구역 또는 주소"></div>
-          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
-          <div class="form-group"><label data-i18n="form.emailOpt">이메일 (선택)</label><input type="email" placeholder="example@email.com"></div>
-          <label class="form-check"><input type="checkbox" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
-          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
+          <div class="form-group"><label data-i18n="form.region">지역 / 주소</label><input type="text" name="region" data-i18n-placeholder="form.regionPh" placeholder="시/도, 구역 또는 주소"></div>
+          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea name="message" data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
+          <div class="form-group"><label data-i18n="form.emailOpt">이메일 (선택)</label><input type="email" name="email" placeholder="example@email.com"></div>
+          <label class="form-check"><input type="checkbox" name="privacy" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
+          <p class="form-status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
+          <button type="submit" class="btn btn-dark contact-form-submit" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
         </form>
       </div>
     </div>
@@ -165,6 +167,7 @@
   <div class="float-cta"><button class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button></div>
   <script src="js/i18n.js"></script>
   <script src="js/lang.js"></script>
+  <script src="js/form-config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

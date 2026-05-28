@@ -544,24 +544,26 @@
           <div class="info-item"><div><div class="label" data-i18n="label.email">Email</div><div class="value">sheyonevn@gmail.com</div></div></div>
           <div class="info-item"><div><div class="label" data-i18n="label.address">Address</div><div class="value">BT1-A61, Khu đô thị Bắc An Khánh, Hoài Đức, Hà Nội 10000 Viet Nam</div></div></div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" novalidate>
+          <input type="checkbox" name="botcheck" class="contact-form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row">
-            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" required></div>
-            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" required></div>
+            <div class="form-group"><label><span data-i18n="form.name">성함 / 기업명</span> <span class="req">*</span></label><input type="text" name="name" required data-i18n-placeholder="form.namePh" placeholder="홍길동 / Company Name"></div>
+            <div class="form-group"><label><span data-i18n="form.phone">연락처</span> <span class="req">*</span></label><input type="tel" name="phone" required data-i18n-placeholder="form.phonePh" placeholder="097-000-0000"></div>
           </div>
           <div class="form-group">
             <label><span data-i18n="form.inquiryType">문의항목</span> <span class="req">*</span></label>
-            <select required>
+            <select name="inquiry_type" required>
               <option value="" data-i18n="form.select">선택</option>
-              <option data-i18n="home.form.opt1">주차관제 시스템 구축</option>
-              <option data-i18n="home.form.opt2">주차장 운영</option>
-              <option data-i18n="home.form.opt3">365렌탈 / 유지보수</option>
-              <option data-i18n="home.form.opt4">A/S 접수</option>
+              <option value="home-build" data-i18n="home.form.opt1">주차관제 시스템 구축</option>
+              <option value="home-ops" data-i18n="home.form.opt2">주차장 운영</option>
+              <option value="home-rental" data-i18n="home.form.opt3">365렌탈 / 유지보수</option>
+              <option value="home-as" data-i18n="home.form.opt4">A/S 접수</option>
             </select>
           </div>
-          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
-          <label class="form-check"><input type="checkbox" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
-          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
+          <div class="form-group"><label data-i18n="form.message">문의내용</label><textarea name="message" data-i18n-placeholder="form.messagePh" placeholder="문의 내용을 입력해주세요"></textarea></div>
+          <label class="form-check"><input type="checkbox" name="privacy" required><span data-i18n="form.privacy">개인정보처리방침에 동의합니다.</span></label>
+          <p class="form-status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
+          <button type="submit" class="btn btn-dark contact-form-submit" style="width:100%;justify-content:center;" data-i18n="btn.submit">작성 완료</button>
         </form>
       </div>
     </div>
@@ -621,6 +623,7 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/lang.js"></script>
+  <script src="js/form-config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -52,7 +52,8 @@
 }
 
 /* Vietnamese — avoid breaking fixed word units mid-phrase */
-html[lang="vi"] {
+html[lang="vi"],
+html[lang="en"] {
   hyphens: none;
   -webkit-hyphens: none;
 }
@@ -68,7 +69,24 @@ html[lang="vi"] .solution-panel h3,
 html[lang="vi"] .card h3,
 html[lang="vi"] .card h4,
 html[lang="vi"] .revenue-item h4,
-html[lang="vi"] .btn {
+html[lang="vi"] .btn,
+html[lang="en"] .nav > li > a,
+html[lang="en"] .tab-btn,
+html[lang="en"] .footer-col a,
+html[lang="en"] .breadcrumb,
+html[lang="en"] .section-title,
+html[lang="en"] .feature-list li,
+html[lang="en"] .stat-item .label,
+html[lang="en"] .solution-panel h3,
+html[lang="en"] .card h3,
+html[lang="en"] .card h4,
+html[lang="en"] .revenue-item h4,
+html[lang="en"] .btn {
   overflow-wrap: normal;
   word-break: normal;
+}
+
+html.lang-switching,
+html.lang-switching * {
+  transition: none !important;
 }

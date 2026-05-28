@@ -141,8 +141,16 @@ html.page-home .section-label {
   white-space: normal;
 }
 
+html.page-home .hero-content {
+  word-break: normal;
+}
+
+html.page-home[lang="ko"] .hero-content p {
+  word-break: keep-all;
+}
+
 html.page-home .hero-content p {
-  min-height: 7.8em;
+  min-height: 9.5em;
 }
 html.page-home .hero h1 .sub,
 html.page-home .hero.hero--centered .hero-content h1 .sub {

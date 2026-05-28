@@ -292,8 +292,41 @@ function sheyoneT(lang, key) {
   return sheyoneFormatText(lang, text);
 }
 
+function sheyoneStabilizeLatinChrome() {
+  document.querySelectorAll(
+    '.section-label, .hero h1 .sub, .stat-item .number, .card-num, .solution-num'
+  ).forEach(el => {
+    if (!el.getAttribute('lang')) el.setAttribute('lang', 'en');
+  });
+}
+
+function sheyonePrepareLangSwitch() {
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+  const root = document.documentElement;
+  root.classList.add('lang-switching');
+
+  const lockTargets = document.querySelectorAll('.hero, .stats-bar, .section, .page-header, .footer');
+  const locked = [];
+
+  lockTargets.forEach(el => {
+    locked.push({ el, minHeight: el.style.minHeight });
+    el.style.minHeight = `${Math.ceil(el.getBoundingClientRect().height)}px`;
+  });
+
+  return function sheyoneFinishLangSwitch() {
+    locked.forEach(({ el, minHeight }) => {
+      el.style.minHeight = minHeight;
+    });
+    root.classList.remove('lang-switching');
+    window.scrollTo(scrollX, scrollY);
+  };
+}
+
 function sheyoneApplyLang(lang) {
   if (!window.SHEYONE_I18N?.[lang]) lang = 'ko';
+
+  const finish = sheyonePrepareLangSwitch();
 
   document.documentElement.lang = lang === 'vi' ? 'vi' : lang === 'en' ? 'en' : 'ko';
 
@@ -331,6 +364,13 @@ function sheyoneApplyLang(lang) {
   });
 
   window.SHEYONE_CURRENT_LANG = lang;
+  sheyoneStabilizeLatinChrome();
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      finish();
+    });
+  });
 }
 
 function sheyoneSetLang(lang) {
@@ -340,6 +380,7 @@ function sheyoneSetLang(lang) {
 }
 
 function sheyoneInitLang() {
+  sheyoneStabilizeLatinChrome();
   sheyoneApplyLang(sheyoneGetLang());
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
