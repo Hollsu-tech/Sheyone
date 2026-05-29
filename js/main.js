@@ -314,8 +314,9 @@ function initVisionTriangleLines() {
     }
 
     const containerW = wrap.clientWidth;
-    const boxW = Math.max(top.offsetWidth, left.offsetWidth, right.offsetWidth);
-    const boxH = Math.max(top.offsetHeight, left.offsetHeight, right.offsetHeight);
+    const gridStyles = getComputedStyle(grid);
+    const boxW = parseFloat(gridStyles.getPropertyValue('--triangle-box-w')) || top.offsetWidth;
+    const boxH = parseFloat(gridStyles.getPropertyValue('--triangle-box-h')) || top.offsetHeight;
 
     if (!containerW || !boxW || !boxH) return;
 
@@ -364,10 +365,13 @@ function initVisionTriangleLines() {
   scheduleLayout();
   window.addEventListener('resize', scheduleLayout, { passive: true });
   window.addEventListener('load', scheduleLayout);
+  window.sheyoneRelayoutVisionTriangle = scheduleLayout;
 
   if (window.ResizeObserver) {
-    new ResizeObserver(scheduleLayout).observe(grid);
-    new ResizeObserver(scheduleLayout).observe(wrap);
+    new ResizeObserver(entries => {
+      if (document.documentElement.classList.contains('lang-switching')) return;
+      scheduleLayout();
+    }).observe(wrap);
   }
 }
 

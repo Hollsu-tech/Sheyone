@@ -719,13 +719,14 @@ html[lang="vi"] .nav > li > a {
   font-size: clamp(1.55rem, 2.6vw, 1.95rem);
   line-height: 1.22;
   margin-bottom: 0;
+  min-height: calc(2 * 1.22em);
 }
 
 #vision .vision-content {
   display: grid;
   grid-template-columns: minmax(560px, 600px) minmax(0, 1fr);
   gap: 48px;
-  align-items: center;
+  align-items: start;
   margin-top: 30px;
 }
 
@@ -735,6 +736,7 @@ html[lang="vi"] .nav > li > a {
   margin-left: 0;
   margin-right: auto;
   padding: 0;
+  align-self: start;
 }
 
 #vision .vision-triangle-lines {
@@ -792,6 +794,7 @@ html[lang="vi"] .nav > li > a {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
 #vision .vision-box--top {
@@ -823,6 +826,19 @@ html[lang="vi"] .nav > li > a {
 #vision .vision-box h3 {
   font-size: 0.94rem;
   margin-bottom: 0;
+  line-height: 1.35;
+  max-width: 100%;
+}
+
+html[lang="vi"] #vision .vision-box h3 {
+  font-size: 0.96rem;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+}
+
+html[lang="en"] #vision .vision-box h3 {
+  font-size: 0.98rem;
+  line-height: 1.32;
 }
 
 #vision .vision-box p {
@@ -991,6 +1007,14 @@ html[lang="vi"] .nav > li > a {
 
   #vision .vision-box {
     padding: 14px 12px;
+  }
+
+  html[lang="vi"] #vision .vision-box h3 {
+    font-size: 0.90rem;
+  }
+
+  html[lang="en"] #vision .vision-box h3 {
+    font-size: 0.92rem;
   }
 
   #vision .vision-triangle-grid {
@@ -1688,6 +1712,58 @@ html[lang="vi"] .nav > li > a {
 
 #location.section-stripe-light {
   box-shadow: inset 0 32px 56px -32px rgba(15, 35, 64, 0.18);
+}
+
+/* CTA block — visual break from content section above */
+.section-cta {
+  position: relative;
+  box-shadow: inset 0 32px 56px -32px rgba(15, 35, 64, 0.18);
+}
+
+.section-stripe-dark:has(+ .section-cta),
+.section-dark:has(+ .section-cta) {
+  position: relative;
+  box-shadow: 0 22px 44px -24px rgba(0, 0, 0, 0.35);
+}
+
+.section-stripe-dark:has(+ .section-cta)::after,
+.section-dark:has(+ .section-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.18) 55%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+}
+
+.section-stripe-light:has(+ .section-cta),
+.section-light:has(+ .section-cta):not(.section-cta) {
+  position: relative;
+  box-shadow: 0 22px 44px -24px rgba(15, 35, 64, 0.24);
+}
+
+.section-stripe-light:has(+ .section-cta)::after,
+.section-light:has(+ .section-cta):not(.section-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 35, 64, 0) 0%,
+    rgba(15, 35, 64, 0.08) 50%,
+    rgba(15, 35, 64, 0.16) 100%
+  );
 }
 
 /* Soft section break: last section → Footer (all pages) */

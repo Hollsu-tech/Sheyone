@@ -319,11 +319,21 @@ function sheyonePrepareLangSwitch() {
     el.style.minHeight = `${Math.ceil(el.getBoundingClientRect().height)}px`;
   });
 
+  const visionGrid = document.querySelector('#vision .vision-triangle-grid');
+  if (visionGrid && !window.matchMedia('(max-width: 768px)').matches) {
+    locked.push({ el: visionGrid, minHeight: visionGrid.style.minHeight, height: visionGrid.style.height });
+    visionGrid.style.minHeight = `${visionGrid.offsetHeight}px`;
+    visionGrid.style.height = `${visionGrid.offsetHeight}px`;
+  }
+
   return function sheyoneFinishLangSwitch() {
-    locked.forEach(({ el, minHeight }) => {
+    locked.forEach(({ el, minHeight, height }) => {
       el.style.minHeight = minHeight;
+      if (height !== undefined) el.style.height = height;
     });
     root.classList.remove('lang-switching');
+
+    window.sheyoneRelayoutVisionTriangle?.();
 
     if (window.sheyoneScrollToHash?.('smooth')) return;
 
