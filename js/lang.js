@@ -275,6 +275,11 @@ function sheyoneFormatText(lang, text) {
   if (param && SHEYONE_LANGS.includes(param)) lang = param;
   else if (stored && SHEYONE_LANGS.includes(stored)) lang = stored;
   document.documentElement.lang = lang === 'vi' ? 'vi' : lang === 'en' ? 'en' : 'ko';
+
+  if (window.location.hash) {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  }
 })();
 
 function sheyoneGetLang() {
@@ -319,6 +324,9 @@ function sheyonePrepareLangSwitch() {
       el.style.minHeight = minHeight;
     });
     root.classList.remove('lang-switching');
+
+    if (window.sheyoneScrollToHash?.('smooth')) return;
+
     window.scrollTo(scrollX, scrollY);
   };
 }

@@ -581,7 +581,9 @@ html[lang="vi"] .nav > li > a {
 
 #vision .dark-card,
 #future .dark-card,
-#revenue .dark-card {
+#revenue .dark-card,
+#control .dark-card,
+#charger .dark-card {
   background: linear-gradient(165deg, var(--dark) 0%, var(--primary-deep) 100%);
   border: 1px solid rgba(79, 129, 189, 0.42);
   box-shadow: 0 6px 22px rgba(15, 35, 64, 0.14);
@@ -589,19 +591,25 @@ html[lang="vi"] .nav > li > a {
 
 #vision .dark-card h3,
 #future .dark-card h3,
-#revenue .dark-card h3 {
+#revenue .dark-card h3,
+#control .dark-card h3,
+#charger .dark-card h3 {
   color: var(--white);
 }
 
 #vision .dark-card p,
 #future .dark-card p,
-#revenue .dark-card p {
+#revenue .dark-card p,
+#control .dark-card p,
+#charger .dark-card p {
   color: rgba(255, 255, 255, 0.9);
 }
 
 #vision .dark-card:hover,
 #future .dark-card:hover,
-#revenue .dark-card:hover {
+#revenue .dark-card:hover,
+#control .dark-card:hover,
+#charger .dark-card:hover {
   background: linear-gradient(165deg, var(--primary-deep) 0%, var(--black) 100%);
   border-color: var(--accent);
   box-shadow: 0 14px 36px rgba(15, 35, 64, 0.24);
@@ -834,9 +842,9 @@ html[lang="vi"] .nav > li > a {
 #vision .vision-logo {
   position: absolute;
   z-index: 2;
-  width: 112px;
-  height: 112px;
-  padding: 22px;
+  width: 136px;
+  height: 136px;
+  padding: 26px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -906,12 +914,45 @@ html[lang="vi"] .nav > li > a {
   grid-template-columns: 46px minmax(0, 1fr);
   gap: 18px;
   align-items: start;
-  padding: 20px 0 22px;
+  padding: 20px 18px 22px;
+  margin: 0 -18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+#vision .vision-detail:not(:last-child) {
   border-bottom: 1px solid rgba(75, 172, 198, 0.24);
 }
 
 #vision .vision-detail:first-child {
   border-top: 1px solid rgba(75, 172, 198, 0.24);
+}
+
+#vision .vision-content:has(.vision-box--top:hover) .vision-detail[data-vision-for="top"],
+#vision .vision-content:has(.vision-box--left:hover) .vision-detail[data-vision-for="left"],
+#vision .vision-content:has(.vision-box--right:hover) .vision-detail[data-vision-for="right"],
+#vision .vision-content:has(.vision-logo:hover) .vision-detail {
+  transform: translateY(-4px);
+  background: linear-gradient(165deg, var(--primary-deep) 0%, var(--black) 100%);
+  border-color: var(--accent);
+  box-shadow:
+    0 14px 36px rgba(15, 35, 64, 0.24),
+    0 0 48px rgba(75, 172, 198, 0.16);
+}
+
+#vision .vision-content:has(.vision-box--top:hover) .vision-detail[data-vision-for="top"] p,
+#vision .vision-content:has(.vision-box--left:hover) .vision-detail[data-vision-for="left"] p,
+#vision .vision-content:has(.vision-box--right:hover) .vision-detail[data-vision-for="right"] p,
+#vision .vision-content:has(.vision-logo:hover) .vision-detail p {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+#vision .vision-content:has(.vision-box--top:hover) .vision-detail[data-vision-for="top"] .vision-detail-num,
+#vision .vision-content:has(.vision-box--left:hover) .vision-detail[data-vision-for="left"] .vision-detail-num,
+#vision .vision-content:has(.vision-box--right:hover) .vision-detail[data-vision-for="right"] .vision-detail-num,
+#vision .vision-content:has(.vision-logo:hover) .vision-detail .vision-detail-num {
+  opacity: 1;
 }
 
 #vision .vision-detail-num {
@@ -920,6 +961,7 @@ html[lang="vi"] .nav > li > a {
   line-height: 1;
   color: var(--accent);
   opacity: 0.82;
+  transition: opacity var(--transition);
 }
 
 #vision .vision-detail > div {
@@ -938,6 +980,7 @@ html[lang="vi"] .nav > li > a {
   line-height: 1.75;
   margin: 0;
   overflow-wrap: anywhere;
+  transition: color var(--transition);
 }
 
 @media (max-width: 1024px) {
@@ -962,9 +1005,9 @@ html[lang="vi"] .nav > li > a {
   }
 
   #vision .vision-logo {
-    width: 102px;
-    height: 102px;
-    padding: 20px;
+    width: 120px;
+    height: 120px;
+    padding: 24px;
   }
 }
 
@@ -1029,8 +1072,8 @@ html[lang="vi"] .nav > li > a {
   }
 
   #vision .vision-logo {
-    width: 128px;
-    height: 128px;
+    width: 144px;
+    height: 144px;
     max-width: none;
   }
 
@@ -1721,7 +1764,7 @@ html[lang="vi"] .nav > li > a {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.4fr) repeat(5, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 48px);
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.08);

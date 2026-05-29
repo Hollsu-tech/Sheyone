@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" fill="none" role="img" aria-hidden="true">
+  <rect width="480" height="280" fill="#152a4a"/>
+  <rect x="32" y="40" width="200" height="120" rx="4" fill="#1a3358" stroke="rgba(79,129,189,0.35)" stroke-width="1"/>
+  <polyline points="52,130 88,95 120,110 152,70 188,85 212,55" stroke="#4BACC6" stroke-width="2.5" fill="none"/>
+  <circle cx="212" cy="55" r="4" fill="#4BACC6"/>
+  <rect x="52" y="145" width="24" height="8" fill="#4F81BD" opacity="0.5"/>
+  <rect x="84" y="145" width="24" height="8" fill="#4F81BD" opacity="0.35"/>
+  <rect x="116" y="145" width="24" height="8" fill="#4BACC6" opacity="0.5"/>
+  <rect x="148" y="145" width="24" height="8" fill="#4BACC6" opacity="0.7"/>
+  <path d="M260 190 L320 190 L350 160 L410 160" stroke="#4F81BD" stroke-width="3" stroke-linecap="round"/>
+  <rect x="248" y="178" width="36" height="18" rx="3" fill="#243d66" stroke="#4BACC6" stroke-width="1.2"/>
+  <rect x="330" y="148" width="36" height="18" rx="3" fill="#1F497D" stroke="#4BACC6" stroke-width="1.2"/>
+  <rect x="390" y="148" width="36" height="18" rx="3" fill="#243d66" stroke="#4F81BD" stroke-width="1.2"/>
+  <circle cx="380" cy="100" r="28" stroke="#4BACC6" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="380" cy="100" r="16" stroke="#4BACC6" stroke-width="1.5" opacity="0.65"/>
+  <circle cx="380" cy="100" r="4" fill="#4BACC6"/>
+  <path d="M380 72 L380 88 M380 112 L380 128 M352 100 L368 100 M392 100 L408 100" stroke="#4BACC6" stroke-width="1.2" opacity="0.5"/>
+</svg>

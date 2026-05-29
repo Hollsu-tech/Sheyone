@@ -1,13 +1,32 @@
-// Disable smooth scroll on hash landing to prevent header jump
-if (window.location.hash) {
-  document.documentElement.style.scrollBehavior = 'auto';
-  window.addEventListener('load', () => {
-    const target = document.querySelector(window.location.hash);
-    if (target) target.scrollIntoView({ block: 'start' });
-    requestAnimationFrame(() => {
-      document.documentElement.style.scrollBehavior = '';
-    });
-  }, { once: true });
+// Scroll to URL hash (sticky header offset via scroll-margin-top in CSS)
+function sheyoneScrollToHash(behavior = 'smooth') {
+  const hash = window.location.hash;
+  if (!hash || hash === '#') return false;
+  const target = document.querySelector(hash);
+  if (!target) return false;
+
+  target.scrollIntoView({ behavior, block: 'start' });
+  return true;
+}
+
+window.sheyoneScrollToHash = sheyoneScrollToHash;
+
+function sheyoneSamePageName(pathname) {
+  const page = pathname.split('/').pop();
+  return page || 'test.html';
+}
+
+function sheyoneNavigateToHash(url, behavior = 'smooth') {
+  if (!url.hash) return false;
+  const target = document.querySelector(url.hash);
+  if (!target) return false;
+
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  history.pushState(null, '', `${url.pathname}${url.search}${url.hash}`);
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior, block: 'start' });
+  });
+  return true;
 }
 
 // Header scroll effect — class reserved for future styling; no layout change
@@ -219,15 +238,30 @@ if (contactForm) {
   });
 }
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scroll for in-page and dropdown anchor links
+document.querySelectorAll('a[href*="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
-    const href = anchor.getAttribute('href');
-    if (href === '#') return;
-    const target = document.querySelector(href);
-    if (target) {
+    const rawHref = anchor.getAttribute('href');
+    if (!rawHref || rawHref === '#') return;
+
+    const url = new URL(anchor.href, window.location.href);
+    if (!url.hash) return;
+
+    const currentPage = sheyoneSamePageName(window.location.pathname);
+    const linkPage = sheyoneSamePageName(url.pathname);
+    const samePage = linkPage === currentPage;
+
+    if (samePage) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      sheyoneNavigateToHash(url);
+      if (nav) nav.classList.remove('mobile-open');
+      return;
+    }
+
+    if (rawHref.startsWith('#')) {
+      e.preventDefault();
+      history.pushState(null, '', url.hash);
+      sheyoneScrollToHash('smooth');
       if (nav) nav.classList.remove('mobile-open');
     }
   });
