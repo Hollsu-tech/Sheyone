@@ -232,3 +232,113 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Vision triangle — true equilateral layout
+function initVisionTriangleLines() {
+  const wrap = document.querySelector('#vision .vision-triangle');
+  if (!wrap) return;
+
+  const svg = wrap.querySelector('.vision-triangle-lines');
+  const group = wrap.querySelector('.vision-triangle-lines-group');
+  const top = wrap.querySelector('.vision-box--top');
+  const left = wrap.querySelector('.vision-box--left');
+  const right = wrap.querySelector('.vision-box--right');
+  const logo = wrap.querySelector('.vision-logo');
+  if (!svg || !group || !top || !left || !right) return;
+
+  const grid = wrap.querySelector('.vision-triangle-grid');
+  if (!grid) return;
+
+  const placedEls = [top, left, right, logo].filter(Boolean);
+  const SQRT3 = Math.sqrt(3);
+  const PAD = 6;
+
+  const resetLayout = () => {
+    group.innerHTML = '';
+    grid.style.width = '';
+    grid.style.height = '';
+    placedEls.forEach(el => {
+      el.style.left = '';
+      el.style.top = '';
+      el.classList.remove('is-placed');
+    });
+  };
+
+  const linePath = (from, to) =>
+    `M${from.x.toFixed(1)} ${from.y.toFixed(1)} L${to.x.toFixed(1)} ${to.y.toFixed(1)}`;
+
+  const placeAt = (el, x, y) => {
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    el.classList.add('is-placed');
+  };
+
+  const layout = () => {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      resetLayout();
+      return;
+    }
+
+    const containerW = wrap.clientWidth;
+    const boxW = Math.max(top.offsetWidth, left.offsetWidth, right.offsetWidth);
+    const boxH = Math.max(top.offsetHeight, left.offsetHeight, right.offsetHeight);
+
+    if (!containerW || !boxW || !boxH) return;
+
+    const sideFromWidth = containerW - boxW - PAD * 2;
+    const configuredSide = parseFloat(getComputedStyle(grid).getPropertyValue('--triangle-side'));
+    const side = Number.isFinite(configuredSide) && configuredSide > 0
+      ? Math.min(configuredSide, sideFromWidth)
+      : Math.max(160, Math.min(320, sideFromWidth));
+
+    const triHeight = (side * SQRT3) / 2;
+    const layoutW = side + boxW + PAD * 2;
+    const layoutH = triHeight + boxH + PAD * 2;
+
+    grid.style.width = `${layoutW}px`;
+    grid.style.height = `${layoutH}px`;
+
+    const cx = layoutW / 2;
+    const vTop = { x: cx, y: PAD + boxH / 2 };
+    const vLeft = { x: cx - side / 2, y: vTop.y + triHeight };
+    const vRight = { x: cx + side / 2, y: vTop.y + triHeight };
+    const centroid = {
+      x: (vTop.x + vLeft.x + vRight.x) / 3,
+      y: (vTop.y + vLeft.y + vRight.y) / 3,
+    };
+
+    placeAt(top, vTop.x, vTop.y);
+    placeAt(left, vLeft.x, vLeft.y);
+    placeAt(right, vRight.x, vRight.y);
+    if (logo) placeAt(logo, centroid.x, centroid.y);
+
+    svg.setAttribute('viewBox', `0 0 ${layoutW} ${layoutH}`);
+    svg.setAttribute('width', layoutW);
+    svg.setAttribute('height', layoutH);
+
+    group.innerHTML = [
+      linePath(vTop, vLeft),
+      linePath(vTop, vRight),
+      linePath(vLeft, vRight),
+    ].map(d => `<path class="vision-line" d="${d}" fill="none"/>`).join('');
+  };
+
+  const scheduleLayout = () => {
+    requestAnimationFrame(() => requestAnimationFrame(layout));
+  };
+
+  scheduleLayout();
+  window.addEventListener('resize', scheduleLayout, { passive: true });
+  window.addEventListener('load', scheduleLayout);
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(scheduleLayout).observe(grid);
+    new ResizeObserver(scheduleLayout).observe(wrap);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVisionTriangleLines);
+} else {
+  initVisionTriangleLines();
+}
