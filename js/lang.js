@@ -271,7 +271,12 @@ function sheyoneViKeepTogether(text) {
     .replace(/\s*·\s*/g, '\u00A0·\u00A0')
     .replace(/\s*—\s*/g, '\u00A0—\u00A0');
 
+  // On phones, long keep-together runs are wider than the screen and would be
+  // force-broken mid-word; keep only short phrases together there.
+  const narrow = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+
   for (const phrase of SHEYONE_VI_KEEP_SORTED) {
+    if (narrow && phrase.length > 24) continue;
     const nbspPhrase = phrase.replace(/ /g, '\u00A0').replace(/\s*&\s*/g, '\u00A0&\u00A0');
     const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\&/g, '&');
     const re = new RegExp(escaped.replace(/ /g, '\\s+'), 'gi');

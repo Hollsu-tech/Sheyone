@@ -181,13 +181,54 @@ html.page-home .value-box h4 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  html.page-home .stats-bar .container,
+  html.page-home .cards-grid,
+  html.page-home .cards-grid-dark,
+  html.page-home .revenue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html.page-home .solution-panel,
+  html.page-home .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   html.page-home .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  html.page-home .values-row {
+  html.page-home .values-row,
+  html.page-home .cards-grid,
+  html.page-home .cards-grid-dark,
+  html.page-home .revenue-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* stats: one compact row per item (number left, label right) */
+  html.page-home .stats-bar .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  html.page-home .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    text-align: left;
+  }
+  html.page-home .stat-item .number {
+    flex: 0 0 76px;
+    font-size: 1.9rem;
+    text-align: center;
+  }
+  html.page-home .stat-item .label {
+    margin-top: 0;
+    min-width: 0;
+  }
+
+  html.page-home .footer-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
