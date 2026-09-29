@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,9 +52,9 @@
       </ul>
       <div class="header-cta">
         <div class="lang-switch" aria-label="Language">
+          <a href="#" class="lang-btn" data-lang="vi">VN</a>
           <a href="#" class="lang-btn" data-lang="ko">KR</a>
           <a href="#" class="lang-btn" data-lang="en">EN</a>
-          <a href="#" class="lang-btn" data-lang="vi">VN</a>
         </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
         <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
@@ -150,10 +150,46 @@
       <h2 class="section-title" data-i18n="about.org.title">분야별 최고의 전문가 조직</h2>
       <p class="section-desc" data-i18n="about.org.desc">신속한 대응 체계로 상담, 시공, 운영에 대한 전반적인 업무 서비스를 지원합니다.</p>
       <div class="org-grid">
-        <div class="org-card"><h4 data-i18n="about.org.c1t">사업기획</h4><p data-i18n="about.org.c1p">시장 분석과 사업 전략 수립, 신규 사업 기회 발굴, 지속적 성장을 위한 비즈니스 모델 개발</p></div>
-        <div class="org-card"><h4 data-i18n="about.org.c2t">고객영업</h4><p data-i18n="about.org.c2p">고객 발굴과 파트너십 추진, 프로젝트 수주와 계약 관리, 고객 관계 관리</p></div>
-        <div class="org-card"><h4 data-i18n="about.org.c3t">주차장 운영</h4><p data-i18n="about.org.c3p">시스템 운영, 유지보수, 데이터 관리 및 고객 지원, 안정적·효율적 주차 환경 제공</p></div>
-        <div class="org-card"><h4 data-i18n="about.org.c4t">시공 / 관리</h4><p data-i18n="about.org.c4p">설계 검토, 공정 관리, 품질·안전 관리, 계획된 일정과 기준에 맞는 프로젝트 완공</p></div>
+        <div class="org-card">
+          <div class="org-card-media">
+            <img src="assets/org/org-planning.jpg" alt="주차장 사업기획 및 전략 수립" width="1200" height="700" loading="lazy">
+          </div>
+          <div class="org-card-body">
+            <span class="org-card-num">01</span>
+            <h4 data-i18n="about.org.c1t">사업기획</h4>
+            <p data-i18n="about.org.c1p">시장 분석과 사업 전략 수립, 신규 사업 기회 발굴, 지속적 성장을 위한 비즈니스 모델 개발</p>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-card-media">
+            <img src="assets/org/org-sales.jpg" alt="고객 영업 및 파트너십" width="1200" height="700" loading="lazy">
+          </div>
+          <div class="org-card-body">
+            <span class="org-card-num">02</span>
+            <h4 data-i18n="about.org.c2t">고객영업</h4>
+            <p data-i18n="about.org.c2p">고객 발굴과 파트너십 추진, 프로젝트 수주와 계약 관리, 고객 관계 관리</p>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-card-media">
+            <img src="assets/org/org-operations.jpg" alt="주차 유도등이 설치된 실내 주차장" width="1200" height="700" loading="lazy">
+          </div>
+          <div class="org-card-body">
+            <span class="org-card-num">03</span>
+            <h4 data-i18n="about.org.c3t">주차장 운영</h4>
+            <p data-i18n="about.org.c3p">시스템 운영, 유지보수, 데이터 관리 및 고객 지원, 안정적·효율적 주차 환경 제공</p>
+          </div>
+        </div>
+        <div class="org-card">
+          <div class="org-card-media">
+            <img src="assets/org/org-construction.jpg" alt="주차장 시공 및 품질 관리" width="1200" height="700" loading="lazy">
+          </div>
+          <div class="org-card-body">
+            <span class="org-card-num">04</span>
+            <h4 data-i18n="about.org.c4t">시공 / 관리</h4>
+            <p data-i18n="about.org.c4p">설계 검토, 공정 관리, 품질·안전 관리, 계획된 일정과 기준에 맞는 프로젝트 완공</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -166,7 +202,7 @@
       <div class="future-stack">
         <article class="future-item">
           <figure class="future-item-media">
-            <img src="assets/future/smart-city.svg" alt="" width="480" height="280" loading="lazy">
+            <img src="assets/future/smart-city.jpg" alt="도심 도로와 건물 사이 주차장 항공뷰" width="1200" height="700" loading="lazy">
           </figure>
           <div class="future-item-body dark-card">
             <span class="future-item-num">01</span>
@@ -176,7 +212,7 @@
         </article>
         <article class="future-item">
           <figure class="future-item-media">
-            <img src="assets/future/data-mobility.svg" alt="" width="480" height="280" loading="lazy">
+            <img src="assets/future/data-mobility.jpg" alt="주차장 입출차·점유 현황 통합 관리 대시보드" width="1200" height="700" loading="lazy">
           </figure>
           <div class="future-item-body dark-card">
             <span class="future-item-num">02</span>
@@ -186,7 +222,7 @@
         </article>
         <article class="future-item">
           <figure class="future-item-media">
-            <img src="assets/future/ev-green.svg" alt="" width="480" height="280" loading="lazy">
+            <img src="assets/future/ev-green.jpg" alt="실내 주차장 전기차 충전" width="1200" height="700" loading="lazy">
           </figure>
           <div class="future-item-body dark-card">
             <span class="future-item-num">03</span>
@@ -196,7 +232,7 @@
         </article>
         <article class="future-item">
           <figure class="future-item-media">
-            <img src="assets/future/automation.svg" alt="" width="480" height="280" loading="lazy">
+            <img src="assets/future/automation.jpg" alt="주차장 입구 자동 차단기" width="1200" height="700" loading="lazy">
           </figure>
           <div class="future-item-body dark-card">
             <span class="future-item-num">04</span>
@@ -206,7 +242,7 @@
         </article>
         <article class="future-item">
           <figure class="future-item-media">
-            <img src="assets/future/platform.svg" alt="" width="480" height="280" loading="lazy">
+            <img src="assets/future/platform.jpg" alt="주차 예약·정기권 모바일 앱 화면" width="1200" height="700" loading="lazy">
           </figure>
           <div class="future-item-body dark-card">
             <span class="future-item-num">05</span>
@@ -225,10 +261,12 @@
       <div class="contact-grid">
         <div>
           <div class="info-item"><div><div class="label" data-i18n="label.address">Address</div><div class="value">BT1-A61, Khu đô thị Bắc An Khánh, Hoài Đức, Hà Nội, Viet Nam</div></div></div>
-          <div class="info-item"><div><div class="label" data-i18n="label.telephone">Telephone</div><div class="value">097-759-7121</div></div></div>
+          <div class="info-item"><div><div class="label" data-i18n="label.telephone">Telephone</div><div class="value">096-945-9950</div></div></div>
           <div class="info-item"><div><div class="label" data-i18n="label.email">Email</div><div class="value">sheyonevn@gmail.com</div></div></div>
         </div>
-        <div class="about-image" style="aspect-ratio:16/9;"><img src="assets/gradient.png" alt="SHEYONE"></div>
+        <div class="location-map">
+          <iframe title="SHEYONE location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=21.0185,105.7250&amp;z=14&amp;output=embed"></iframe>
+        </div>
       </div>
     </div>
   </section>
