@@ -71,161 +71,195 @@
   <section class="hero hero--centered">
     <div class="hero-animation" aria-hidden="true">
       <div class="hero-parking-scene">
-        <svg viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smart parking control system">
+        <svg viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Smart parking control system">
           <defs>
-            <linearGradient id="heroRoad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#e2e8f0"/>
-              <stop offset="100%" stop-color="#cbd5e1"/>
+            <pattern id="heroGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="0.8" fill="#94a3b8"/>
+            </pattern>
+            <linearGradient id="heroEdgeFade" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.1" stop-color="#fff"/>
+              <stop offset="0.9" stop-color="#fff"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
             </linearGradient>
-            <linearGradient id="heroCarBody" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#52637a"/>
-              <stop offset="45%" stop-color="#3d4f66"/>
-              <stop offset="100%" stop-color="#2a3749"/>
-            </linearGradient>
-            <linearGradient id="heroCarGlass" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#64748b"/>
-              <stop offset="100%" stop-color="#334155"/>
-            </linearGradient>
-            <linearGradient id="heroMetal" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#94a3b8"/>
-              <stop offset="100%" stop-color="#64748b"/>
-            </linearGradient>
-            <linearGradient id="heroMetalDark" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#475569"/>
-              <stop offset="100%" stop-color="#334155"/>
-            </linearGradient>
-            <linearGradient id="heroScreen" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1e293b"/>
-              <stop offset="100%" stop-color="#0f172a"/>
-            </linearGradient>
-            <linearGradient id="heroBarrierArm" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#fbbf24"/>
-              <stop offset="12%" stop-color="#fbbf24"/>
-              <stop offset="12%" stop-color="#dc2626"/>
-              <stop offset="24%" stop-color="#dc2626"/>
-              <stop offset="24%" stop-color="#fbbf24"/>
-              <stop offset="36%" stop-color="#fbbf24"/>
-              <stop offset="36%" stop-color="#dc2626"/>
-              <stop offset="48%" stop-color="#dc2626"/>
-              <stop offset="48%" stop-color="#fbbf24"/>
-              <stop offset="60%" stop-color="#fbbf24"/>
-              <stop offset="60%" stop-color="#dc2626"/>
-              <stop offset="72%" stop-color="#dc2626"/>
-              <stop offset="72%" stop-color="#fbbf24"/>
-              <stop offset="84%" stop-color="#fbbf24"/>
-              <stop offset="84%" stop-color="#dc2626"/>
-              <stop offset="100%" stop-color="#dc2626"/>
-            </linearGradient>
-            <filter id="heroGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="heroSoftShadow" x="-10%" y="-10%" width="120%" height="130%">
-              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f2340" flood-opacity="0.18"/>
+            <mask id="heroEdgeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="620" height="480">
+              <rect width="620" height="480" fill="url(#heroEdgeFade)"/>
+            </mask>
+            <linearGradient id="heroRoad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f7"/><stop offset="1" stop-color="#d6dee8"/></linearGradient>
+            <linearGradient id="heroSkyline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+            <linearGradient id="heroCarBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a6394"/><stop offset="0.55" stop-color="#1F497D"/><stop offset="1" stop-color="#0f2340"/></linearGradient>
+            <linearGradient id="heroCarGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d9acb"/><stop offset="1" stop-color="#0b1a30"/></linearGradient>
+            <radialGradient id="heroRim" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#f1f5f9"/><stop offset="1" stop-color="#94a3b8"/></radialGradient>
+            <radialGradient id="heroHead" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fffbe6" stop-opacity="0.95"/><stop offset="1" stop-color="#fde68a" stop-opacity="0"/></radialGradient>
+            <linearGradient id="heroHeadBeam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/><stop offset="1" stop-color="#fde68a" stop-opacity="0"/></linearGradient>
+            <linearGradient id="heroBeam" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#38BDF8" stop-opacity="0.6"/><stop offset="1" stop-color="#38BDF8" stop-opacity="0.08"/></linearGradient>
+            <linearGradient id="heroCab" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9e1ea"/></linearGradient>
+            <linearGradient id="heroPost" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f1f5f9"/><stop offset="1" stop-color="#a3b2c6"/></linearGradient>
+            <linearGradient id="heroPanel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b3a66"/><stop offset="1" stop-color="#10254a"/></linearGradient>
+            <filter id="heroSoftShadow" x="-20%" y="-20%" width="140%" height="150%">
+              <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0f2340" flood-opacity="0.14"/>
             </filter>
           </defs>
 
-          <!-- Control center monitor -->
-          <g filter="url(#heroSoftShadow)">
-            <rect x="420" y="48" width="160" height="110" rx="5" fill="#374151" stroke="#64748b" stroke-width="1"/>
-            <rect x="428" y="56" width="144" height="86" rx="3" fill="url(#heroScreen)"/>
-            <rect x="438" y="66" width="124" height="7" rx="1.5" fill="#4BACC6" opacity="0.55"/>
-            <rect x="438" y="78" width="88" height="5" rx="1" fill="#64748b" opacity="0.7"/>
-            <rect x="438" y="88" width="104" height="5" rx="1" fill="#64748b" opacity="0.45"/>
-            <rect x="438" y="98" width="72" height="5" rx="1" fill="#64748b" opacity="0.35"/>
-            <rect x="438" y="112" width="56" height="18" rx="2" fill="rgba(75,172,198,0.12)" stroke="#4BACC6" stroke-width="0.6"/>
-            <circle class="hero-lpr-scan hero-signal-green" cx="448" cy="118" r="4" filter="url(#heroGlowFilter)"/>
-            <circle class="hero-lpr-scan hero-signal-amber" cx="460" cy="118" r="3.5" filter="url(#heroGlowFilter)" style="animation-delay:-1.2s"/>
-            <text x="478" y="122" fill="#94a3b8" font-size="10" font-family="sans-serif" letter-spacing="0.12em" font-weight="600">MONITORING</text>
+          <!-- Ambient dot grid -->
+          <rect width="620" height="480" fill="url(#heroGrid)" opacity="0.35" mask="url(#heroEdgeMask)"/>
+
+          <!-- City skyline -->
+          <g fill="url(#heroSkyline)" mask="url(#heroEdgeMask)">
+            <rect x="8" y="380" width="26" height="46"/><rect x="36" y="362" width="18" height="64"/><rect x="56" y="390" width="30" height="36"/>
+            <rect x="92" y="372" width="20" height="54"/><rect x="114" y="394" width="26" height="32"/><rect x="146" y="380" width="16" height="46"/>
+            <rect x="468" y="384" width="22" height="42"/><rect x="492" y="370" width="16" height="56"/><rect x="530" y="378" width="18" height="48"/>
+            <rect x="552" y="392" width="28" height="34"/><rect x="584" y="374" width="22" height="52"/>
           </g>
 
-          <!-- Data connection lines -->
-          <path class="hero-data-line hero-line-accent" d="M400 102 L320 145" stroke-width="1.5" opacity="0.7"/>
-          <path class="hero-data-line hero-line-accent-dim" d="M420 158 L280 210" stroke-width="1.5" opacity="0.55" style="animation-delay:-1.2s"/>
-          <path class="hero-data-line hero-line-accent" d="M500 158 L420 240" stroke-width="1.5" opacity="0.65" style="animation-delay:-0.6s"/>
-
-          <!-- LPR camera pole -->
-          <g filter="url(#heroSoftShadow)">
-            <rect x="251" y="122" width="5" height="88" fill="url(#heroMetalDark)"/>
-            <rect x="245" y="116" width="17" height="8" rx="1.5" fill="#475569"/>
-            <path d="M228 112 H272 V134 H228 Z" fill="#334155" stroke="#475569" stroke-width="0.8"/>
-            <path d="M232 116 H252 V130 H232 Z" fill="#1e293b"/>
-            <circle cx="238" cy="123" r="5" fill="#0f172a" stroke="#64748b" stroke-width="0.8"/>
-            <circle class="hero-lpr-scan hero-signal-green" cx="238" cy="123" r="2.5"/>
-            <rect x="256" y="118" width="14" height="10" rx="1" fill="#475569"/>
-            <circle class="hero-radar-ring hero-ring-accent" cx="380" cy="145" r="24" fill="none" stroke-width="1.5" opacity="0.55"/>
-            <circle class="hero-radar-ring hero-ring-accent-dim" cx="380" cy="145" r="16" fill="none" stroke-width="1" opacity="0.4" style="animation-delay:-1.5s"/>
+          <!-- Road -->
+          <g mask="url(#heroEdgeMask)">
+            <rect x="0" y="426" width="620" height="44" fill="url(#heroRoad)"/>
+            <path d="M0 426 H620 M0 470 H620" stroke="#cbd5e1"/>
+            <path class="hero-lane-dash" d="M0 463 H620" stroke="#fbbf24" stroke-opacity="0.75" stroke-width="1.6" stroke-dasharray="12 10"/>
           </g>
 
-          <!-- Entry lane -->
-          <path d="M40 280 L580 280 L580 340 L40 340 Z" fill="url(#heroRoad)" stroke="#94a3b8" stroke-width="0.8"/>
-          <path d="M120 310 L500 310" stroke="#64748b" stroke-width="1.5" stroke-dasharray="16 12" opacity="0.65"/>
+          <!-- Guidance chevrons -->
+          <g stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path class="hero-chev" d="M500 440 l5 5 l-5 5"/>
+            <path class="hero-chev hero-chev--2" d="M510 440 l5 5 l-5 5"/>
+            <path class="hero-chev hero-chev--3" d="M520 440 l5 5 l-5 5"/>
+          </g>
+
+          <!-- Bay guidance sign -->
+          <g filter="url(#heroSoftShadow)">
+            <rect x="566" y="318" width="4" height="110" fill="url(#heroPost)"/>
+            <rect x="526" y="286" width="84" height="36" rx="6" fill="url(#heroPanel)" stroke="#38BDF8" stroke-opacity="0.35"/>
+          </g>
+          <g font-size="7" font-weight="700" fill="#e2e8f0" text-anchor="middle">
+            <text x="544" y="302">1F</text><text x="568" y="302">B1</text><text x="592" y="302">B2</text>
+          </g>
+          <circle class="hero-bay-led hero-bay-led--a" cx="544" cy="312" r="2.6"/>
+          <circle class="hero-bay-led hero-bay-led--b" cx="568" cy="312" r="2.6"/>
+          <circle class="hero-bay-led hero-bay-led--c" cx="592" cy="312" r="2.6"/>
+
+          <!-- Gate cluster (scaled to sit below the hero copy) -->
+          <g transform="translate(102 131) scale(0.8)">
+          <!-- Vehicle -->
+          <g class="hero-car">
+            <ellipse cx="173" cy="407" rx="82" ry="5" fill="#0f2340" opacity="0.2"/>
+            <g transform="translate(80 150)">
+              <g transform="matrix(-1 0 0 1 186 0)">
+                <path d="M20 236 Q18 214 34 210 L60 206 L82 184 Q88 178 98 178 L128 178 Q138 178 144 186 L156 204 Q166 208 166 222 L166 236 Q166 242 160 242 L26 242 Q20 242 20 236 Z" fill="url(#heroCarBody)"/>
+                <path d="M66 206 L86 186 Q90 182 96 182 L110 182 L110 206 Z" fill="url(#heroCarGlass)"/>
+                <path d="M114 182 L126 182 Q134 182 138 188 L150 206 L114 206 Z" fill="url(#heroCarGlass)"/>
+                <path d="M100 183 L88 205 L94 205 L106 183 Z M128 183 L120 205 L124 205 L132 183 Z" fill="#fff" opacity="0.22"/>
+                <path d="M30 214 H162" stroke="#fff" stroke-opacity="0.22"/>
+                <path d="M112 208 V238 M62 212 V236" stroke="#0b1a30" stroke-opacity="0.35"/>
+                <rect x="96" y="214" width="8" height="2" rx="1" fill="#cbd5e1" opacity="0.7"/>
+                <rect x="124" y="214" width="8" height="2" rx="1" fill="#cbd5e1" opacity="0.7"/>
+                <g>
+                  <circle cx="50" cy="242" r="14" fill="#0f172a"/><circle cx="50" cy="242" r="8" fill="url(#heroRim)"/>
+                  <path d="M50 235 V249 M43 242 H57" stroke="#64748b" stroke-width="1.2"/><circle cx="50" cy="242" r="2.5" fill="#334155"/>
+                </g>
+                <g>
+                  <circle cx="138" cy="242" r="14" fill="#0f172a"/><circle cx="138" cy="242" r="8" fill="url(#heroRim)"/>
+                  <path d="M138 235 V249 M131 242 H145" stroke="#64748b" stroke-width="1.2"/><circle cx="138" cy="242" r="2.5" fill="#334155"/>
+                </g>
+              </g>
+              <polygon class="hero-headbeam" points="166,212 214,202 214,236 166,222" fill="url(#heroHeadBeam)"/>
+              <ellipse class="hero-headlight" cx="163" cy="216" rx="16" ry="8" fill="url(#heroHead)"/>
+              <path d="M155 213 L165 212 Q168 216 167 221 L157 221 Z" fill="#fef9c3"/>
+              <rect x="20" y="213" width="6" height="9" rx="1" fill="#ef4444"/>
+              <ellipse cx="22" cy="217" rx="7" ry="5" fill="#ef4444" opacity="0.18"/>
+            </g>
+          </g>
+
+          <!-- LPR beam + capture frame -->
+          <polygon class="hero-beam" points="282,305 282,313 214,398 214,354" fill="url(#heroBeam)"/>
+          <rect class="hero-scanline" x="214" y="356" width="40" height="2" rx="1" fill="#38BDF8"/>
+          <g class="hero-bracket" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M212 362 V354 H220"/><path d="M248 354 H256 V362"/><path d="M212 390 V398 H220"/><path d="M248 398 H256 V390"/>
+          </g>
+
+          <!-- AI-LPR camera cabinet -->
+          <g filter="url(#heroSoftShadow)">
+            <rect x="290" y="318" width="24" height="90" rx="4" fill="url(#heroCab)" stroke="#e2e8f0"/>
+            <path d="M295 386 H309 M295 391 H309 M295 396 H309" stroke="#94a3b8" stroke-opacity="0.6"/>
+            <text x="302" y="342" text-anchor="middle" font-size="5" font-weight="700" fill="#64748b" letter-spacing="0.6">LPR</text>
+            <circle class="hero-blink" cx="302" cy="328" r="1.8" fill="#ef4444"/>
+            <rect x="296" y="312" width="4" height="8" fill="#94a3b8"/>
+            <rect x="276" y="300" width="36" height="14" rx="4" fill="url(#heroCab)" stroke="#cbd5e1"/>
+            <rect x="274" y="297" width="40" height="4" rx="2" fill="#cbd5e1"/>
+            <circle cx="283" cy="307" r="4.6" fill="#0f172a" stroke="#38BDF8" stroke-width="0.8"/>
+            <circle cx="281.8" cy="305.8" r="1.2" fill="#fff" opacity="0.85"/>
+          </g>
 
           <!-- Barrier gate -->
+          <g class="hero-arm">
+            <rect x="337" y="332" width="134" height="7" rx="3.5" fill="#fff" stroke="#cbd5e1" stroke-width="0.6"/>
+            <rect x="358" y="332" width="12" height="7" fill="#ef4444"/><rect x="386" y="332" width="12" height="7" fill="#ef4444"/>
+            <rect x="414" y="332" width="12" height="7" fill="#ef4444"/><rect x="442" y="332" width="12" height="7" fill="#ef4444"/>
+          </g>
           <g filter="url(#heroSoftShadow)">
-            <rect x="108" y="198" width="18" height="82" rx="2" fill="url(#heroMetalDark)" stroke="#475569" stroke-width="0.8"/>
-            <rect x="110" y="210" width="14" height="22" rx="2" fill="#334155"/>
-            <circle cx="117" cy="248" r="3" fill="#4BACC6" opacity="0.8"/>
-            <g class="hero-barrier-arm">
-              <rect x="118" y="204" width="12" height="16" rx="1.5" fill="#475569"/>
-              <rect x="118" y="208" width="86" height="7" rx="1" fill="url(#heroBarrierArm)" stroke="#92400e" stroke-width="0.5"/>
-              <rect x="196" y="205" width="7" height="13" rx="1" fill="#64748b"/>
-            </g>
+            <rect x="330" y="334" width="14" height="72" rx="3" fill="url(#heroPost)"/>
+            <rect x="324" y="324" width="26" height="20" rx="4" fill="#1F497D"/>
+            <circle class="hero-gate-light" cx="337" cy="360" r="3.5"/>
+            <rect x="322" y="404" width="30" height="5" rx="2" fill="#94a3b8"/>
+          </g>
+          <circle cx="337" cy="335" r="6" fill="#e2e8f0" stroke="#94a3b8"/>
+          <circle cx="337" cy="335" r="2" fill="#94a3b8"/>
           </g>
 
-          <!-- Payment kiosk -->
-          <g filter="url(#heroSoftShadow)">
-            <rect x="166" y="224" width="58" height="76" rx="4" fill="url(#heroMetalDark)" stroke="#64748b" stroke-width="0.9"/>
-            <rect x="174" y="232" width="42" height="30" rx="2" fill="url(#heroScreen)" stroke="#334155" stroke-width="0.8"/>
-            <text class="hero-display-text" x="195" y="251" text-anchor="middle" fill="#4BACC6" font-size="8" font-family="monospace" font-weight="700">AI-LPR</text>
-            <rect x="180" y="268" width="30" height="3" rx="0.5" fill="#1e293b"/>
-            <rect x="180" y="276" width="30" height="14" rx="2" fill="#334155" stroke="#475569" stroke-width="0.5"/>
-            <circle cx="186" cy="283" r="1.5" fill="#64748b"/><circle cx="192" cy="283" r="1.5" fill="#64748b"/><circle cx="198" cy="283" r="1.5" fill="#64748b"/>
-            <circle cx="186" cy="289" r="1.5" fill="#64748b"/><circle cx="192" cy="289" r="1.5" fill="#64748b"/><circle cx="198" cy="289" r="1.5" fill="#64748b"/>
+          <!-- Data flows -->
+          <path class="hero-flow" d="M352 372 C420 330 460 250 488 226" stroke="#38BDF8" stroke-opacity="0.6" stroke-width="1.2"/>
+          <path class="hero-flow" d="M568 286 C568 272 552 262 549 248" stroke="#38BDF8" stroke-opacity="0.5" stroke-width="1.2"/>
+          <path class="hero-flow" d="M122 196 C200 230 280 330 324 372" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="1.2"/>
+
+          <!-- Occupancy card -->
+          <g class="hero-float hero-float--alt">
+            <g filter="url(#heroSoftShadow)">
+              <rect x="14" y="118" width="108" height="108" rx="10" fill="#fff" stroke="#e2e8f0"/>
+            </g>
+            <text x="26" y="137" font-size="6.5" font-weight="700" fill="#64748b" letter-spacing="1">PARKING STATUS</text>
+            <circle class="hero-pulse" cx="110" cy="134.5" r="2.6" fill="#22C55E"/>
+            <text class="hero-count hero-count--a" x="26" y="164" font-size="22" font-weight="800" fill="#0f2340">128</text>
+            <text class="hero-count hero-count--b" x="26" y="164" font-size="22" font-weight="800" fill="#0f2340">127</text>
+            <text x="70" y="164" font-size="8" font-weight="600" fill="#94a3b8">/ 240</text>
+            <text x="26" y="176" font-size="6" font-weight="700" fill="#22C55E" letter-spacing="0.8">AVAILABLE</text>
+            <g fill="#38BDF8">
+              <rect class="hero-bar" x="26" y="196" width="8" height="18" rx="1.5"/>
+              <rect class="hero-bar hero-bar--2" x="39" y="188" width="8" height="26" rx="1.5"/>
+              <rect class="hero-bar hero-bar--3" x="52" y="200" width="8" height="14" rx="1.5"/>
+              <rect class="hero-bar hero-bar--4" x="65" y="184" width="8" height="30" rx="1.5"/>
+              <rect class="hero-bar hero-bar--5" x="78" y="192" width="8" height="22" rx="1.5"/>
+              <rect class="hero-bar hero-bar--6" x="91" y="186" width="8" height="28" rx="1.5" fill="#1F497D"/>
+            </g>
+            <path d="M24 214.5 H110" stroke="#e2e8f0"/>
           </g>
 
-          <!-- Vehicle (side view — front/right, longer bonnet) -->
-          <g class="hero-car-body" filter="url(#heroSoftShadow)">
-            <ellipse cx="302" cy="336" rx="58" ry="3.5" fill="rgba(15,35,64,0.14)"/>
-            <path d="M248 322 C250 312 260 304 276 300 H312 C328 298 342 302 352 308 L374 316 C382 320 384 326 378 332 L362 336 H278 C262 336 248 330 248 322 Z" fill="url(#heroCarBody)" stroke="#1e293b" stroke-width="0.9"/>
-            <path d="M276 300 L290 282 H322 L332 296 H312 L276 304 Z" fill="url(#heroCarGlass)" stroke="#475569" stroke-width="0.7"/>
-            <path d="M290 284 H318" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
-            <path d="M352 308 L374 316" stroke="rgba(30,41,59,0.25)" stroke-width="0.7"/>
-            <path d="M358 314 H368 V318 H358 Z" fill="#334155" stroke="#475569" stroke-width="0.4"/>
-            <path d="M372 315 H382 V321 H372 Z" fill="#f8fafc" opacity="0.95"/>
-            <path d="M376 317 H380 V319 H376 Z" fill="#e2e8f0" opacity="0.9"/>
-            <path d="M248 318 H254 V324 H248 Z" fill="#ef4444" opacity="0.85"/>
-            <line x1="278" y1="336" x2="348" y2="336" stroke="#1e293b" stroke-width="0.6" opacity="0.35"/>
-            <g>
-              <circle cx="270" cy="334" r="11" fill="#1e293b"/>
-              <circle cx="270" cy="334" r="7.5" fill="#64748b"/>
-              <circle cx="270" cy="334" r="4.5" fill="#94a3b8"/>
-              <circle cx="270" cy="334" r="1.8" fill="#cbd5e1"/>
+          <!-- AI-LPR engine HUD -->
+          <g class="hero-float">
+            <g filter="url(#heroSoftShadow)">
+              <rect x="488" y="88" width="122" height="160" rx="10" fill="url(#heroPanel)" stroke="#38BDF8" stroke-opacity="0.35"/>
             </g>
-            <g>
-              <circle cx="332" cy="334" r="11" fill="#1e293b"/>
-              <circle cx="332" cy="334" r="7.5" fill="#64748b"/>
-              <circle cx="332" cy="334" r="4.5" fill="#94a3b8"/>
-              <circle cx="332" cy="334" r="1.8" fill="#cbd5e1"/>
+            <text x="500" y="106" font-size="7" font-weight="700" fill="#38BDF8" letter-spacing="1">AI-LPR ENGINE</text>
+            <circle class="hero-pulse" cx="598" cy="103.5" r="3" fill="#22C55E"/>
+            <path d="M500 114 H598" stroke="#fff" stroke-opacity="0.08"/>
+            <text class="hero-hud-idle" x="549" y="176" text-anchor="middle" font-size="7.5" font-weight="700" fill="#94a3b8" letter-spacing="1.5">SCANNING…</text>
+            <g class="hero-hud-result">
+              <rect x="500" y="122" width="98" height="28" rx="4" fill="#fff" stroke="#cbd5e1"/>
+              <text x="549" y="140.5" text-anchor="middle" font-size="12.5" font-weight="800" fill="#0f172a">51A-123.45</text>
+              <text x="500" y="166" font-size="7" fill="#94a3b8">Confidence</text>
+              <text x="598" y="166" text-anchor="end" font-size="7.5" font-weight="700" fill="#e2e8f0">99.7%</text>
+              <rect x="500" y="171" width="98" height="4" rx="2" fill="#fff" fill-opacity="0.1"/>
+              <rect class="hero-hud-gauge" x="500" y="171" width="95" height="4" rx="2" fill="#38BDF8"/>
+              <text x="500" y="190" font-size="7" fill="#94a3b8">Entry</text>
+              <text x="598" y="190" text-anchor="end" font-size="7" font-weight="600" fill="#e2e8f0">08:42:17</text>
+              <text x="500" y="204" font-size="7" fill="#94a3b8">Gate</text>
+              <text x="598" y="204" text-anchor="end" font-size="7" font-weight="600" fill="#e2e8f0">IN-01</text>
             </g>
-          </g>
-
-          <!-- Parking bays -->
-          <g opacity="0.98">
-            <rect class="hero-slot-a" x="380" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
-            <rect class="hero-slot-b" x="462" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
-            <rect class="hero-slot-c" x="544" y="352" width="72" height="38" rx="1" fill="rgba(148,163,184,0.08)" stroke="#94a3b8" stroke-width="1"/>
-            <g fill="#64748b" font-size="9" font-family="sans-serif" font-weight="600" text-anchor="middle">
-              <text x="416" y="366">P1</text>
-              <text x="498" y="366">P2</text>
-              <text x="580" y="366">P3</text>
+            <g class="hero-hud-status">
+              <rect x="500" y="216" width="98" height="18" rx="9" fill="#22C55E" fill-opacity="0.15" stroke="#22C55E" stroke-width="0.8"/>
+              <path d="M518 225 l3 3 l6 -6" stroke="#4ade80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="558" y="228" text-anchor="middle" font-size="7.5" font-weight="700" fill="#4ade80" letter-spacing="0.8">MATCHED</text>
             </g>
           </g>
-
-          <!-- Guidance arrow -->
-          <path class="hero-guide-arrow" d="M360 318 L392 318 L384 312 M392 318 L384 324" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <animate attributeName="opacity" values="0.35;1;0.35" dur="2s" repeatCount="indefinite"/>
-          </path>
         </svg>
       </div>
     </div>

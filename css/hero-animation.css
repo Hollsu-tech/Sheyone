@@ -44,7 +44,7 @@
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 36% 44% at 50% 40%, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(255, 255, 255, 0.25) 65%, transparent 100%);
+    radial-gradient(ellipse 34% 36% at 50% 38%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.86) 50%, rgba(255, 255, 255, 0.35) 75%, transparent 100%);
 }
 
 .hero-inner {
@@ -117,108 +117,180 @@
   }
 }
 
-/* Hero equipment accents — industrial palette */
-.hero-animation .hero-signal-green { fill: #22c55e; }
-.hero-animation .hero-signal-amber { fill: #f59e0b; }
-.hero-animation .hero-line-accent { stroke: #4BACC6; }
-.hero-animation .hero-line-accent-dim { stroke: #64748b; }
-.hero-animation .hero-ring-accent { stroke: #4BACC6; }
-.hero-animation .hero-ring-accent-dim { stroke: #64748b; }
-.hero-animation .hero-guide-arrow { stroke: #4BACC6; }
-
-/* Tech tab accents — original palette */
-.hero-signal-yellow { fill: #ffe08a; }
-.hero-signal-red { fill: #ffb8a8; }
-.hero-line-yellow { stroke: #f5c842; }
-.hero-line-coral { stroke: #ff9a88; }
-.hero-ring-yellow { stroke: #ffe08a; }
-.hero-ring-coral { stroke: #ffb8a8; }
-
-/* SVG motion */
-.hero-animation .hero-barrier-arm {
-  transform-origin: 118px 204px;
-  animation: heroBarrierCycle 6s ease-in-out infinite;
+/* ===== Hero scene motion — one 8s timeline ===== */
+/* 0–24% car arrives · 28–54% LPR scan · 50–88% HUD result · 66–86% gate opens · 70–90% car exits */
+.hero-animation .hero-car {
+  animation: heroCar 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.hero-animation .hero-car-body {
-  animation: heroCarEnter 6s ease-in-out infinite;
+.hero-animation .hero-lane-dash { animation: heroLaneDash 8s linear infinite; }
+.hero-animation .hero-headlight { animation: heroPulse 2.4s ease-in-out infinite; }
+.hero-animation .hero-beam { animation: heroBeam 8s ease-in-out infinite; }
+.hero-animation .hero-scanline { animation: heroScan 8s ease-in-out infinite; }
+
+.hero-animation .hero-bracket {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroBracket 8s ease-out infinite;
 }
 
-.hero-animation .hero-lpr-scan {
-  animation: heroLprBlink 2.4s ease-in-out infinite;
+.hero-animation .hero-arm {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: heroArm 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.hero-animation .hero-slot-a {
-  fill: rgba(34, 197, 94, 0.08);
-  stroke: #64748b;
-  animation: heroSlotAvailable 6s ease-in-out infinite;
+.hero-animation .hero-gate-light {
+  fill: #ef4444;
+  animation: heroGateLight 8s steps(1) infinite;
 }
 
-.hero-animation .hero-slot-b {
-  fill: rgba(100, 116, 139, 0.1);
-  stroke: #64748b;
-  animation: heroSlotOccupied 6s ease-in-out infinite 1.5s;
+.hero-animation .hero-hud-idle { animation: heroHudIdle 8s ease-in-out infinite; }
+.hero-animation .hero-hud-result { animation: heroHudResult 8s ease-out infinite; }
+
+.hero-animation .hero-hud-gauge {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: heroHudGauge 8s ease-out infinite;
 }
 
-.hero-animation .hero-slot-c {
-  fill: rgba(34, 197, 94, 0.08);
-  stroke: #64748b;
-  animation: heroSlotAvailable 6s ease-in-out infinite 3s;
+.hero-animation .hero-hud-status { animation: heroHudStatus 8s ease-out infinite; }
+
+.hero-animation .hero-count--a { animation: heroCountA 8s steps(1) infinite; }
+.hero-animation .hero-count--b { animation: heroCountB 8s steps(1) infinite; }
+
+/* Ambient loops */
+.hero-animation .hero-float { animation: heroFloat 6s ease-in-out infinite; }
+.hero-animation .hero-float--alt { animation-duration: 7s; animation-delay: -2s; }
+.hero-animation .hero-pulse { animation: heroPulse 1.6s ease-in-out infinite; }
+.hero-animation .hero-blink { animation: heroPulse 1.1s ease-in-out infinite; }
+
+.hero-animation .hero-flow {
+  stroke-dasharray: 4 5;
+  animation: heroFlow 1.2s linear infinite;
 }
 
-.hero-data-line {
-  stroke-dasharray: 10 8;
-  animation: heroDataFlow 2.4s linear infinite;
+.hero-animation .hero-chev { animation: heroChev 1.8s ease-in-out infinite; }
+.hero-animation .hero-chev--2 { animation-delay: 0.2s; }
+.hero-animation .hero-chev--3 { animation-delay: 0.4s; }
+
+.hero-animation .hero-bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: heroBar 3.2s ease-in-out infinite;
+}
+.hero-animation .hero-bar--2 { animation-delay: -0.5s; }
+.hero-animation .hero-bar--3 { animation-delay: -1.1s; }
+.hero-animation .hero-bar--4 { animation-delay: -1.6s; }
+.hero-animation .hero-bar--5 { animation-delay: -2.2s; }
+.hero-animation .hero-bar--6 { animation-delay: -2.7s; }
+
+.hero-animation .hero-bay-led { animation: heroPulse 2s ease-in-out infinite; }
+.hero-animation .hero-bay-led--a { fill: #22C55E; }
+.hero-animation .hero-bay-led--b { fill: #ef4444; animation-delay: -0.7s; }
+.hero-animation .hero-bay-led--c { fill: #facc15; animation-delay: -1.4s; }
+
+@keyframes heroCar {
+  0% { transform: translateX(-300px); opacity: 0; }
+  6% { opacity: 1; }
+  24%, 70% { transform: translateX(0); opacity: 1; }
+  90% { transform: translateX(430px); opacity: 1; }
+  91%, 100% { transform: translateX(430px); opacity: 0; }
 }
 
-.hero-animation .hero-display-text {
-  animation: heroDisplayUpdate 6s steps(1) infinite;
+@keyframes heroLaneDash {
+  0% { stroke-dashoffset: 0; }
+  24%, 70% { stroke-dashoffset: 52; }
+  90%, 100% { stroke-dashoffset: 104; }
 }
 
-.hero-animation .hero-radar-ring {
-  transform-origin: 380px 145px;
-  animation: heroRadarPing 3s ease-out infinite;
+@keyframes heroBeam {
+  0%, 26% { opacity: 0; }
+  32%, 50% { opacity: 1; }
+  58%, 100% { opacity: 0; }
 }
 
-@keyframes heroBarrierCycle {
-  0%, 22% { transform: rotate(0deg); }
-  32%, 68% { transform: rotate(-82deg); }
-  78%, 100% { transform: rotate(0deg); }
+@keyframes heroScan {
+  0%, 30% { transform: translateY(0); opacity: 0; }
+  32% { transform: translateY(0); opacity: 1; }
+  48% { transform: translateY(38px); opacity: 1; }
+  52%, 100% { transform: translateY(38px); opacity: 0; }
 }
 
-@keyframes heroCarEnter {
-  0%, 10% { transform: translate(-140px, 0); opacity: 0; }
-  18%, 72% { transform: translate(0, 0); opacity: 1; }
-  82%, 100% { transform: translate(100px, 12px); opacity: 0; }
+@keyframes heroBracket {
+  0%, 44% { transform: scale(1.35); opacity: 0; }
+  50%, 70% { transform: scale(1); opacity: 1; }
+  76%, 100% { transform: scale(1); opacity: 0; }
 }
 
-@keyframes heroLprBlink {
-  0%, 100% { opacity: 0.5; fill: #22c55e; }
-  50% { opacity: 1; fill: #4ade80; }
+@keyframes heroArm {
+  0%, 64% { transform: rotate(0deg); }
+  74%, 86% { transform: rotate(-80deg); }
+  96%, 100% { transform: rotate(0deg); }
 }
 
-@keyframes heroSlotAvailable {
-  0%, 18%, 100% { fill: rgba(34, 197, 94, 0.06); }
-  28%, 72% { fill: rgba(34, 197, 94, 0.18); }
+@keyframes heroGateLight {
+  0% { fill: #ef4444; }
+  64% { fill: #22C55E; }
+  90% { fill: #ef4444; }
 }
 
-@keyframes heroSlotOccupied {
-  0%, 18%, 100% { fill: rgba(100, 116, 139, 0.08); }
-  28%, 72% { fill: rgba(245, 158, 11, 0.16); }
+@keyframes heroHudIdle {
+  0%, 10% { opacity: 0.35; }
+  20%, 40% { opacity: 1; }
+  30% { opacity: 0.45; }
+  48%, 92% { opacity: 0; }
+  100% { opacity: 0.35; }
 }
 
-@keyframes heroDataFlow {
-  to { stroke-dashoffset: -36; }
+@keyframes heroHudResult {
+  0%, 50% { transform: translateY(6px); opacity: 0; }
+  56%, 88% { transform: translateY(0); opacity: 1; }
+  95%, 100% { transform: translateY(0); opacity: 0; }
 }
 
-@keyframes heroDisplayUpdate {
-  0%, 35% { opacity: 1; }
-  36%, 100% { opacity: 0.75; }
+@keyframes heroHudGauge {
+  0%, 54% { transform: scaleX(0); }
+  68%, 88% { transform: scaleX(1); }
+  96%, 100% { transform: scaleX(0); }
 }
 
-@keyframes heroRadarPing {
-  0% { transform: scale(0.55); opacity: 0.85; }
-  100% { transform: scale(1.9); opacity: 0; }
+@keyframes heroHudStatus {
+  0%, 62% { opacity: 0; }
+  66%, 88% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+@keyframes heroCountA {
+  0% { opacity: 1; }
+  74% { opacity: 0; }
+}
+
+@keyframes heroCountB {
+  0% { opacity: 0; }
+  74% { opacity: 1; }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes heroFlow { to { stroke-dashoffset: -18; } }
+
+@keyframes heroChev {
+  0%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+@keyframes heroBar {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.6); }
 }
 
 @media (max-width: 768px) {
@@ -238,15 +310,18 @@
   }
 }
 
+/* Reduced motion: freeze on the "matched" frame */
 @media (prefers-reduced-motion: reduce) {
-  .hero-animation .hero-barrier-arm,
-  .hero-animation .hero-car-body,
-  .hero-animation .hero-lpr-scan,
-  .hero-animation .hero-slot-a,
-  .hero-animation .hero-slot-b,
-  .hero-animation .hero-slot-c,
-  .hero-animation .hero-radar-ring,
-  .hero-data-line {
+  .hero-animation * {
     animation: none !important;
   }
+
+  .hero-animation .hero-beam,
+  .hero-animation .hero-scanline,
+  .hero-animation .hero-hud-idle,
+  .hero-animation .hero-count--b {
+    opacity: 0;
+  }
+
+  .hero-animation .hero-gate-light { fill: #22C55E; }
 }
