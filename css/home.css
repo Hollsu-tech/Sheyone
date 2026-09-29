@@ -1,4 +1,4 @@
-/* Homepage typography scale (test.html only) */
+/* Homepage typography scale (index.html only) */
 html.page-home {
   font-size: calc(16px * 1.15);
 }

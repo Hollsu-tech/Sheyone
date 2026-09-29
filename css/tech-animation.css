@@ -2,12 +2,14 @@
 
 .panel-visual {
   aspect-ratio: 4/3;
-  background: rgba(15, 35, 64, 0.55);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 70%),
+    linear-gradient(160deg, #0f2340 0%, #0a1830 100%);
   border: 1px solid rgba(79, 129, 189, 0.28);
   overflow: hidden;
   display: grid;
   place-items: center;
-  padding: 8px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -17,177 +19,378 @@
   display: block;
 }
 
-.tech-label {
-  fill: #4a8fad;
-  font-family: sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+/* Shared */
+.tv-flow {
+  stroke-dasharray: 4 5;
+  animation: tvFlow 1.2s linear infinite;
 }
 
-/* Data platform — readable text on light panel backgrounds */
-#tab-data .tech-data-title {
-  fill: #0f2340;
-  font-family: sans-serif;
-  letter-spacing: 0.05em;
+.tv-pulse { animation: tvPulse 1.6s ease-in-out infinite; }
+.tv-blink { animation: tvPulse 1.1s ease-in-out infinite; }
+
+.tv-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tvRing 2s ease-out infinite;
 }
 
-#tab-data .tech-data-stat {
-  fill: #1F497D;
-  font-family: sans-serif;
-}
+@keyframes tvFlow { to { stroke-dashoffset: -18; } }
 
-#tab-data .tech-data-caption {
-  fill: #1a3358;
-  font-family: sans-serif;
-  letter-spacing: 0.04em;
-}
-
-#tab-data .tech-data-tag {
-  fill: #0f2340;
-  font-family: sans-serif;
-  letter-spacing: 0.03em;
-  font-weight: 700;
-}
-
-#tab-data .tech-live-dot {
-  fill: #22c55e;
-  animation: techLiveDotData 1.6s ease-in-out infinite;
-}
-
-#tab-data .tech-app-stat {
-  animation: techAppStatData 3s steps(1) infinite;
-}
-
-@keyframes techLiveDotData {
-  0%, 100% { opacity: 0.55; fill: #22c55e; }
-  50% { opacity: 1; fill: #16a34a; }
-}
-
-@keyframes techAppStatData {
-  0%, 40% { opacity: 1; }
-  41%, 100% { opacity: 0.82; }
-}
-
-/* LPR */
-.tech-scan-beam {
-  transform-origin: 88px 118px;
-  animation: techScanBeam 3s ease-in-out infinite;
-}
-
-.tech-plate-detected {
-  animation: techPlateFlash 3s ease-in-out infinite;
-}
-
-.tech-result-panel {
-  animation: techResultPulse 3s ease-in-out infinite;
-}
-
-/* Payment */
-.tech-pay-amount {
-  animation: techPayAmount 4s steps(1) infinite;
-}
-
-.tech-qr-pulse {
-  animation: techQrPulse 2s ease-in-out infinite;
-}
-
-.tech-pay-check {
-  transform-origin: 318px 168px;
-  animation: techPayCheck 2.5s ease-in-out infinite;
-}
-
-/* Control */
-.tech-ctrl-barrier {
-  transform-origin: 178px 178px;
-  animation: techCtrlBarrier 5s ease-in-out infinite;
-}
-
-.tech-ctrl-node {
-  animation: techCtrlNode 2.4s ease-in-out infinite;
-}
-
-.tech-ctrl-node--b { animation-delay: -0.8s; }
-.tech-ctrl-node--c { animation-delay: -1.6s; }
-
-/* Data platform */
-.tech-bar-a { transform-origin: 156px 164px; animation: techBarGrow 3s ease-in-out infinite; }
-.tech-bar-b { transform-origin: 184px 164px; animation: techBarGrow 3s ease-in-out infinite 0.4s; }
-.tech-bar-c { transform-origin: 212px 164px; animation: techBarGrow 3s ease-in-out infinite 0.8s; }
-
-.tech-data-stream {
-  stroke-dasharray: 6 5;
-  animation: heroDataFlow 2s linear infinite;
-}
-
-.tech-live-dot {
-  animation: techLiveDot 1.6s ease-in-out infinite;
-}
-
-.tech-app-stat {
-  animation: techAppStat 3s steps(1) infinite;
-}
-
-@keyframes techScanBeam {
-  0%, 100% { opacity: 0.15; transform: rotate(-8deg); }
-  40%, 60% { opacity: 0.85; transform: rotate(6deg); }
-}
-
-@keyframes techPlateFlash {
-  0%, 28%, 100% { stroke: #f5c842; fill: #fff8e6; }
-  35%, 55% { stroke: #ffb8a8; fill: #ffe8e0; }
-}
-
-@keyframes techResultPulse {
-  0%, 25%, 100% { opacity: 0.72; }
-  35%, 55% { opacity: 1; }
-}
-
-@keyframes techPayAmount {
-  0%, 45% { opacity: 1; }
-  46%, 100% { opacity: 0.55; }
-}
-
-@keyframes techQrPulse {
-  0%, 100% { opacity: 0.55; }
+@keyframes tvPulse {
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
 
-@keyframes techPayCheck {
-  0%, 20%, 100% { opacity: 0; transform: scale(0.6); }
-  25%, 45% { opacity: 1; transform: scale(1); }
+@keyframes tvRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 
-@keyframes techCtrlBarrier {
-  0%, 20% { transform: rotate(0deg); }
-  30%, 65% { transform: rotate(-78deg); }
-  75%, 100% { transform: rotate(0deg); }
+/* 1. AI LPR — 6s loop: car approaches, plate scanned, result card fills */
+.tv-lpr-car {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: tvLprCar 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-@keyframes techCtrlNode {
-  0%, 100% { opacity: 0.45; fill: #ffe08a; }
-  50% { opacity: 1; fill: #ffb8a8; }
+.tv-lpr-dash { animation: tvLprDash 6s linear infinite; }
+.tv-lpr-beam { animation: tvLprBeam 6s ease-in-out infinite; }
+
+.tv-lpr-scanline { animation: tvLprScan 6s ease-in-out infinite; }
+
+.tv-lpr-bracket {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tvLprBracket 6s ease-out infinite;
 }
 
-@keyframes techBarGrow {
-  0%, 100% { transform: scaleY(0.55); opacity: 0.55; }
-  40%, 70% { transform: scaleY(1); opacity: 1; }
+.tv-lpr-result { animation: tvLprResult 6s ease-out infinite; }
+
+.tv-lpr-gauge {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: tvLprGauge 6s ease-out infinite;
 }
 
-@keyframes techLiveDot {
-  0%, 100% { opacity: 0.4; fill: #ffe08a; }
-  50% { opacity: 1; fill: #ffb8a8; }
+.tv-lpr-status { animation: tvLprStatus 6s ease-out infinite; }
+
+@keyframes tvLprCar {
+  0% { transform: translateY(-78px) scale(0.3); opacity: 0; }
+  8% { opacity: 1; }
+  28%, 82% { transform: translateY(0) scale(1); opacity: 1; }
+  94%, 100% { transform: translateY(26px) scale(1.14); opacity: 0; }
 }
 
-@keyframes techAppStat {
-  0%, 40% { opacity: 1; }
-  41%, 100% { opacity: 0.65; }
+@keyframes tvLprDash {
+  0% { stroke-dashoffset: 0; }
+  28%, 82% { stroke-dashoffset: -66; }
+  100% { stroke-dashoffset: -110; }
+}
+
+@keyframes tvLprBeam {
+  0%, 28% { opacity: 0; }
+  34%, 62% { opacity: 1; }
+  72%, 100% { opacity: 0; }
+}
+
+@keyframes tvLprScan {
+  0%, 30% { transform: translateY(0); opacity: 0; }
+  33% { transform: translateY(0); opacity: 1; }
+  48% { transform: translateY(22px); opacity: 1; }
+  52%, 100% { transform: translateY(22px); opacity: 0; }
+}
+
+@keyframes tvLprBracket {
+  0%, 46% { transform: scale(1.35); opacity: 0; }
+  52%, 82% { transform: scale(1); opacity: 1; }
+  88%, 100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes tvLprResult {
+  0%, 50% { transform: translateY(6px); opacity: 0; }
+  56%, 86% { transform: translateY(0); opacity: 1; }
+  94%, 100% { transform: translateY(0); opacity: 0; }
+}
+
+@keyframes tvLprGauge {
+  0%, 54% { transform: scaleX(0); }
+  70%, 88% { transform: scaleX(1); }
+  96%, 100% { transform: scaleX(0); }
+}
+
+@keyframes tvLprStatus {
+  0%, 66% { opacity: 0; }
+  72%, 86% { opacity: 1; }
+  94%, 100% { opacity: 0; }
+}
+
+/* 2. Unmanned payment — 7s loop: tap to pay, receipt, barrier opens, car exits */
+.tv-pay-car { animation: tvPayCar 7s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.tv-pay-phone { animation: tvPayPhone 7s ease-in-out infinite; }
+.tv-pay-wave { animation: tvPayWave 7s ease-out infinite; }
+.tv-pay-wave--2 { animation-delay: 0.15s; }
+.tv-pay-amt { animation: tvPayAmt 7s steps(1) infinite; }
+.tv-pay-paid { animation: tvPayPaid 7s steps(1) infinite; }
+
+.tv-pay-ok {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tvPayOk 7s ease-out infinite;
+}
+
+.tv-pay-receipt {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: tvPayReceipt 7s ease-out infinite;
+}
+
+.tv-pay-arm {
+  transform-box: view-box;
+  transform-origin: 246px 204.5px;
+  animation: tvPayArm 7s ease-in-out infinite;
+}
+
+.tv-pay-light { animation: tvPayLight 7s steps(1) infinite; }
+.tv-pay-toast { animation: tvPayToast 7s ease-out infinite; }
+
+@keyframes tvPayCar {
+  0% { transform: translateX(-190px); opacity: 0; }
+  12%, 64% { transform: translateX(0); opacity: 1; }
+  84% { transform: translateX(270px); opacity: 1; }
+  90%, 100% { transform: translateX(270px); opacity: 0; }
+}
+
+@keyframes tvPayPhone {
+  0%, 14% { transform: translate(0, 0); opacity: 0; }
+  20%, 26% { transform: translate(0, 0); opacity: 1; }
+  36%, 52% { transform: translate(90px, -31px); opacity: 1; }
+  60% { transform: translate(0, 0); opacity: 1; }
+  64%, 100% { transform: translate(0, 0); opacity: 0; }
+}
+
+@keyframes tvPayWave {
+  0%, 37% { opacity: 0; }
+  41% { opacity: 1; }
+  46% { opacity: 0.2; }
+  49% { opacity: 1; }
+  54%, 100% { opacity: 0; }
+}
+
+@keyframes tvPayAmt {
+  0% { opacity: 1; }
+  48% { opacity: 0; }
+  92% { opacity: 1; }
+}
+
+@keyframes tvPayPaid {
+  0% { opacity: 0; }
+  48% { opacity: 1; }
+  92% { opacity: 0; }
+}
+
+@keyframes tvPayOk {
+  0%, 47% { transform: scale(0.3); opacity: 0; }
+  52% { transform: scale(1.15); opacity: 1; }
+  56%, 80% { transform: scale(1); opacity: 1; }
+  86%, 100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes tvPayReceipt {
+  0%, 50% { transform: scaleY(0); }
+  60%, 82% { transform: scaleY(1); }
+  88%, 100% { transform: scaleY(0); }
+}
+
+@keyframes tvPayArm {
+  0%, 54% { transform: rotate(0deg); }
+  62%, 86% { transform: rotate(-80deg); }
+  94%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes tvPayLight {
+  0% { fill: #ef4444; }
+  54% { fill: #22c55e; }
+  92% { fill: #ef4444; }
+}
+
+@keyframes tvPayToast {
+  0%, 48% { transform: translateY(8px); opacity: 0; }
+  55%, 86% { transform: translateY(0); opacity: 1; }
+  93%, 100% { transform: translateY(0); opacity: 0; }
+}
+
+/* 3. Parking control — 8s loop: data packets, gate alert, remote reset */
+.tv-ctrl-led { animation: tvPulse 1s ease-in-out infinite; }
+.tv-ctrl-led--b { animation-delay: -0.35s; }
+.tv-ctrl-led--c { animation-delay: -0.7s; }
+
+.tv-pk-down { animation: tvPkDown 1.8s linear infinite; }
+.tv-pk-left { animation: tvPkLeft 1.8s linear infinite 0.6s; }
+.tv-pk-right { animation: tvPkRight 1.8s linear infinite 0.6s; }
+.tv-pk-drop { animation: tvPkDrop 1.8s linear infinite 1.2s; }
+.tv-pk-drop--b { animation-delay: 0.9s; }
+.tv-pk-drop--c { animation-delay: 1.5s; }
+.tv-pk { opacity: 0; }
+
+.tv-ctrl-warn { animation: tvCtrlWarn 8s steps(1) infinite; }
+.tv-ctrl-card { animation: tvCtrlCard 8s ease-in-out infinite; }
+
+.tv-ctrl-arm {
+  transform-box: view-box;
+  transform-origin: 181px 224px;
+  animation: tvCtrlArm 8s ease-in-out infinite;
+}
+
+.tv-ctrl-msg-ok { animation: tvCtrlMsgOk 8s steps(1) infinite; }
+.tv-ctrl-msg-warn { animation: tvCtrlMsgWarn 8s steps(1) infinite; }
+.tv-ctrl-msg-fix { animation: tvCtrlMsgFix 8s steps(1) infinite; }
+
+@keyframes tvPkDown {
+  0% { transform: translateY(0); opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { transform: translateY(22px); opacity: 0; }
+}
+
+@keyframes tvPkLeft {
+  0% { transform: translateX(0); opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { transform: translateX(-130px); opacity: 0; }
+}
+
+@keyframes tvPkRight {
+  0% { transform: translateX(0); opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { transform: translateX(130px); opacity: 0; }
+}
+
+@keyframes tvPkDrop {
+  0% { transform: translateY(0); opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { transform: translateY(26px); opacity: 0; }
+}
+
+@keyframes tvCtrlWarn {
+  0% { fill: #22c55e; }
+  40% { fill: #f59e0b; }
+  56% { fill: #22c55e; }
+}
+
+@keyframes tvCtrlCard {
+  0%, 38% { stroke: #4F81BD; }
+  42%, 54% { stroke: #f59e0b; stroke-opacity: 1; }
+  60%, 100% { stroke: #4F81BD; }
+}
+
+@keyframes tvCtrlArm {
+  0%, 8% { transform: rotate(0deg); }
+  16%, 28% { transform: rotate(-75deg); }
+  36%, 56% { transform: rotate(0deg); }
+  64%, 74% { transform: rotate(-75deg); }
+  82%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes tvCtrlMsgOk {
+  0% { opacity: 1; }
+  40% { opacity: 0; }
+  72% { opacity: 1; }
+}
+
+@keyframes tvCtrlMsgWarn {
+  0% { opacity: 0; }
+  40% { opacity: 1; }
+  56% { opacity: 0; }
+}
+
+@keyframes tvCtrlMsgFix {
+  0% { opacity: 0; }
+  56% { opacity: 1; }
+  72% { opacity: 0; }
+}
+
+/* 4. Data platform — 6s loop: charts draw, zones fill, app confirms payment */
+.tv-data-line {
+  stroke-dasharray: 320;
+  animation: tvDataLine 6s ease-in-out infinite;
+}
+
+.tv-data-area { animation: tvDataArea 6s ease-in-out infinite; }
+
+.tv-data-bar {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: tvDataBar 6s ease-in-out infinite;
+}
+
+.tv-data-donut {
+  stroke-dasharray: 75.4;
+  stroke-dashoffset: 16.6;
+  animation: tvDataDonut 6s ease-in-out infinite;
+}
+
+.tv-data-zone {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: tvDataZone 6s ease-in-out infinite;
+}
+
+.tv-data-toast { animation: tvDataToast 6s ease-out infinite; }
+
+@keyframes tvDataLine {
+  0% { stroke-dashoffset: 320; opacity: 1; }
+  45%, 86% { stroke-dashoffset: 0; opacity: 1; }
+  96%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes tvDataArea {
+  0%, 30% { opacity: 0; }
+  52%, 86% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+
+@keyframes tvDataBar {
+  0%, 100% { transform: scaleY(0.2); }
+  40%, 86% { transform: scaleY(1); }
+}
+
+@keyframes tvDataDonut {
+  0%, 100% { stroke-dashoffset: 75.4; }
+  45%, 86% { stroke-dashoffset: 16.6; }
+}
+
+@keyframes tvDataZone {
+  0%, 100% { transform: scaleX(0.15); }
+  45%, 86% { transform: scaleX(1); }
+}
+
+@keyframes tvDataToast {
+  0%, 56% { transform: translateY(-22px); opacity: 0; }
+  62%, 86% { transform: translateY(0); opacity: 1; }
+  94%, 100% { transform: translateY(0); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .panel-visual [class*="tech-"],
-  .panel-visual .hero-lpr-scan,
-  .panel-visual .hero-radar-ring,
-  .panel-visual .hero-data-line {
+  .panel-visual * {
     animation: none !important;
   }
+
+  .panel-visual .tv-pay-paid,
+  .panel-visual .tv-ctrl-msg-warn,
+  .panel-visual .tv-ctrl-msg-fix,
+  .panel-visual .tv-pk,
+  .panel-visual .tv-ring {
+    opacity: 0;
+  }
+}
+
+/* LPR tab — barrier arm of the LPR-integrated cabinet */
+.tv-lpr-arm {
+  transform-box: view-box;
+  transform-origin: 72px 207px;
+  animation: tvLprArm 6s ease-in-out infinite;
+}
+
+@keyframes tvLprArm {
+  0%, 68% { transform: rotate(0deg); }
+  75%, 90% { transform: rotate(-80deg); }
+  97%, 100% { transform: rotate(0deg); }
 }

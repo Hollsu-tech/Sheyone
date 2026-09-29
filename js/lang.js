@@ -1,5 +1,5 @@
 const SHEYONE_LANG_KEY = 'sheyone-lang';
-const SHEYONE_LANGS = ['ko', 'en', 'vi'];
+const SHEYONE_LANGS = ['vi', 'ko', 'en'];
 
 /** Vietnamese phrases that must not break across lines (longest first). */
 const SHEYONE_VI_KEEP_TOGETHER = [
@@ -238,6 +238,29 @@ const SHEYONE_VI_KEEP_TOGETHER = [
   'máy thu phí'
 ];
 
+const SHEYONE_EN_KEEP_TOGETHER = [
+  'An integrated parking control solution for entry/exit management, license plate recognition, and fee settlement.',
+];
+
+const SHEYONE_EN_KEEP_SORTED = [...SHEYONE_EN_KEEP_TOGETHER].sort((a, b) => b.length - a.length);
+
+function sheyoneEnKeepTogether(text) {
+  if (!text || typeof text !== 'string') return text;
+
+  let result = text
+    .replace(/\s*&\s*/g, '\u00A0&\u00A0')
+    .replace(/\s*\/\s*/g, '/');
+
+  for (const phrase of SHEYONE_EN_KEEP_SORTED) {
+    const nbspPhrase = phrase.replace(/ /g, '\u00A0');
+    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(escaped.replace(/ /g, '\\s+'), 'g');
+    result = result.replace(re, nbspPhrase);
+  }
+
+  return result;
+}
+
 const SHEYONE_VI_KEEP_SORTED = [...SHEYONE_VI_KEEP_TOGETHER].sort((a, b) => b.length - a.length);
 
 function sheyoneViKeepTogether(text) {
@@ -265,13 +288,15 @@ function sheyoneViKeepTogether(text) {
 }
 
 function sheyoneFormatText(lang, text) {
-  return lang === 'vi' ? sheyoneViKeepTogether(text) : text;
+  if (lang === 'vi') return sheyoneViKeepTogether(text);
+  if (lang === 'en') return sheyoneEnKeepTogether(text);
+  return text;
 }
 
 (function sheyoneSetEarlyLangAttr() {
   const param = new URLSearchParams(window.location.search).get('lang');
   const stored = localStorage.getItem(SHEYONE_LANG_KEY);
-  let lang = 'ko';
+  let lang = 'vi';
   if (param && SHEYONE_LANGS.includes(param)) lang = param;
   else if (stored && SHEYONE_LANGS.includes(stored)) lang = stored;
   document.documentElement.lang = lang === 'vi' ? 'vi' : lang === 'en' ? 'en' : 'ko';
@@ -287,7 +312,7 @@ function sheyoneGetLang() {
   if (param && SHEYONE_LANGS.includes(param)) return param;
   const stored = localStorage.getItem(SHEYONE_LANG_KEY);
   if (stored && SHEYONE_LANGS.includes(stored)) return stored;
-  return 'ko';
+  return 'vi';
 }
 
 function sheyoneT(lang, key) {
@@ -342,7 +367,7 @@ function sheyonePrepareLangSwitch() {
 }
 
 function sheyoneApplyLang(lang) {
-  if (!window.SHEYONE_I18N?.[lang]) lang = 'ko';
+  if (!window.SHEYONE_I18N?.[lang]) lang = 'vi';
 
   const finish = sheyonePrepareLangSwitch();
 

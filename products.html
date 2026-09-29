@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 
   <header class="header">
     <div class="container">
-      <a href="test.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
+      <a href="index.html" class="logo"><img src="assets/logo.png" alt="SHEYONE"></a>
       <ul class="nav">
         <li>
           <a href="about.html" data-i18n="nav.about">회사소개</a>
@@ -52,9 +52,9 @@
       </ul>
       <div class="header-cta">
         <div class="lang-switch" aria-label="Language">
+          <a href="#" class="lang-btn" data-lang="vi">VN</a>
           <a href="#" class="lang-btn" data-lang="ko">KR</a>
           <a href="#" class="lang-btn" data-lang="en">EN</a>
-          <a href="#" class="lang-btn" data-lang="vi">VN</a>
         </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="btn.contact">Contact</a>
         <button class="mobile-toggle" aria-label="메뉴" data-i18n-label="btn.menu"><span></span><span></span><span></span></button>
@@ -65,7 +65,7 @@
   <div class="page-header">
     <div class="container">
       <h1 data-i18n="prod.breadcrumb">제품 소개</h1>
-      <div class="breadcrumb"><a href="test.html" data-i18n="breadcrumb.home">HOME</a> &gt; <span data-i18n="prod.breadcrumb">제품 소개</span></div>
+      <div class="breadcrumb"><a href="index.html" data-i18n="breadcrumb.home">HOME</a> &gt; <span data-i18n="prod.breadcrumb">제품 소개</span></div>
     </div>
   </div>
 
@@ -75,9 +75,156 @@
       <h2 class="section-title" data-i18n="prod.control.title">주차관제</h2>
       <p class="section-desc" data-i18n="prod.control.desc">입·출차 통제, 차량번호 인식, 요금 정산을 통합 관리하는 주차관제 솔루션입니다.</p>
       <div class="cards-grid-dark">
-        <div class="dark-card"><h3 data-i18n="prod.control.c1t">차량번호인식기 (LPR)</h3><p data-i18n="prod.control.c1p">AI 기반 번호판 인식으로 입·출차 차량을 자동 등록하고 기록합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.control.c2t">자동차단기</h3><p data-i18n="prod.control.c2p">인식 데이터와 연동해 차량 통행을 안전하고 효율적으로 제어합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.control.c3t">무인요금정산기</h3><p data-i18n="prod.control.c3p">주차요금 자동 정산과 다양한 결제 수단을 지원하는 무인 정산 시스템입니다.</p></div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/ak-8600.png" alt="차량번호인식기 (LPR)" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.control.c1t">차량번호인식기 (LPR)</h3><p data-i18n="prod.control.c1p">AI 기반 번호판 인식으로 입·출차 차량을 자동 등록하고 기록합니다.</p></div>
+        </div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/barrier-straight.png" alt="자동차단기" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.control.c2t">자동차단기</h3><p data-i18n="prod.control.c2p">인식 데이터와 연동해 차량 통행을 안전하고 효율적으로 제어합니다.</p></div>
+        </div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/ak-7410.png" alt="무인요금정산기" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.control.c3t">무인요금정산기</h3><p data-i18n="prod.control.c3p">주차요금 자동 정산과 다양한 결제 수단을 지원하는 무인 정산 시스템입니다.</p></div>
+        </div>
+      </div>
+
+      <p class="control-count" data-i18n="prod.control.count">차량번호인식기 · 자동차단기 · 무인요금정산기 총 14개의 제품</p>
+
+      <div class="tabs control-tabs">
+        <button type="button" class="tab-btn active" data-tab="tab-ctrl-lpr" data-i18n="prod.control.tab.lpr">차량번호인식기</button>
+        <button type="button" class="tab-btn" data-tab="tab-ctrl-barrier" data-i18n="prod.control.tab.barrier">자동차단기</button>
+        <button type="button" class="tab-btn" data-tab="tab-ctrl-payment" data-i18n="prod.control.tab.payment">무인요금정산기</button>
+      </div>
+
+      <div class="tab-content active" id="tab-ctrl-lpr">
+        <p class="control-group-desc" data-i18n="prod.control.lpr.desc">AI 기반 번호판 인식으로 입·출차 차량을 자동 등록·기록하는 차량번호인식기 라인업입니다.</p>
+        <div class="control-grid">
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-8600.png" alt="AK-8600 통합 차량번호인식기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-8600</span>
+              <h3 data-i18n="prod.control.lpr1t">통합 차량번호인식기</h3>
+              <p data-i18n="prod.control.lpr1p">입·출차 통합 운영에 최적화된 고성능 통합형 번호인식기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-8800.png" alt="AK-8800 통합 차량번호인식기 (임베디드형)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-8800</span>
+              <h3 data-i18n="prod.control.lpr2t">통합 차량번호인식기 (임베디드형)</h3>
+              <p data-i18n="prod.control.lpr2p">PC 없이 단독 동작하는 임베디드 구조로 설치와 유지보수가 간편합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-8700.png" alt="AK-8700 통합 차량번호인식기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-8700</span>
+              <h3 data-i18n="prod.control.lpr3t">통합 차량번호인식기</h3>
+              <p data-i18n="prod.control.lpr3p">다양한 현장 환경에 대응하는 범용 통합형 번호인식기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-8200.png" alt="AK-8200 위·변조 검출 번호인식기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-8200</span>
+              <h3 data-i18n="prod.control.lpr4t">위·변조 검출 번호인식기</h3>
+              <p data-i18n="prod.control.lpr4p">위·변조 번호판을 검출하는 임베디드·PC 겸용 번호인식 시스템입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-3400.png" alt="AK-3400 차량번호인식기 (싱글·듀얼)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-3400</span>
+              <h3 data-i18n="prod.control.lpr5t">차량번호인식기 (싱글·듀얼)</h3>
+              <p data-i18n="prod.control.lpr5p">1대로 1·2차로를 인식하는 싱글/듀얼 구성형 번호인식기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-3300.png" alt="AK-3300 카메라형 차량번호인식기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-3300</span>
+              <h3 data-i18n="prod.control.lpr6t">카메라형 차량번호인식기</h3>
+              <p data-i18n="prod.control.lpr6p">카메라 기반의 컴팩트한 구조로 좁은 공간에도 설치가 용이한 번호인식기입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-ctrl-barrier">
+        <p class="control-group-desc" data-i18n="prod.control.barrier.desc">번호인식 데이터와 연동해 차량 통행을 안전하고 빠르게 제어하는 자동차단기 라인업입니다.</p>
+        <div class="control-grid">
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/barrier-straight.png" alt="직선 바 차단기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model" data-i18n="prod.control.bar1m">직선 바</span>
+              <h3 data-i18n="prod.control.bar1t">직선 바 차단기</h3>
+              <p data-i18n="prod.control.bar1p">표준 직선 바 방식으로 일반 주차장 입·출구에 폭넓게 적용되는 차단기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/barrier-straight.png" alt="접이식(폴딩) 바 차단기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model" data-i18n="prod.control.bar2m">접이식 바</span>
+              <h3 data-i18n="prod.control.bar2t">접이식(폴딩) 바 차단기</h3>
+              <p data-i18n="prod.control.bar2p">천장이 낮은 지하 주차장에 적합하도록 바가 접히는 폴딩형 차단기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/barrier-straight.png" alt="펜스형 바 차단기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model" data-i18n="prod.control.bar3m">펜스 바</span>
+              <h3 data-i18n="prod.control.bar3t">펜스형 바 차단기</h3>
+              <p data-i18n="prod.control.bar3p">바에 펜스를 적용해 차량과 보행자 무단 진입을 함께 차단합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/barrier-led.jpg" alt="LED 바 차단기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model" data-i18n="prod.control.bar4m">LED 바</span>
+              <h3 data-i18n="prod.control.bar4t">LED 바 차단기</h3>
+              <p data-i18n="prod.control.bar4p">바에 LED를 적용해 야간·악천후에도 시인성을 높인 고속 차단기입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-ctrl-payment">
+        <p class="control-group-desc" data-i18n="prod.control.payment.desc">번호인식 데이터로 주차요금을 자동 정산하고 다양한 결제를 지원하는 무인요금정산기 라인업입니다.</p>
+        <div class="control-grid">
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-7400.png" alt="AK-7400 번호인식 무인정산기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-7400</span>
+              <h3 data-i18n="prod.control.pay1t">번호인식 무인정산기</h3>
+              <p data-i18n="prod.control.pay1p">번호인식과 연동해 사전·출차 정산을 자동 처리하는 무인 요금정산기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-7410.png" alt="AK-7410 안드로이드 무인정산기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-7410</span>
+              <h3 data-i18n="prod.control.pay2t">안드로이드 무인정산기</h3>
+              <p data-i18n="prod.control.pay2p">안드로이드 기반 UI로 직관적인 화면과 다양한 결제 수단을 지원합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-7200.png" alt="AK-7200 표준 무인정산기" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-7200</span>
+              <h3 data-i18n="prod.control.pay3t">표준 무인정산기</h3>
+              <p data-i18n="prod.control.pay3p">핵심 정산 기능에 집중한 표준형 무인 요금정산기입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card control-card">
+            <div class="product-card-media"><img src="assets/products/ak-6100-bf.png" alt="AK-6100 BF 정산 키오스크 (배리어프리)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="control-card-model">AK-6100 BF</span>
+              <h3 data-i18n="prod.control.pay4t">정산 키오스크 (배리어프리)</h3>
+              <p data-i18n="prod.control.pay4p">휠체어 이용자도 편리하게 이용할 수 있는 배리어프리 설계의 정산 키오스크입니다.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -88,9 +235,133 @@
       <h2 class="section-title" data-i18n="prod.guidance.title">주차유도</h2>
       <p class="section-desc" data-i18n="prod.guidance.desc">실시간 주차 현황을 안내해 혼잡을 줄이고 주차 편의를 높이는 유도 시스템입니다.</p>
       <div class="cards-grid-dark">
-        <div class="dark-card"><h3 data-i18n="prod.guidance.c1t">주차유도 디스플레이</h3><p data-i18n="prod.guidance.c1p">구역별 잔여 주차면과 진입 경로를 LED·LCD로 직관적으로 안내합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.guidance.c2t">주차면 센서</h3><p data-i18n="prod.guidance.c2p">차량 감지 센서로 주차면 점유 상태를 실시간 수집·전송합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.guidance.c3t">통합 관제 소프트웨어</h3><p data-i18n="prod.guidance.c3p">유도 장비와 주차관제 시스템을 연동해 현장·원격에서 통합 모니터링합니다.</p></div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/vgs-usi.jpg" alt="주차유도 디스플레이" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.guidance.c1t">주차유도 디스플레이</h3><p data-i18n="prod.guidance.c1p">구역별 잔여 주차면과 진입 경로를 LED·LCD로 직관적으로 안내합니다.</p></div>
+        </div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/vgs-us1.jpg" alt="주차면 센서" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.guidance.c2t">주차면 센서</h3><p data-i18n="prod.guidance.c2p">차량 감지 센서로 주차면 점유 상태를 실시간 수집·전송합니다.</p></div>
+        </div>
+        <div class="dark-card">
+          <div class="product-card-media"><img src="assets/products/akc-ow-cb.jpg" alt="통합 관제 소프트웨어" loading="lazy"></div>
+          <div class="product-card-body"><h3 data-i18n="prod.guidance.c3t">통합 관제 소프트웨어</h3><p data-i18n="prod.guidance.c3p">유도 장비와 주차관제 시스템을 연동해 현장·원격에서 통합 모니터링합니다.</p></div>
+        </div>
+      </div>
+
+      <p class="guidance-count" data-i18n="prod.guidance.count">초음파 · 영상 유도 총 12개의 제품</p>
+
+      <div class="tabs guidance-tabs">
+        <button type="button" class="tab-btn active" data-tab="tab-guide-ultra" data-i18n="prod.guidance.tab.ultra">초음파 유도</button>
+        <button type="button" class="tab-btn" data-tab="tab-guide-video" data-i18n="prod.guidance.tab.video">영상 유도</button>
+      </div>
+
+      <div class="tab-content active" id="tab-guide-ultra">
+        <p class="guidance-group-desc" data-i18n="prod.guidance.ultra.desc">초음파 센서로 주차면 점유를 감지하고 표시등으로 잔여 주차면을 안내하는 초음파 유도 방식입니다.</p>
+        <div class="guidance-grid">
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-us1.jpg" alt="VGS-US1 초음파 센서 (송수신 일체형)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-US1</span>
+              <h3 data-i18n="prod.guidance.u1t">초음파 센서 (송수신 일체형)</h3>
+              <p data-i18n="prod.guidance.u1p">송신부와 수신부를 하나로 통합해 설치가 간편한 천장형 초음파 감지 센서입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-us2.jpg" alt="VGS-US2 초음파 센서 (송수신 분리형)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-US2</span>
+              <h3 data-i18n="prod.guidance.u2t">초음파 센서 (송수신 분리형)</h3>
+              <p data-i18n="prod.guidance.u2p">송신·수신부를 분리해 다양한 주차장 구조와 천장 높이에 유연하게 대응합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-us3a.jpg" alt="VGS-US3a 통로형 초음파 센서" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-US3a</span>
+              <h3 data-i18n="prod.guidance.u3t">통로형 초음파 센서 (송수신 분리형)</h3>
+              <p data-i18n="prod.guidance.u3p">주행 통로 구간에 설치해 차량 흐름과 잔여 주차면을 정밀하게 감지합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-uso.jpg" alt="VGS-USO 바닥 매립형 초음파 센서" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-USO</span>
+              <h3 data-i18n="prod.guidance.u4t">바닥 매립형 초음파 센서</h3>
+              <p data-i18n="prod.guidance.u4p">천장 시공이 어려운 환경에서 바닥에 매립해 주차면 점유 상태를 감지합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-usi.jpg" alt="VGS-USI 주차면 표시등" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-USI</span>
+              <h3 data-i18n="prod.guidance.u5t">주차면 표시등</h3>
+              <p data-i18n="prod.guidance.u5p">적색·녹색 LED로 주차면의 점유·여유 상태를 운전자에게 직관적으로 안내합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/vgs-bif.jpg" alt="VGS-BIF 바닥형 주차면 표시등" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">VGS-BIF</span>
+              <h3 data-i18n="prod.guidance.u6t">바닥형 주차면 표시등</h3>
+              <p data-i18n="prod.guidance.u6p">바닥 매립형 표시등으로 통로 멀리서도 잔여 주차면 위치를 확인할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-guide-video">
+        <p class="guidance-group-desc" data-i18n="prod.guidance.video.desc">번호인식 카메라로 주차면을 감지·기록하고 차량 위치 검색까지 지원하는 영상 유도 방식입니다.</p>
+        <div class="guidance-grid">
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/akc-4w-cb.jpg" alt="AKC-4W-CB 1방향 영상유도 카메라 (일체형)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">AKC-4W-CB</span>
+              <h3 data-i18n="prod.guidance.v1t">1방향 영상유도 카메라 (일체형)</h3>
+              <p data-i18n="prod.guidance.v1p">번호인식 카메라와 주차면 표시등을 일체화한 1방향 영상유도 장비입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/akc-4w-c.jpg" alt="AKC-4W-C 1방향 영상유도 카메라 (분리형)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">AKC-4W-C</span>
+              <h3 data-i18n="prod.guidance.v2t">1방향 영상유도 카메라 (분리형)</h3>
+              <p data-i18n="prod.guidance.v2p">카메라와 표시등을 분리 구성해 현장 여건에 맞춰 유연하게 설치합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/akc-4w-b.jpg" alt="AKC-4W-B 주차면 표시등" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">AKC-4W-B</span>
+              <h3 data-i18n="prod.guidance.v3t">주차면 표시등</h3>
+              <p data-i18n="prod.guidance.v3p">영상유도 카메라와 연동해 주차면의 점유·여유 상태를 색상으로 표시합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/akc-ow-cb.jpg" alt="AKC-OW-CB 전방위 영상유도 카메라 (12M)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">AKC-OW-CB</span>
+              <h3 data-i18n="prod.guidance.v4t">전방위 영상유도 카메라 (12M)</h3>
+              <p data-i18n="prod.guidance.v4p">1대로 광역 구간을 감시하는 전방위 카메라로 설치 대수와 비용을 절감합니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/akc-owm-cb.jpg" alt="AKC-OWM-CB 전방위 영상유도 카메라 (모듈형, 12M)" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">AKC-OWM-CB</span>
+              <h3 data-i18n="prod.guidance.v5t">전방위 영상유도 카메라 (모듈형, 12M)</h3>
+              <p data-i18n="prod.guidance.v5p">모듈형 구조로 설치와 유지보수가 한층 용이한 전방위 영상유도 카메라입니다.</p>
+            </div>
+          </div>
+          <div class="dark-card guidance-card">
+            <div class="product-card-media"><img src="assets/products/apg-em01.jpg" alt="APG-EM01 비상벨" loading="lazy"></div>
+            <div class="product-card-body">
+              <span class="guidance-card-model">APG-EM01</span>
+              <h3 data-i18n="prod.guidance.v6t">비상벨</h3>
+              <p data-i18n="prod.guidance.v6p">주차장 내 비상 상황 발생 시 관제실과 즉시 통화할 수 있는 비상 호출 장치입니다.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -100,10 +371,110 @@
       <div class="section-label">EV Charger</div>
       <h2 class="section-title" data-i18n="prod.charger.title">충전기</h2>
       <p class="section-desc" data-i18n="prod.charger.desc">주차장과 연동되는 EV 충전 인프라로 전기차 이용 편의와 부가 수익을 제공합니다.</p>
-      <div class="cards-grid-dark">
-        <div class="dark-card"><h3 data-i18n="prod.charger.c1t">완속·급속 충전기</h3><p data-i18n="prod.charger.c1p">현장 환경에 맞는 완속·급속 충전기를 설치·운영합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.charger.c2t">충전·주차 통합 결제</h3><p data-i18n="prod.charger.c2p">주차요금과 충전요금을 하나의 정산 흐름으로 통합 관리합니다.</p></div>
-        <div class="dark-card"><h3 data-i18n="prod.charger.c3t">원격 모니터링</h3><p data-i18n="prod.charger.c3p">충전 상태, 이용 이력, 장애 알림을 클라우드에서 실시간 확인합니다.</p></div>
+      <p class="charger-count" data-i18n="prod.charger.count">총 2개의 제품</p>
+
+      <div class="charger-lineup">
+        <button type="button" class="charger-card dark-card tab-btn active" data-tab="tab-charger-dc">
+          <div class="product-card-media"><img src="assets/products/charger-dc.jpg" alt="전기차 충전기(급속)" loading="lazy"></div>
+          <div class="product-card-body">
+            <span class="charger-card-badge" data-i18n="prod.charger.dc.badge">급속</span>
+            <h3 data-i18n="prod.charger.dc.title">전기차 충전기(급속)</h3>
+            <p data-i18n="prod.charger.dc.subtitle">Electronic Vehicle Charging System</p>
+          </div>
+        </button>
+        <button type="button" class="charger-card dark-card tab-btn" data-tab="tab-charger-ac">
+          <div class="product-card-media"><img src="assets/products/charger-ac.jpg" alt="전기차 충전기(완속)" loading="lazy"></div>
+          <div class="product-card-body">
+            <span class="charger-card-badge" data-i18n="prod.charger.ac.badge">완속</span>
+            <h3 data-i18n="prod.charger.ac.title">전기차 충전기(완속)</h3>
+            <p data-i18n="prod.charger.ac.subtitle">Electronic Vehicle Charging System</p>
+          </div>
+        </button>
+      </div>
+
+      <div class="tab-content active" id="tab-charger-dc">
+        <div class="charger-detail">
+          <div class="charger-detail-head">
+            <h3 data-i18n="prod.charger.dc.title">전기차 충전기(급속)</h3>
+            <p data-i18n="prod.charger.dc.subtitle">Electronic Vehicle Charging System</p>
+          </div>
+          <div class="charger-detail-visual">
+            <img src="assets/products/charger-dc.jpg" alt="전기차 충전기(급속)" loading="lazy">
+          </div>
+          <div class="charger-detail-grid">
+            <div class="dark-card charger-features">
+              <h4 data-i18n="prod.charger.features">주요기능</h4>
+              <ul class="charger-feature-list">
+                <li data-i18n="prod.charger.dc.f1">50kW, 100kW, 150kW 병렬운전 및 분산제어 채택으로 용량 변경 용이</li>
+                <li data-i18n="prod.charger.dc.f2">일부 모듈 고장 시에도 나머지 모듈로 충전 가능</li>
+                <li data-i18n="prod.charger.dc.f3">차량 2대 동시 충전 기능(선택 사양)</li>
+                <li data-i18n="prod.charger.dc.f4">전용 스마트폰 App 및 LAN 연결로 공용·비공용 사용 가능</li>
+                <li data-i18n="prod.charger.dc.f5">신용카드 결제 기능 장착으로 비회원 현장 결제 가능</li>
+                <li data-i18n="prod.charger.dc.f6">멀티 충전 및 다양한 충전 방식(콤보, 콤보+콤보, 콤보+차데모 등)</li>
+                <li data-i18n="prod.charger.dc.f7">통신망 이중화로 충전 불가 상황 최소화</li>
+                <li data-i18n="prod.charger.dc.f8">무선통신 모뎀 장착, 관제 시스템과 실시간 연동</li>
+                <li data-i18n="prod.charger.dc.f9">12인치 컬러 터치 LCD 장착</li>
+                <li data-i18n="prod.charger.dc.f10">다양한 결제 방법 지원</li>
+              </ul>
+            </div>
+            <div class="charger-spec-panel">
+              <h4 data-i18n="prod.charger.specs">사양</h4>
+              <table class="charger-spec-table">
+                <tbody>
+                  <tr><th data-i18n="prod.charger.spec.rating">정격</th><td data-i18n="prod.charger.dc.s1">입력 3상 380V, 100A(50kW) ~ 250A(150kW) / 출력 단상 DC 200Vdc–500V, 100A/250A</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.range">정격 범위</th><td data-i18n="prod.charger.dc.s2">-10%</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.freq">주파수</th><td data-i18n="prod.charger.dc.s3">60Hz</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.temp">온도</th><td data-i18n="prod.charger.dc.s4">-25℃ ~ 40℃</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.safety">안정성</th><td data-i18n="prod.charger.dc.s5">과전압, 과전류 시 출력 차단</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.auth">사용자 인증 방식</th><td data-i18n="prod.charger.dc.s6">RFID 카드 또는 스마트폰 App(블루투스 연동)</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.power">사용 전원</th><td data-i18n="prod.charger.dc.s7">AC220V -10%, 60Hz</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-charger-ac">
+        <div class="charger-detail">
+          <div class="charger-detail-head">
+            <h3 data-i18n="prod.charger.ac.title">전기차 충전기(완속)</h3>
+            <p data-i18n="prod.charger.ac.subtitle">Electronic Vehicle Charging System</p>
+          </div>
+          <div class="charger-detail-visual">
+            <img src="assets/products/charger-ac.jpg" alt="전기차 충전기(완속)" loading="lazy">
+          </div>
+          <div class="charger-detail-grid">
+            <div class="dark-card charger-features">
+              <h4 data-i18n="prod.charger.features">주요기능</h4>
+              <ul class="charger-feature-list">
+                <li data-i18n="prod.charger.ac.f1">2021년 신설 계량 기법 적용</li>
+                <li data-i18n="prod.charger.ac.f2">2021년 누전 차단기 자동복구 기능</li>
+                <li data-i18n="prod.charger.ac.f3">무선통신 모뎀 장착, 관제 시스템과 실시간 연동</li>
+                <li data-i18n="prod.charger.ac.f4">1대로 최대 3대까지 동시 충전(7kW/14kW/21kW 모드 선택)</li>
+                <li data-i18n="prod.charger.ac.f5">통신망 이중화로 충전 불가 상황 최소화</li>
+                <li data-i18n="prod.charger.ac.f6">통신모뎀 추가로 중앙관제 시스템 운영 기능(선택)</li>
+                <li data-i18n="prod.charger.ac.f7">음성 안내 기반 사용자 편의 UI 제공</li>
+                <li data-i18n="prod.charger.ac.f8">RFID 카드, 타사 회원 로밍, 웹 결제 등 다양한 결제 방법 지원</li>
+              </ul>
+            </div>
+            <div class="charger-spec-panel">
+              <h4 data-i18n="prod.charger.specs">사양</h4>
+              <table class="charger-spec-table">
+                <tbody>
+                  <tr><th data-i18n="prod.charger.spec.rating">정격</th><td data-i18n="prod.charger.ac.s1">입력 단상 220V, 32A(7kW) ~ 64A(14kW)/96A(21kW) / 출력 단상 220V, 0~96A(21kW)</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.range">정격 범위</th><td data-i18n="prod.charger.ac.s2">-10%</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.freq">주파수</th><td data-i18n="prod.charger.ac.s3">60Hz</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.temp">온도</th><td data-i18n="prod.charger.ac.s4">-25℃ ~ 40℃</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.safety">안정성</th><td data-i18n="prod.charger.ac.s5">과전압, 과전류 시 출력 차단</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.auth">사용자 인증 방식</th><td data-i18n="prod.charger.ac.s6">RFID 카드 또는 스마트폰 App(블루투스 연동)</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.led">LED 및 음성 안내</th><td data-i18n="prod.charger.ac.s7">대기, 충전, 오류 상태 표시</td></tr>
+                  <tr><th data-i18n="prod.charger.spec.app">스마트폰</th><td data-i18n="prod.charger.ac.s8">사용자 인증, 과금, 결제 및 충전요금·충전 이력·위치 조회</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

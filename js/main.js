@@ -13,7 +13,7 @@ window.sheyoneScrollToHash = sheyoneScrollToHash;
 
 function sheyoneSamePageName(pathname) {
   const page = pathname.split('/').pop();
-  return page || 'test.html';
+  return page || 'index.html';
 }
 
 function sheyoneNavigateToHash(url, behavior = 'smooth') {
@@ -50,8 +50,9 @@ if (mobileToggle && nav) {
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const tabId = btn.dataset.tab;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const scope = btn.closest('.section') || document;
+    scope.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    scope.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     btn.classList.add('active');
     const target = document.getElementById(tabId);
     if (target) target.classList.add('active');

@@ -557,6 +557,138 @@ html[lang="vi"] .nav > li > a {
 }
 .card .link:hover { color: var(--accent-teal); }
 
+/* Business areas — visual cards */
+#areas .areas-flow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+#areas .areas-flow-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 4px 14px rgba(15, 35, 64, 0.06);
+}
+
+#areas .areas-flow-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+}
+
+#areas .areas-flow-chips {
+  display: flex;
+  gap: 6px;
+}
+
+#areas .areas-flow-chips span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 6px;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--accent);
+}
+
+#areas .areas-flow-arrow {
+  flex: 0 0 36px;
+  height: 2px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0.6;
+}
+
+#areas .areas-flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left: 7px solid var(--accent);
+  border-right: 0;
+}
+
+#areas .areas-grid {
+  margin-top: 28px;
+}
+
+#areas .areas-grid .card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+#areas .area-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f5f8fb 0%, #e9eef4 100%);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+#areas .area-media img,
+#areas .area-media svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+#areas .area-media--photo img { object-fit: cover; }
+
+#areas .area-media--chart { background: var(--white); }
+#areas .area-media--chart svg { padding: 6px 10px; box-sizing: border-box; }
+
+#areas .areas-grid .card:hover .area-media img,
+#areas .areas-grid .card:hover .area-media svg {
+  transform: scale(1.05);
+}
+
+#areas .area-bar {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+}
+
+#areas .areas-grid .card:hover .area-bar { transform: scaleY(1.04); }
+
+#areas .area-body {
+  padding: 24px 26px 28px;
+}
+
+#areas .area-body .card-num {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+#areas .area-body h3 {
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+
+#areas .area-body p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  #areas .areas-flow { gap: 8px; }
+  #areas .areas-flow-arrow { display: none; }
+  #areas .areas-flow-step { padding: 8px 12px; gap: 8px; }
+}
+
 /* Dark cards */
 .cards-grid-dark {
   display: grid;
@@ -620,15 +752,14 @@ html[lang="vi"] .nav > li > a {
 #future .future-stack {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  margin-top: 48px;
-  max-width: 920px;
+  gap: 24px;
+  margin-top: 40px;
 }
 
 #future .future-item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
-  gap: 28px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* same split as .org-grid */
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -642,6 +773,7 @@ html[lang="vi"] .nav > li > a {
 
 #future .future-item-media {
   margin: 0;
+  aspect-ratio: 12 / 7;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.25);
   line-height: 0;
@@ -695,7 +827,6 @@ html[lang="vi"] .nav > li > a {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 200px;
   object-fit: cover;
 }
 
@@ -743,10 +874,6 @@ html[lang="vi"] .nav > li > a {
 
   #future .future-item-media {
     order: 1;
-  }
-
-  #future .future-item-media img {
-    min-height: 180px;
   }
 
   #future .future-item-body {
@@ -2010,10 +2137,12 @@ html[lang="en"] #vision .vision-box h3 {
 
 #business .solution-row-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
+  gap: 40px;
   align-items: center;
 }
+
+#business .solution-row-body p { line-height: 2; }
 
 #business .solution-row-media {
   margin: 0;
@@ -2496,7 +2625,7 @@ html[lang="en"] #vision .vision-box h3 {
   .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .project-grid { grid-template-columns: 1fr; }
   #business .solution-row-content {
-    grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
     gap: 24px;
   }
   #process .process-layout {
@@ -2535,7 +2664,7 @@ html[lang="en"] #vision .vision-box h3 {
     gap: 20px;
   }
   #business .solution-row-media {
-    max-width: 360px;
+    max-width: 100%;
   }
   #process .process-layout {
     grid-template-columns: 1fr;
