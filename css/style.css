@@ -361,6 +361,43 @@ html[lang="vi"] .nav > li > a {
   background: var(--white);
 }
 
+/* Small laptops: the 80%-wide header can't hold logo + nav + CTA in one row */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .header .container {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .nav { margin: 0 12px; }
+  .nav > li > a { padding: 0 clamp(8px, calc(4.5vw - 38px), 24px); }
+}
+
+/* Tablets: nav no longer fits at any padding — use the menu toggle,
+   keeping the desktop header height, logo and Contact button */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header .container {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .nav { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px; left: 0; right: 0;
+    margin: 0;
+    background: var(--dark);
+    padding: 16px;
+    border-bottom: 1px solid rgba(79, 129, 189, 0.2);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+  .nav.mobile-open .dropdown {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    border: none; padding-left: 16px;
+  }
+}
+
 /* ===== Hero ===== */
 .hero {
   position: relative;
@@ -773,6 +810,8 @@ html[lang="vi"] .nav > li > a {
 
 #future .future-item-media {
   margin: 0;
+  width: 100%; /* when a tall text card stretches the row, don't let aspect-ratio widen the image past its column */
+  min-width: 0;
   aspect-ratio: 12 / 7;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -2554,7 +2593,7 @@ html[lang="en"] #vision .vision-box h3 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(5, minmax(0, 1fr));
+  grid-template-columns: minmax(max-content, 1.4fr) repeat(5, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 48px);
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -2565,7 +2604,16 @@ html[lang="en"] #vision .vision-box h3 {
   width: auto;
   margin-bottom: 24px;
 }
-.footer-brand p { font-size: 0.88rem; line-height: 1.75; max-width: 280px; }
+.footer-brand p { font-size: 0.88rem; line-height: 1.75; white-space: nowrap; } /* one sentence per line */
+@media (max-width: 1280px) {
+  .footer-brand { grid-column: 1 / -1; } /* brand gets its own row above the link columns */
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .footer-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .footer-brand p { white-space: normal; }
+}
 
 .footer h4 {
   color: var(--white);

@@ -144,6 +144,7 @@ const SHEYONE_VI_KEEP_TOGETHER = [
   'công ty',
   'hệ thống',
   'quản lý',
+  'dữ liệu',
   'vận hành',
   'triển khai',
   'giải pháp',
@@ -263,12 +264,24 @@ function sheyoneEnKeepTogether(text) {
 
 const SHEYONE_VI_KEEP_SORTED = [...SHEYONE_VI_KEEP_TOGETHER].sort((a, b) => b.length - a.length);
 
-function sheyoneViKeepTogether(text) {
+// Narrow boxes where long keep-together runs overflow: keep only short
+// phrases together and allow a break after " · ".
+const SHEYONE_VI_COMPACT_SELECTOR = 'html.page-home .value-box h4, html.page-home .stat-item .label, html.page-home .dark-card h3, .footer h4, .footer-links a';
+// Table cells only run out of room once the table narrows (small laptop and below).
+const SHEYONE_VI_COMPACT_TABLET_SELECTOR = '.tech-table td';
+
+function sheyoneViCompact(el) {
+  if (el.matches(SHEYONE_VI_COMPACT_SELECTOR)) return true;
+  return el.matches(SHEYONE_VI_COMPACT_TABLET_SELECTOR) &&
+    !!window.matchMedia && window.matchMedia('(max-width: 1280px)').matches;
+}
+
+function sheyoneViKeepTogether(text, compact) {
   if (!text || typeof text !== 'string') return text;
 
   let result = text
-    .replace(/\s*&\s*/g, '\u00A0&\u00A0')
-    .replace(/\s*·\s*/g, '\u00A0·\u00A0')
+    .replace(/\s*&\s*/g, compact ? '\u00A0& ' : '\u00A0&\u00A0')
+    .replace(/\s*·\s*/g, compact ? '\u00A0· ' : '\u00A0·\u00A0')
     .replace(/\s*—\s*/g, '\u00A0—\u00A0');
 
   // On phones, long keep-together runs are wider than the screen and would be
@@ -277,6 +290,7 @@ function sheyoneViKeepTogether(text) {
 
   for (const phrase of SHEYONE_VI_KEEP_SORTED) {
     if (narrow && phrase.length > 24) continue;
+    if (compact && phrase.length > 12) continue;
     const nbspPhrase = phrase.replace(/ /g, '\u00A0').replace(/\s*&\s*/g, '\u00A0&\u00A0');
     const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\&/g, '&');
     const re = new RegExp(escaped.replace(/ /g, '\\s+'), 'gi');
@@ -292,8 +306,8 @@ function sheyoneViKeepTogether(text) {
   return result;
 }
 
-function sheyoneFormatText(lang, text) {
-  if (lang === 'vi') return sheyoneViKeepTogether(text);
+function sheyoneFormatText(lang, text, compact) {
+  if (lang === 'vi') return sheyoneViKeepTogether(text, compact);
   if (lang === 'en') return sheyoneEnKeepTogether(text);
   return text;
 }
@@ -320,11 +334,11 @@ function sheyoneGetLang() {
   return 'vi';
 }
 
-function sheyoneT(lang, key) {
+function sheyoneT(lang, key, compact) {
   const dict = window.SHEYONE_I18N?.[lang] || window.SHEYONE_I18N?.ko || {};
   const fallback = window.SHEYONE_I18N?.ko || {};
   const text = dict[key] ?? fallback[key] ?? key;
-  return sheyoneFormatText(lang, text);
+  return sheyoneFormatText(lang, text, compact);
 }
 
 function sheyoneStabilizeLatinChrome() {
@@ -379,11 +393,11 @@ function sheyoneApplyLang(lang) {
   document.documentElement.lang = lang === 'vi' ? 'vi' : lang === 'en' ? 'en' : 'ko';
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = sheyoneT(lang, el.dataset.i18n);
+    el.textContent = sheyoneT(lang, el.dataset.i18n, sheyoneViCompact(el));
   });
 
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    el.innerHTML = sheyoneT(lang, el.dataset.i18nHtml);
+    el.innerHTML = sheyoneT(lang, el.dataset.i18nHtml, sheyoneViCompact(el));
   });
 
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
