@@ -426,6 +426,7 @@ function sheyoneApplyLang(lang) {
   });
 
   window.SHEYONE_CURRENT_LANG = lang;
+  document.documentElement.classList.remove('lang-pending');
   sheyoneStabilizeLatinChrome();
 
   requestAnimationFrame(() => {

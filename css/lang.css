@@ -90,3 +90,9 @@ html.lang-switching,
 html.lang-switching * {
   transition: none !important;
 }
+
+/* Hide the built-in Korean copy until lang.js applies the chosen language */
+html.lang-pending [data-i18n],
+html.lang-pending [data-i18n-html] {
+  visibility: hidden;
+}
