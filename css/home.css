@@ -85,16 +85,6 @@ html.page-home .contact-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
 }
 
-html.page-home .footer-grid {
-  grid-template-columns: minmax(max-content, 1.4fr) repeat(5, minmax(0, 1fr));
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  html.page-home .footer-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-}
-
 html.page-home :where(
   .stat-item,
   .card,
@@ -198,10 +188,6 @@ html.page-home .value-box h4 {
   html.page-home .contact-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  html.page-home .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 768px) {
@@ -234,26 +220,15 @@ html.page-home .value-box h4 {
     min-width: 0;
   }
 
-  html.page-home .footer-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   html.page-home .hero h1 .sub,
   html.page-home .hero.hero--centered .hero-content h1 .sub {
     white-space: normal;
   }
 }
 
-/* Footer logo on homepage */
-html.page-home .footer-brand img {
-  height: var(--logo-height);
-  width: auto;
-  margin-bottom: 24px;
-}
-
-@media (min-width: 1281px) {
-  html.page-home .footer-brand img {
-    margin-top: -19px;
-    margin-bottom: -9px;
-  }
-}
+/* Footer matches the inner pages: undo the homepage 1.15x type scale */
+html.page-home .footer { font-size: 16px; }
+html.page-home .footer-brand p { font-size: calc(0.88rem / 1.15); }
+html.page-home .footer h4 { font-size: calc(0.82rem / 1.15); }
+html.page-home .footer-links a { font-size: calc(0.86rem / 1.15); }
+html.page-home .footer-bottom { font-size: calc(0.78rem / 1.15); }
