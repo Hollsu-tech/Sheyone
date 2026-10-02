@@ -2604,6 +2604,11 @@ html[lang="en"] #vision .vision-box h3 {
   width: auto;
   margin-bottom: 24px;
 }
+/* Side-by-side footer: the logo PNG has transparent padding, so pull it up to
+   line up with the column headings and the tagline with the first links */
+@media (min-width: 1281px) {
+  .footer-brand img { margin-top: -21px; margin-bottom: -12px; }
+}
 .footer-brand p { font-size: 0.88rem; line-height: 1.75; white-space: nowrap; } /* one sentence per line */
 @media (max-width: 1280px) {
   .footer-brand { grid-column: 1 / -1; } /* brand gets its own row above the link columns */
@@ -2622,6 +2627,8 @@ html[lang="en"] #vision .vision-box h3 {
   text-transform: uppercase;
   margin-bottom: 18px;
 }
+.footer h4 a { color: inherit; }
+.footer h4 a:hover { color: var(--accent); }
 .footer-links li { margin-bottom: 10px; }
 .footer-links a { font-size: 0.86rem; }
 .footer-links a:hover { color: var(--accent); }

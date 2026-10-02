@@ -266,7 +266,7 @@ const SHEYONE_VI_KEEP_SORTED = [...SHEYONE_VI_KEEP_TOGETHER].sort((a, b) => b.le
 
 // Narrow boxes where long keep-together runs overflow: keep only short
 // phrases together and allow a break after " · ".
-const SHEYONE_VI_COMPACT_SELECTOR = 'html.page-home .value-box h4, html.page-home .stat-item .label, html.page-home .dark-card h3, .footer h4, .footer-links a';
+const SHEYONE_VI_COMPACT_SELECTOR = 'html.page-home .value-box h4, html.page-home .stat-item .label, html.page-home .dark-card h3, .footer h4, .footer h4 a, .footer-links a';
 // Table cells only run out of room once the table narrows (small laptop and below).
 const SHEYONE_VI_COMPACT_TABLET_SELECTOR = '.tech-table td';
 
